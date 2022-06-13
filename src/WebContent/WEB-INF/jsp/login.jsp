@@ -25,9 +25,11 @@
 
 		<input class="button" type="submit" name="LOGIN" value="login">
 	</form>
-	<p>
-		<input type="reset" name="reset" value="新規登録">
-	</p>
+
+	<form id="form" method="POST" action="/healthcare/SignupServlet">
+		<input type="submit" name="signup" value="新規登録">
+	</form>
+
 
 	<p>ユーザーではない方は新規登録が必要です。</p>
 	<footer class="footer">
