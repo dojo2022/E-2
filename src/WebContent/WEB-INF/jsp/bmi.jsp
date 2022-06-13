@@ -20,8 +20,15 @@
 				<li><a href="/healthcare/LoginServlet">ログアウト</a></li>
 			</ul>
 		</nav>
-		<h2></h2>
-<footer>
+		<h2>BMI計算</h2>
+
+		<p>BMI(Body Masss Index)は、体重と身長から算出する肥満度を表す体格指数(栄養指数)<br>
+
+<footer class="footer">
+		<div class="">
+			<img src="/healthcare/img/footer.png">
+		</div>
+		&copy;&copy;Copyright SeHealthCare. All rights reserved.
 </footer>
 </body>
 </html>
