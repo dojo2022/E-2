@@ -10,6 +10,7 @@
 	href="/healthcare/css/comstyle.css">
 </head>
 <body>
+<div class="wrapper">
 	<header>
 		<img src="/healthcare/img/">
 	</header>
@@ -191,22 +192,22 @@
 		<tr>
 			<td><canvas width="100" height="100"></canvas></td>
 			<td><h3>朝食</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>0%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約25%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約50%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約75%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約100%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約120%以上</h3></td>
-			<td id="center"><input type="button" value="決定"></td>
+			<td><input type="radio" name="num" value="1"></td>
+			<td><h3>0%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約25%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約50%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約75%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約100%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約120%以上</h3></td>
+			<td><input type="button" value="決定"></td>
 		</tr>
 		<tr>
-			<td id="center"><p></p></td>
+			<td><p id="result"></p></td>
 		</tr>
 		<tr>
 			<td><input type="file"></td>
@@ -217,19 +218,19 @@
 		<tr>
 			<td><canvas width="100" height="100"></canvas></td>
 			<td><h3>昼食</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>0%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約25%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約50%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約75%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約100%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約120%以上</h3></td>
-			<td id="center"><input type="button" value="決定"></td>
+			<td><input type="radio"></td>
+			<td><h3>0%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約25%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約50%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約75%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約100%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約120%以上</h3></td>
+			<td><input type="button" value="決定"></td>
 		</tr>
 		<tr>
 			<td id="center"><p></p></td>
@@ -244,18 +245,18 @@
 			<td><canvas width="100" height="100"></canvas></td>
 			<td><h3>夕食</h3></td>
 			<td><input type="radio"></td>
-			<td id="center"><h3>0%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約25%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約50%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約75%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約100%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約120%以上</h3></td>
-			<td id="center"><input type="button" value="決定"></td>
+			<td><h3>0%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約25%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約50%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約75%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約100%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約120%以上</h3></td>
+			<td><input type="button" value="決定"></td>
 		</tr>
 		<tr>
 			<td><p></p></td>
@@ -269,22 +270,22 @@
 		<tr>
 			<td><canvas width="100" height="100"></canvas></td>
 			<td><h3>間食</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>0%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約25%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約50%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約75%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約100%</h3></td>
-			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約120%以上</h3></td>
-			<td id="center"><input type="button" value="決定"></td>
+			<td><input type="radio" name="num" value="1"></td>
+			<td><h3>0%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約25%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約50%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約75%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約100%</h3></td>
+			<td><input type="radio"></td>
+			<td><h3>約120%以上</h3></td>
+			<td><input type="button" value="決定"></td>
 		</tr>
 		<tr>
-			<td><p></p></td>
+			<td><p id="result"></p></td>
 		</tr>
 		<tr>
 			<td><input type="file"></td>
@@ -297,5 +298,9 @@
 		</div>
 		&copy;&copy;Copyright SeHealthCare.All rights reserved.
 	</footer>
+	</div>
+	<script src=js/meal.js>
+
+	</script>
 </body>
 </html>
