@@ -5,11 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>healthcare</title>
-<link rel = "mypage" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="/healthcare/css/comstyle.css">
 </head>
 <body>
-<header></header>
-<h2>お問い合わせ</h2>
+<header>
+<img src="/healthcare/img/">
+</header>
+<h1>お問い合わせ</h1>
   	<p>ID</p>
 						<input type="password" name="ID">
   	<p>メールアドレス</p>
@@ -33,9 +35,10 @@
 		<script>
           </script>
           <footer class ="footer">
-          <div class ="footer_hone"></div>
+          <div class ="footer_hone">
           <img src="/healthcare/img/footer.png" >
-         &copy;Copyright SeHealthCare. All rights reserved.
+          </div>
+        &copy; &copy;Copyright SeHealthCare. All rights reserved.
         </footer>
 </body>
 </html>
