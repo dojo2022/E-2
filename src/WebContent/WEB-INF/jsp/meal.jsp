@@ -174,7 +174,88 @@
 				<option value="30">30日</option>
 				<option value="31">31日</option>
 			</select>
-	<footer class="footer"> &copy;&copy;Copyright SeHealthCare.
-		All rights reserved. </footer>
+			<a href="/healthcare/MealServlet"><input type="submit" value="決定" ></a>
+			<p>あなたの一日の食事を記録してください。</p>
+			<p>0% ：食べてない。</p>
+			<p>25% ：少しだけ食べた。</p>
+			<p>50% ：少し食べた。</p>
+			<p>75% ：ちょうどいい。</p>
+			<p> 100% ：少し食べすぎ。 </p>
+			<p>120%以上：食べすぎた。 </p>
+			<table>
+			<tr>
+			<td><canvas width="100" height="100"></canvas></td>
+			<td><h3>朝食</h3></td>
+			<td><input type="radio"></td><td><h3>0%</h3></td>
+			<td><input type="radio"></td><td><h3>約25%</h3></td>
+			<td><input type="radio"></td><td><h3>約50%</h3></td>
+			<td><input type="radio"></td><td><h3>約75%</h3></td>
+			<td><input type="radio"></td><td><h3>約100%</h3></td>
+			<td><input type="radio"></td><td><h3>約120%</h3></td>
+			<td><input type="button" value="決定"></td>
+			</tr>
+			<tr>
+			<td><p>あなたは朝食を0%食べました。</p></td>
+			</tr>
+			<tr>
+			<td><input type="file"></td>
+			<td><input type="button" value="保存"></td>
+			</tr>
+			</table>
+			<table>
+			<tr>
+			<td><canvas width="100" height="100"></canvas></td>
+			<td><h3>昼食</h3></td>
+			<td><input type="radio"></td><td><h3>0%</h3></td>
+			<td><input type="radio"></td><td><h3>約25%</h3></td>
+			<td><input type="radio"></td><td><h3>約50%</h3></td>
+			<td><input type="radio"></td><td><h3>約75%</h3></td>
+			<td><input type="radio"></td><td><h3>約100%</h3></td>
+			<td><input type="radio"></td><td><h3>約120%</h3></td>
+			<td><input type="button" value="決定"></td>
+			</tr>
+			<tr><td><p>あなたは朝食を0%食べました。</p></td></tr>
+			<tr>
+			<td><input type="file"></td>
+			<td><input type="button" value="保存"></td>
+			</tr>
+			</table>
+			<table>
+			<tr>
+			<td><canvas width="100" height="100"></canvas></td>
+			<td><h3>夕食</h3></td>
+			<td><input type="radio"></td><td><h3>0%</h3></td>
+			<td><input type="radio"></td><td><h3>約25%</h3></td>
+			<td><input type="radio"></td><td><h3>約50%</h3></td>
+			<td><input type="radio"></td><td><h3>約75%</h3></td>
+			<td><input type="radio"></td><td><h3>約100%</h3></td>
+			<td><input type="radio"></td><td><h3>約120%</h3></td>
+			<td><input type="button" value="決定"></td>
+			</tr>
+			<tr><td><p>あなたは朝食を0%食べました。</p></td></tr>
+			<tr>
+			<td><input type="file"></td>
+			<td><input type="button" value="保存"></td>
+			</tr>
+			</table>
+			<table>
+			<tr>
+			<td><canvas width="100" height="100"></canvas></td>
+			<td><h3>間食</h3></td>
+			<td><input type="radio"></td><td><h3>0%</h3></td>
+			<td><input type="radio"></td><td><h3>約25%</h3></td>
+			<td><input type="radio"></td><td><h3>約50%</h3></td>
+			<td><input type="radio"></td><td><h3>約75%</h3></td>
+			<td><input type="radio"></td><td><h3>約100%</h3></td>
+			<td><input type="radio"></td><td><h3>約120%</h3></td>
+			<td><input type="button" value="決定"></td>
+			</tr>
+			<tr><td><p>あなたは朝食を0%食べました。</p></td></tr>
+			<tr>
+			<td><input type="file"></td>
+			<td><input type="button" value="保存"></td>
+			</tr>
+			</table>
+	<footer class="footer"><img src="img/footer.png" alt="">&copy;Copyright SeHealthCare.All rights reserved. </footer>
 </body>
 </html>
