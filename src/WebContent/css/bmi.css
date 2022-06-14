@@ -16,3 +16,20 @@ th,td{
     border:1px black solid;
     text-align: center;
 }
+.bmi{
+	display: flex;
+}
+img{
+	height: 5%;
+	width: 5%;
+}
+.text{
+	text-align: right;
+}
+#t_name{
+	background-color: black;
+	color: white;
+}
+#i_name{
+	background-color:#d3d3d3;
+}
