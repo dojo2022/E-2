@@ -9,6 +9,10 @@
 </head>
 <body>
 <header></header>
+<h2>お問い合わせ</h2>
+  	<p>ID</p>
+  	<p>メールアドレス</p>
+  	<p>お問い合わせ内容</p>
 <nav>
 	<ul>
 			<li><a href="/healthcare/MypageServlet">MYページ</a></li>
@@ -17,8 +21,6 @@
 			<li><a href="/healthcare/MealServlet">食事記録</a></li>
 			<li><a href="/healthcare/ContactServlet">お問い合わせ</a></li>
 			<li><a href="/healthcare/LoginServlet">ログアウト</a></li>
-	<h2>お問い合わせ</h2>
-	<p>ID</p>
 			</ul>
 		</nav>
 </body>
