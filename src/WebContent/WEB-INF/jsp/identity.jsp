@@ -5,35 +5,37 @@
 <head>
 <meta charset="UTF-8">
 <title>SeHealthCare</title>
+<link rel="stylesheet" type="text/css" href="/healthcare/css/comstyle.css">
+<link rel="stylesheet" type="text/css" href="/healthcare/css/identiity.css">
 </head>
 <body>
 	<header>
 		<img src="/healthcare/img/">
 	</header>
 
-	<h2>本人確認</h2>
-	<form id="form" method="POST" action="/healthcare/MypageServlet">
-		<table class="">
+	<h2 class="pagetitle">本人確認</h2>
+	<form  method="POST" action="/healthcare/MypageServlet">
+		<table class="identity">
 			<tr>
-				<td>メールアドレス<input type="text" name="mail"></td>
+				<td>メールアドレス</td><td><input type="text" name="mail"></td>
 			</tr>
 
 			<tr>
-				<td>PW<input type="password" name="PW"></td>
+				<td>PW</td><td><input type="password" name="PW"></td>
 			</tr>
 		</table>
 
 		<input class="button" type="submit" name="LOGIN" value="認証">
 	</form>
-	<p>
+	<p class="back" >
 		<a href="/healthcare/MenuServlet">マイページに戻る</a>
 	</p>
 
 	<footer class="footer">
-		<div class="">
+		<div class="footer_hone">
 			<img src="/healthcare/img/footer.png">
 		</div>
-		&copy;&copy;Copyright SeHealthCare. All rights reserved.
+		&copy;Copyright SeHealthCare. All rights reserved.
 	</footer>
 </body>
 </html>
