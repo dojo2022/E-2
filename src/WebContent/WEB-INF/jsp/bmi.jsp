@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="wrapper">
-		<header> </header>
+		<header><img src="/healthcare/img/"alt=""></header>
 		<nav>
 			<ul id="nav">
 				<li><a href="/healthcare/MypageServlet">MYページ</a></li>
@@ -22,24 +22,26 @@
 				<li><a href="/healthcare/LoginServlet">ログアウト</a></li>
 			</ul>
 		</nav>
+		<div class="bmi">
 		<h2>BMI計算</h2>
+		<img src="/healthcare/img/bmi.png"alt="">
+		</div>
 
 		<p>
 			BMI(Body Masss Index)は、体重と身長から算出する肥満度を表す体格指数(栄養指数)<br>
 			です。一般の18歳以上が対象で、筋肉量の多いアスリートの指数には用いられません。<br>
 			幼児にはカウプ指数、童子には、ローレル指数が用いられます。
 		</p>
-
-		<p>空白に数値を入れて「計算」ボタンを押してください。</p>
 		<div class="center">
+		<p>空白に数値を入れて「計算」ボタンを押してください。</p>
 			<div>BMI = 体重 ÷ (身長 × 身長)</div>
 
 			<div class="">
 				<p>
-					身長<input type="text" value="170">cm
+					身長<input class="text" type="text" value="170">cm
 				</p>
 				<p>
-					体重<input type="text" value="60">kg
+					体重<input class="text" type="text" value="60">kg
 				</p>
 			</div>
 
@@ -48,7 +50,10 @@
 		<div></div>
 
 		<table>
-			<tr>
+		<tr>
+		<th id="t_name" colspan="2">日本肥満学会の肥満度判定基準</th>
+		</tr>
+			<tr id="i_name">
 				<th>BMI</th>
 				<th>判定</th>
 			</tr>
