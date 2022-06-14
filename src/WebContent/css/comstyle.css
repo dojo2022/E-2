@@ -1,1 +1,47 @@
 @charset "UTF-8";
+
+body {
+	margin: 0 0 0 0;
+	padding: 100px 0 0 0;
+	color: black;
+	font-size: 16px;
+	padding-left: 50px;
+}
+
+header {
+	position: fixed; /* ヘッダーを固定する */
+	top: 0; /* 上部から配置の基準位置を決める */
+	left: 0; /* 左から配置の基準位置を決める */
+	width: 100%; /* ヘッダーの横幅を指定する */
+	height: 40px; /* ヘッダーの高さを指定する */
+	padding: 10px;
+	background-color: #98d98e;
+}
+
+.pagetitle {
+	border: solid;
+	width: 200px;
+	height: 70px;
+	border: 1px solid;
+	display: table-cell;
+	padding-right: 30px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0; /* 上部から配置の基準位置を決める */
+	left: 0; /* 左から配置の基準位置を決める */
+	width: 100%; /* フッターの横幅を指定する */
+	height: 70px; /* フッターの高さを指定する */
+	padding: 10px; /* フッター内側の余白を指定する(上下左右) */
+	text-align: center;
+	background-color: #98d98e;
+	color: black;
+}
+
+.footer_hone img {
+	width: 80px;
+	height: 55px;
+}
