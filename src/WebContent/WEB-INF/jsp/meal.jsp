@@ -202,7 +202,7 @@
 			<td id="center"><input type="radio"></td>
 			<td id="center"><h3>約100%</h3></td>
 			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約120%</h3></td>
+			<td id="center"><h3>約120%以上</h3></td>
 			<td id="center"><input type="button" value="決定"></td>
 		</tr>
 		<tr>
@@ -228,7 +228,7 @@
 			<td id="center"><input type="radio"></td>
 			<td id="center"><h3>約100%</h3></td>
 			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約120%</h3></td>
+			<td id="center"><h3>約120%以上</h3></td>
 			<td id="center"><input type="button" value="決定"></td>
 		</tr>
 		<tr>
@@ -254,7 +254,7 @@
 			<td id="center"><input type="radio"></td>
 			<td id="center"><h3>約100%</h3></td>
 			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約120%</h3></td>
+			<td id="center"><h3>約120%以上</h3></td>
 			<td id="center"><input type="button" value="決定"></td>
 		</tr>
 		<tr>
@@ -280,7 +280,7 @@
 			<td id="center"><input type="radio"></td>
 			<td id="center"><h3>約100%</h3></td>
 			<td id="center"><input type="radio"></td>
-			<td id="center"><h3>約120%</h3></td>
+			<td id="center"><h3>約120%以上</h3></td>
 			<td id="center"><input type="button" value="決定"></td>
 		</tr>
 		<tr>
