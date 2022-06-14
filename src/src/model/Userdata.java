@@ -3,15 +3,15 @@ package model;
 import java.sql.Date;
 
 public class Userdata {
-	private String userid;
-	private String password;
-	private String email;
-	private String gender;
-	private Date birth;
-	private double targetwight;
-	private int daily;
-	private Date lastlogin;
-	private double height;
+	private String userid;//userid
+	private String password;//パスワード
+	private String email;//メールアドレス
+	private String gender;//性別
+	private Date birth;//生年月日
+	private double targetwight;//目標体重
+	private int daily;//ログイン日数
+	private Date lastlogin;//最終ログイン
+	private double height;//身長
 
 	public Userdata() {
 	}
