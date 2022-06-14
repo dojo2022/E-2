@@ -1,11 +1,4 @@
 @charset "UTF-8";
-body {
-	margin: 0 0 0 0;
-	padding: 100px 0 0 0;
-	color: black;
-	font-size: 16px;
-	padding-left: 50px;
-}
 
 .wrapper {
 	margin: 0 auto 0 auto;
@@ -20,6 +13,7 @@ body {
 	/* 先頭の記号をなくす */
 	padding-right: 30px;
 	/* 区切りを空ける */
+	border:1px black solid;
 }
 #nav li a:link {
 	text-decoration: none;
@@ -32,14 +26,22 @@ body {
 	text-decoration: none;
 }
 #nav li a:active {
-	color: yellow;
 	text-decoration: none;
 }
 
 .center {
   text-align: center;
+  /*centerクラスを中央に表示させる*/
 }
 
 table{
 	margin:auto;
+	/*テーブルを中央に表示させる*/
+	border:1px black solid;
+    border-collapse: collapse;
+    width: 80%;
+}
+th,td{
+    border:1px black solid;
+    text-align: center;
 }
