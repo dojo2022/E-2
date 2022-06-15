@@ -189,6 +189,7 @@
 			</select>
 <p>総消費カロリーは です。</p>
 <input type="button" value="保存">
-<input type="button" value="リセット">
+<input type="button" value="リセット">2
+<footer></footer>
 </body>
 </html>
