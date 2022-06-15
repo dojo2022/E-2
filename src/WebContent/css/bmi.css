@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+h2{
+	border: 3px solid #F0908D ;
+	padding: 4px;
+}
 .center {
   text-align: center;
   /*centerクラスを中央に表示させる*/
@@ -19,7 +23,7 @@ th,td{
 .bmi{
 	display: flex;
 }
-img{
+#bmiimg{
 	height: 5%;
 	width: 5%;
 }

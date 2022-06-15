@@ -19,7 +19,7 @@
 
 		<h2 class="pagetitle">変更完了</h2>
 		<div class="img2">
-		<p></p>
+			<p></p>
 			<p class="honbun" style="text-align: center">登録の変更が完了しました</p>
 			<p class="img">
 				<img src="/healthcare/img/お問い合わせ完了.png" alt="" width="250"
