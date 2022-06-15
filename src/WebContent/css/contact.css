@@ -1,1 +1,17 @@
 @charset "UTF-8";
+.center{
+	text-align : center ;
+	margin : auto ;
+}
+.moji{
+	text-align : center ;
+	margin : auto ;
+}
+.image{
+	height : 5% ;
+	width :  5% ;
+	margin-top : 22px ;
+}
+.img{
+	display : flex ;
+}

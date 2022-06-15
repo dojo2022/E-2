@@ -14,9 +14,7 @@
 </header>
 <p>正しい処理ができませんでした。</p>
 <p>マイページに戻る</p>
-<float:right>
 <img src="/healthcare/img/お問い合わせ完了.png">
-</float:right>
 <footer class ="footer">
           <div class ="footer_hone">
           <img src="/healthcare/img/footer.png" >

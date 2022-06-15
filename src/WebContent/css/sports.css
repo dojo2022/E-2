@@ -1,1 +1,26 @@
 @charset "UTF-8";
+
+.center {
+   text-align: center;
+  /*centerクラスを中央に表示させる*/
+}
+#out{
+	margin-right: 4em;
+}
+.box {
+	margin:10px auto 10px auto;
+	border: 1px solid #00552e;
+	padding: 4px;
+	width: 200px;
+}
+.text{
+	margin-left: 40px;
+}
+#sportsimg{
+	height: 5%;
+	width: 5%;
+	margin-top: 22px;
+}
+.sports{
+	display: flex;
+}
