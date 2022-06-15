@@ -1,1 +1,44 @@
 @charset "UTF-8";
+
+
+header{
+	display: flex;
+	justify-content: space-between;
+}
+.btn{
+	margin-right: 20px;
+}
+.heading{
+	display: flex;
+	justify-content: space-around;
+}
+h2{
+	border: 3px solid #F0908D ;
+	width: 130px;
+	padding: 4px;
+}
+h3{
+	border: 1px solid #d3d3d3;
+	padding: 4px;
+}
+#mypageimg{
+	height: 25%;
+	width: 25%;
+}
+.center {
+   text-align: center;
+  /*centerクラスを中央に表示させる*/
+}
+.chart{
+	display: flex;
+	justify-content: space-around;
+}
+
+.c_title{
+	border: 1px solid #00552e;
+	padding: 4px;
+}
+canvas{
+	border: 5px solid #d3d3d3;
+	margin-left: 50px
+}
