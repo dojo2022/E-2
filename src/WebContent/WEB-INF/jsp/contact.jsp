@@ -13,7 +13,7 @@
 <body>
 	<div class="wrapper">
 		<header>
-			<img src="/healthcare/img/">
+			<img class="image" src="/healthcare/img/.png">
 		</header>
 		<nav>
 			<ul id="nav">
@@ -25,21 +25,25 @@
 				<li><a href="/healthcare/LoginServlet">ログアウト</a></li>
 			</ul>
 		</nav>
-		<h2 class ="pagetitle">お問い合わせ</h2>
+		<div class ="img">
+		<h2 class = "pagetitle"> お問い合わせ</h2>
+		<img class="image" src="/healthcare/img/contact.png">
+		</div>
 				<form name="myform" onsubmit="return false">
-           <table class="center">
+        <table class="center">
 			<tr>
 				<td>ID</td><td><input type="text" name="ID"readonly></td>
 			</tr>
-
 			<tr>
 				<td>メールアドレス</td><td><input type="text" name="email"></td>
 			</tr>
-		</table>
-				お問い合わせ内容
-				<textarea></textarea>
-		<br>＊1000文字以内で入力してください
-			<input type="submit" onclick="alert()">
+			</table>
+			<table class = "moji">
+			<tr><td>お問い合わせ内容</td>
+           <td><textarea></textarea></td></tr>
+		<tr><td>＊1000文字以内で入力してください</td></tr>
+			<tr><td><input type="submit" onclick="alert()"></td></tr>
+			</table>
 		</form>
 		</div>
 		<script>
