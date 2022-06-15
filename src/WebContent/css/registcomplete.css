@@ -1,1 +1,25 @@
 @charset "UTF-8";
+
+.img{
+	text-align: right;
+	padding: 0 60px 0 0;
+}
+.img2{
+	display:flex;
+	justify-content:space-around;
+    margin-left:290px;
+}
+
+.back{
+text-align: center;
+ border: solid;
+	width: 200px;
+	height: 50px;
+	border: 1px solid;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#center{
+	margin: auto;
+}
