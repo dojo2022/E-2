@@ -9,13 +9,15 @@
 <link rel="stylesheet" type="text/css" href="/healthcare/css/registchange.css">
 </head>
 <body>
+<div class="wrapper">
+
 	<header>
 		<img src="/healthcare/img/">
 	</header>
 
 	<h2 class="pagetitle">登録変更</h2>
 	<form method="POST" action="/healthcare/MypageServlet">
-		<table class="regichan">
+		<table id="regichan">
 			<tr>
 				<td>password</td><td><input type="password" name="PW"></td>
 			</tr>
@@ -34,8 +36,11 @@
 				<td>目標体重</td><td><input type="text" name="targetweight"></td>
 			</tr>
 		</table>
-
-		<input class="button" type="submit" name="change" value="変更">
+		<div class="center">
+		<p>
+		<input type="submit" name="change" value="変更">
+		</p>
+		</div>
 	</form>
 	<p class="back">
 		<a href="/healthcare/MenuServlet">マイページに戻る</a>
@@ -47,5 +52,6 @@
 		</div>
 		&copy;Copyright SeHealthCare. All rights reserved.
 	</footer>
+	</div>
 </body>
 </html>
