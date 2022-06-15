@@ -25,7 +25,7 @@
 			</ul>
 		</nav>
 		<div class="bmi">
-			<h2>BMI計算</h2>
+			<h2 class="pagetitle">BMI計算</h2>
 			<img id="bmiimg" src="/healthcare/img/bmi.png" alt="">
 		</div>
 

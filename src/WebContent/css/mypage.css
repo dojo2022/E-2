@@ -12,11 +12,6 @@ header{
 	display: flex;
 	justify-content: space-around;
 }
-h2{
-	border: 3px solid #F0908D ;
-	width: 130px;
-	padding: 4px;
-}
 h3{
 	border: 1px solid #d3d3d3;
 	padding: 4px;

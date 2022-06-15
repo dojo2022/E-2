@@ -26,7 +26,7 @@
 			</ul>
 		</nav>
 
-		<h2>マイページ</h2>
+		<h2 class="pagetitle">MYページ</h2>
 		<div class="heading">
 			<h3>目標体重</h3>
 			<h3>
