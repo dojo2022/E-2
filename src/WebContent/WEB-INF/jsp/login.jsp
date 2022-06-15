@@ -9,13 +9,16 @@
 <link rel="stylesheet" type="text/css" href="/healthcare/css/login.css">
 </head>
 <body>
+<div class="wrapper">
+
+
 	<header>
 		<img src="/healthcare/img/">
 	</header>
 
 	<h2 class="pagetitle">ログイン</h2>
 	<form id="form" method="POST" action="/healthcare/LoginServlet" style="text-align:center">
-		<table class="log">
+		<table id="regichan">
 			<tr>
 				<td>ID</td><td><input type="text" name="ID"></td>
 			</tr>
@@ -25,11 +28,8 @@
 			</tr>
 		</table>
 
-		<input class="button" type="submit" name="LOGIN" value="login">
-	</form>
-
-	<form id="form" method="POST" action="/healthcare/SignupServlet" style="text-align:center">
-		<input type="submit" name="signup" value="新規登録">
+		<p><input class="button" type="submit" name="LOGIN" value="login"></p>
+		<p><input type="submit" name="signup" value="新規登録"></p>
 	</form>
 
 
@@ -42,5 +42,6 @@
 
 
 	</footer>
+</div>
 </body>
 </html>

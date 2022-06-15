@@ -5,26 +5,55 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css"
+	href="/healthcare/css/comstyle.css">
+<link rel="stylesheet" type="text/css" href="/healthcare/css/mypage.css">
 </head>
 <body>
-	<header>
-		<input type="button" value="登録内容変更">
-	</header>
-	<nav>
-		<ul>
-			<li><a href="/healthcare/MypageServlet">MYページ</a></li>
-			<li><a href="/healthcare/BmiServlet">BMI計算</a></li>
-			<li><a href="/healthcare/SportServlet">運動計算</a></li>
-			<li><a href="/healthcare/MealServlet">食事記録</a></li>
-			<li><a href="/healthcare/ContactServlet">お問い合わせ</a></li>
-			<li><a href="/healthcare/LoginServlet">ログアウト</a></li>
-		</ul>
-	</nav>
+	<div class="wrapper">
+		<header>
+			<img src="/healthcare/img/">
+			<input class="btn" type="button" onclick="location.href='/healthcare/IdentityServlet'"value="登録内容変更">
+		</header>
+		<nav>
+			<ul id="nav">
+				<li><a href="/healthcare/MypageServlet">MYページ</a></li>
+				<li><a href="/healthcare/BmiServlet">BMI計算</a></li>
+				<li><a href="/healthcare/SportServlet">運動計算</a></li>
+				<li><a href="/healthcare/MealServlet">食事記録</a></li>
+				<li><a href="/healthcare/ContactServlet">お問い合わせ</a></li>
+				<li><a href="/healthcare/LoginServlet">ログアウト</a></li>
+			</ul>
+		</nav>
 
-	<h1>マイページ</h1>
-	<h2>目標体重</h2>
-	<h2> あなたは○日連続ログインです。</h2>
-	<p>体重の推移(折れ線グラフ)</p>
-	<p> 消費カロリーの推移</p>
+		<h2 class="pagetitle">MYページ</h2>
+		<div class="heading">
+			<h3>目標体重</h3>
+			<h3>
+				あなたは○日連続<br>&emsp;ログインです。
+			</h3>
+		</div>
+		<div class="center">
+			<img id="mypageimg" src="/healthcare/img/mypage_sport.png" alt="">
+		</div>
+		<div class="chart">
+			<p class="c_title">体重の推移(折れ線グラフ)</p>
+			<p class="c_title">消費カロリーの推移</p>
+		</div>
+		<div class="chart">
+		<div style="width: 500px;">
+			<canvas id="chart"></canvas>
+		</div>
+		<div style="width: 500px;">
+			<canvas id="chart"></canvas>
+		</div>
+		</div>
+		<footer class="footer">
+			<div class="footer_hone">
+				<img src="/healthcare/img/footer.png">
+			</div>
+			&copy;&copy;Copyright SeHealthCare. All rights reserved.
+		</footer>
+	</div>
 </body>
 </html>

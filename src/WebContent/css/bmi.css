@@ -19,9 +19,10 @@ th,td{
 .bmi{
 	display: flex;
 }
-img{
+#bmiimg{
 	height: 5%;
 	width: 5%;
+	margin-top: 22px;
 }
 .text{
 	text-align: right;

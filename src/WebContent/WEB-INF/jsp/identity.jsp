@@ -9,13 +9,15 @@
 <link rel="stylesheet" type="text/css" href="/healthcare/css/identiity.css">
 </head>
 <body>
+<div class="wrapper">
+
 	<header>
 		<img src="/healthcare/img/">
 	</header>
 
 	<h2 class="pagetitle">本人確認</h2>
 	<form  method="POST" action="/healthcare/MypageServlet">
-		<table class="identity">
+		<table id="identity">
 			<tr>
 				<td>メールアドレス</td><td><input type="text" name="mail"></td>
 			</tr>
@@ -23,9 +25,14 @@
 			<tr>
 				<td>PW</td><td><input type="password" name="PW"></td>
 			</tr>
+
+		</table>
+		<table id="identity">
+			<tr>
+			    <td><input class="button" type="submit" name="regist" value="認証"></td>
+			</tr>
 		</table>
 
-		<input class="button" type="submit" name="LOGIN" value="認証">
 	</form>
 	<p class="back" >
 		<a href="/healthcare/MenuServlet">マイページに戻る</a>
@@ -37,5 +44,6 @@
 		</div>
 		&copy;Copyright SeHealthCare. All rights reserved.
 	</footer>
+	</div>
 </body>
 </html>
