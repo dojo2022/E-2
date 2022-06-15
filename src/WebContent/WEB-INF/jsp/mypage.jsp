@@ -12,8 +12,8 @@
 <body>
 	<div class="wrapper">
 		<header>
-			<img src="/healthcare/img/"> <input class="btn" type="button"
-				value="登録内容変更">
+			<img src="/healthcare/img/">
+			<input class="btn" type="button" onclick="location.href='/healthcare/IdentityServlet'"value="登録内容変更">
 		</header>
 		<nav>
 			<ul id="nav">
@@ -48,7 +48,7 @@
 			<canvas id="chart"></canvas>
 		</div>
 		</div>
-		<footer class="foote">
+		<footer class="footer">
 			<div class="footer_hone">
 				<img src="/healthcare/img/footer.png">
 			</div>
