@@ -20,10 +20,9 @@ header {
 }
 
 .pagetitle {
-	border: solid;
+	border: 3px solid #F0908D ;
 	width: 200px;
-	height: 70px;
-	border: 1px solid;
+	padding: 4px;
 	text-align: center;
 	vertical-align: middle;
 }
