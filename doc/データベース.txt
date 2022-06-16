@@ -1,0 +1,64 @@
+ユーザーデータ
+create table userdata (
+userid varchar (20) PRIMARY KEY,
+password varchar(20) NOT NULL,
+email varchar(40) NOT NULL,
+gender varchar NOT NULL,
+birth date NOT NULL,
+targetweight double,
+daily int,
+lastlogin date,
+height double NOT NULL
+)
+
+
+平均体重
+create table aveweight (
+gender varchar PRIMARY KEY,
+age int PRIMARY KEY,
+aveweight double NOT NULL
+)
+
+
+お問い合わせ
+create table contact (
+userid varchar PRIMARY KEY,
+number auto_increment PRIMARY KEY,
+email varchar (40) NOT NULL,
+contact varchar (1000) NOT NULL
+)
+
+
+スポーツ
+create table sports (
+number auto_increment PRIMARY KEY,
+sports varchar(40) NOT NULL,
+mets double NOT NULL
+)
+
+
+食事記録
+create table meal (
+userid varchar (20) PRIMARY KEY,
+foodnumber int PRIMARY KEY,
+indaily date PRIMARY KEY,
+food varchar,
+satiety int
+)
+
+
+総消費カロリー
+create table caloriesout (
+userid varchar(20) PRIMARY KEY,
+indaily date PRIMARY KEY,
+caloriesout int
+)
+
+
+
+体重
+create table weight (
+userid varchar(20) PRIMARY KEY,
+weight double(5) NOT NULL,
+indaily date NOT NULL
+)

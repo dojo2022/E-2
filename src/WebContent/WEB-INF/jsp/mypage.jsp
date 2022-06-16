@@ -28,7 +28,7 @@
 
 		<h2 class="pagetitle">MYページ</h2>
 		<div class="heading">
-			<h3>目標体重</h3>
+			<h3>目標体重<br>〇kg</h3>
 			<h3>
 				あなたは○日連続<br>&emsp;ログインです。
 			</h3>

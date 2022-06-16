@@ -2,8 +2,17 @@
 
 .center{
 	text-align: center;
+	table-layout: fixed;
 }
 
 .meal{
 	display: flex;
+}
+
+#center{
+	margin: auto;
+}
+
+#center{
+	margin: right;
 }
