@@ -51,7 +51,7 @@
 		</div>
 		<div></div>
 
-		<table>
+		<table class="mg">
 			<tr>
 				<th id="t_name" colspan="2">日本肥満学会の肥満度判定基準</th>
 			</tr>
