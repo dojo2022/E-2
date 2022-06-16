@@ -191,7 +191,6 @@
 	<form name="form1">
 	<table>
 		<tr>
-			<td><canvas id="canvas" width="200" height="200"></canvas></td>
 			<td class="center"><h3>朝食</h3></td>
 			<td class="center"><input type="radio" name="color1" value="0%"></td>
 			<td class="center"><h3>0%</h3></td>
@@ -207,103 +206,125 @@
 			<td class="center"><h3>約120%以上</h3></td>
 			<td class="center"><input type="button" value="決定" onclick="clickBtn1()"></td>
 		</tr>
-		<tr>
-			<td><p id="result" id="center"></p></td>
-		</tr>
-		<tr>
-			<td><p id="comment" id="right"></p></td>
-		</tr>
 		</table>
-		</form>
+		<div class="center">
+		<p id="result"></p>
+		<p id="comment"></p>
+		</div>
+			</form>
 		<form action="/healthcare/MealServlet" method="post" enctype="multipart/form-data">
 		<table>
 		<tr>
-			<td><input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"></td>
-			<td><input type="button" value="保存"></td>
+			<td><canvas id="preview" width="100" height="100"></canvas></td>
+		</tr>
+		<tr>
+			<td><input type="file" name="IMAGE" accept="image/png, image/jpeg"></td>
+			<td><input type="button" value="保存" onchange="previewImage(this);"></td>
 		</tr>
 	</table>
 	</form>
 	<form name="form2">
 	<table>
 		<tr>
-			<td><canvas width="100" height="100"></canvas></td>
-			<td><h3>昼食</h3></td>
-			<td><input type="radio" name="color2" value="0%"></td>
-			<td><h3>0%</h3></td>
-			<td><input type="radio" name="color2" value="25%"></td>
-			<td><h3>約25%</h3></td>
-			<td><input type="radio" name="color2" value="50%"></td>
-			<td><h3>約50%</h3></td>
-			<td><input type="radio" name="color2" value="75%"></td>
-			<td><h3>約75%</h3></td>
-			<td><input type="radio" name="color2" value="100%"></td>
-			<td><h3>約100%</h3></td>
-			<td><input type="radio" name="color2" value="120%"></td>
-			<td><h3>約120%以上</h3></td>
-			<td><input type="button" value="決定" onclick="clickBtn2()"></td>
+			<td class="center"><h3>昼食</h3></td>
+			<td class="center"><input type="radio" name="color2" value="0%"></td>
+			<td class="center"><h3>0%</h3></td>
+			<td class="center"><input type="radio" name="color2" value="25%"></td>
+			<td class="center"><h3>約25%</h3></td>
+			<td class="center"><input type="radio" name="color2" value="50%"></td>
+			<td class="center"><h3>約50%</h3></td>
+			<td class="center"><input type="radio" name="color2" value="75%"></td>
+			<td class="center"><h3>約75%</h3></td>
+			<td class="center"><input type="radio" name="color2" value="100%"></td>
+			<td class="center"><h3>約100%</h3></td>
+			<td class="center"><input type="radio" name="color2" value="120%"></td>
+			<td class="center"><h3>約120%以上</h3></td>
+			<td class="center"><input type="button" value="決定" onclick="clickBtn2()"></td>
+		</tr>
+		</table>
+		<div class="center">
+		<p id="result2"></p>
+		<p id="comment2"></p>
+		</div>
+			</form>
+		<form action="/healthcare/MealServlet" method="post" enctype="multipart/form-data">
+		<table>
+		<tr>
+			<td><canvas id="preview" width="100" height="100"></canvas></td>
 		</tr>
 		<tr>
-			<td id=center><p id="result2"></p></td>
-		</tr>
-		<tr>
-			<td><input type="file"></td>
-			<td><input type="button" value="保存"></td>
+			<td><input type="file" name="IMAGE" accept="image/png, image/jpeg"></td>
+			<td><input type="button" value="保存" onchange="previewImage(this);"></td>
 		</tr>
 	</table>
 	</form>
 	<form name="form3">
 	<table>
 		<tr>
-			<td><canvas width="100" height="100"></canvas></td>
-			<td><h3>夕食</h3></td>
-			<td><input type="radio" name="color3" value="0%"></td>
-			<td><h3>0%</h3></td>
-			<td><input type="radio" name="color3" value="25%"></td>
-			<td><h3>約25%</h3></td>
-			<td><input type="radio" name="color3" value="50%"></td>
-			<td><h3>約50%</h3></td>
-			<td><input type="radio" name="color3" value="75%"></td>
-			<td><h3>約75%</h3></td>
-			<td><input type="radio" name="color3" value="100%"></td>
-			<td><h3>約100%</h3></td>
-			<td><input type="radio" name="color3" value="120%"></td>
-			<td><h3>約120%以上</h3></td>
-			<td><input type="button" value="決定" onclick="clickBtn3()"></td>
+			<td class="center"><h3>夕食</h3></td>
+			<td class="center"><input type="radio" name="color3" value="0%"></td>
+			<td class="center"><h3>0%</h3></td>
+			<td class="center"><input type="radio" name="color3" value="25%"></td>
+			<td class="center"><h3>約25%</h3></td>
+			<td class="center"><input type="radio" name="color3" value="50%"></td>
+			<td class="center"><h3>約50%</h3></td>
+			<td class="center"><input type="radio" name="color3" value="75%"></td>
+			<td class="center"><h3>約75%</h3></td>
+			<td class="center"><input type="radio" name="color3" value="100%"></td>
+			<td class="center"><h3>約100%</h3></td>
+			<td class="center"><input type="radio" name="color3" value="120%"></td>
+			<td class="center"><h3>約120%以上</h3></td>
+			<td class="center"><input type="button" value="決定" onclick="clickBtn3()"></td>
+		</tr>
+		</table>
+		<div class="center">
+		<p id="result3"></p>
+		<p id="comment3"></p>
+		</div>
+			</form>
+		<form action="/healthcare/MealServlet" method="post" enctype="multipart/form-data">
+		<table>
+		<tr>
+			<td><canvas id="preview" width="100" height="100"></canvas></td>
 		</tr>
 		<tr>
-			<td id="center"><p id="result3"></p></td>
-		</tr>
-		<tr>
-			<td><input type="file"></td>
-			<td><input type="button" value="保存"></td>
+			<td><input type="file" name="IMAGE" accept="image/png, image/jpeg"></td>
+			<td><input type="button" value="保存" onchange="previewImage(this);"></td>
 		</tr>
 	</table>
 	</form>
 	<form name="form4">
 	<table>
 		<tr>
-			<td><canvas width="100" height="100"></canvas></td>
-			<td><h3>間食</h3></td>
-			<td><input type="radio" name="color4" value="0%"></td>
-			<td><h3>0%</h3></td>
-			<td><input type="radio" name="color4" value="25%"></td>
-			<td><h3>約25%</h3></td>
-			<td><input type="radio" name="color4" value="50%"></td>
-			<td><h3>約50%</h3></td>
-			<td><input type="radio" name="color4" value="75%"></td>
-			<td><h3>約75%</h3></td>
-			<td><input type="radio" name="color4" value="100%"></td>
-			<td><h3>約100%</h3></td>
-			<td><input type="radio" name="color4" value="120%"></td>
-			<td><h3>約120%以上</h3></td>
-			<td><input type="button" value="決定"></td>
+			<td class="center"><h3>間食</h3></td>
+			<td class="center"><input type="radio" name="color4" value="0%"></td>
+			<td class="center"><h3>0%</h3></td>
+			<td class="center"><input type="radio" name="color4" value="25%"></td>
+			<td class="center"><h3>約25%</h3></td>
+			<td class="center"><input type="radio" name="color4" value="50%"></td>
+			<td class="center"><h3>約50%</h3></td>
+			<td class="center"><input type="radio" name="color4" value="75%"></td>
+			<td class="center"><h3>約75%</h3></td>
+			<td class="center"><input type="radio" name="color4" value="100%"></td>
+			<td class="center"><h3>約100%</h3></td>
+			<td class="center"><input type="radio" name="color4" value="120%"></td>
+			<td class="center"><h3>約120%以上</h3></td>
+			<td class="center"><input type="button" value="決定" onclick="clickBtn4()"></td>
+		</tr>
+		</table>
+		<div class="center">
+		<p id="result4"></p>
+		<p id="comment4"></p>
+		</div>
+			</form>
+		<form action="/healthcare/MealServlet" method="post" enctype="multipart/form-data">
+		<table>
+		<tr>
+			<td><canvas id="preview" width="100" height="100"></canvas></td>
 		</tr>
 		<tr>
-			<td id="center"><p id="result"></p></td>
-		</tr>
-		<tr>
-			<td><input type="file"></td>
-			<td><input type="button" value="保存"></td>
+			<td><input type="file" name="IMAGE" accept="image/png, image/jpeg"></td>
+			<td><input type="button" value="保存" onchange="previewImage(this);"></td>
 		</tr>
 	</table>
 	</form>
@@ -314,24 +335,8 @@
 		&copy;&copy;Copyright SeHealthCare.All rights reserved.
 	</footer>
 	</div>
-  <script>
-  //初期画像
-  window.onload = ()=>{
-
-  // canvas準備
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
-
-  // 画像読み込み
-  const chara = new Image();
-  chara.src = "img/bmi.png";
-  chara.onload = () => {
-    ctx.drawImage(chara, 0, 0, 200, 200);
-  }
- }
-/*
-  //画像上書き
-  function previewImage(obj){
+	<script>
+	function previewImage(obj){
 
 		var fileReader = new FileReader();
 
@@ -339,18 +344,22 @@
 		fileReader.onload = (function() {
 
 			// canvas にプレビュー画像を表示
+			var canvas = document.getElementById('preview');
+			var ctx = canvas.getContext('2d');
 			var image = new Image();
-			chara.src = fileReader.result;
+			image.src = fileReader.result;
 
-			chara.onload = (function () {
-				chara.onload = () => {
-				ctx.drawImage(chara, 0, 0, 200, 200);
+			image.onload = (function () {
+				canvas.width = image.width;
+				canvas.height = image.height;
+				ctx.drawImage(image, 0, 0);
 			}
 		}
-  }
+		// 画像読み込み
 		fileReader.readAsDataURL(obj.files[0]);
-  }
-*/
+	}
+	</script>
+	<script>
   //満腹度
   let arr = ["しっかり食べましょう","もう少し食べてエネルギーつけましょう","もう少し食べましょう","ちょうどよい量です","少し食べすぎです","食べすぎです。もう少し抑えましょう"];
   function clickBtn1() {
@@ -374,13 +383,14 @@
 	    const color2 = document.form2.color2;
 
 	    for (i = 0; i < color2.length; i++) {
-	      if (color2[i].checked) {//(color1[i].checked === true)と同じ
+	      if (color2[i].checked) {//(color1[2].checked === true)と同じ
 	        str = color2[i].value;
 	        rul = arr[i];
 	        break;
 	      }
 	    }
-	    document.getElementById("result2").textContent = "あなたはその昼食を"+ str +"食べました。"+ rul;
+	    document.getElementById("result2").textContent = "あなたはその朝食を"+ str +"食べました。";
+	    document.getElementById("comment2").textContent = rul;
 	  }
   function clickBtn3() {
 	    let str = "";
@@ -394,7 +404,8 @@
 	        break;
 	      }
 	    }
-	    document.getElementById("result3").textContent = "あなたはその夕食を"+ str +"食べました。"+ rul;
+	    document.getElementById("result3").textContent = "あなたはその朝食を"+ str +"食べました。";
+	    document.getElementById("comment3").textContent = rul;
 	  }
   function clickBtn4() {
 	    let str = "";
@@ -408,7 +419,8 @@
 	        break;
 	      }
 	    }
-	    document.getElementById("result4").textContent = "あなたはその間食を"+ str +"食べました。"+ rul;
+	    document.getElementById("result4").textContent = "あなたはその朝食を"+ str +"食べました。";
+	    document.getElementById("comment4").textContent = rul;
 	  }
   </script>
 </body>
