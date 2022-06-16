@@ -13,7 +13,8 @@
 <body>
 	<div class="wrapper">
 		<header>
-			<img class="image" src="/healthcare/img/.png">
+			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
+				height="40">
 		</header>
 		<nav>
 			<ul id="nav">
@@ -22,7 +23,7 @@
 				<li><a href="/healthcare/SportServlet">運動計算</a></li>
 				<li><a href="/healthcare/MealServlet">食事記録</a></li>
 				<li><a href="/healthcare/ContactServlet">お問い合わせ</a></li>
-				<li><a href="/healthcare/LoginServlet">ログアウト</a></li>
+				<li><a href="/healthcare/LoginServlet" id="log_out">ログアウト</a></li>
 			</ul>
 		</nav>
 		<div class ="img">
@@ -43,11 +44,13 @@
            <td><textarea></textarea></td></tr>
                </table>
 		              <p class ="moj">＊1000文字以内で入力してください</p>
-			<div class ="mo"><input type="submit" value ="この内容で問い合わせる" onclick="alert()"></div>
+			<div class ="mo"><input type="submit" value ="この内容で問い合わせる"  onclick="con()">
+			</div>
 		</form>
 		</div>
-		<script>
-		</script>
+		<script src="/healthcare/js/common.js" type="text/javascript">
+
+</script>
 		<footer class="footer">
 			<div class="footer_hone">
 				<img src="/healthcare/img/footer.png">

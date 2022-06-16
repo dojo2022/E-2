@@ -12,7 +12,8 @@
 <body>
 <div class="wrapper">
 	<header>
-		<img src="/healthcare/img/">
+		<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
+				height="40">
 	</header>
 	<div class="wrapper">
 	<nav>

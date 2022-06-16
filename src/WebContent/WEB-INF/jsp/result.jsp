@@ -12,7 +12,8 @@
 <div class="wrapper">
 </div>
 <header>
-<img src="/healthcare/img/">
+<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
+				height="40">
 </header>
 <h2>エラー</h2>
 <div class="text">
