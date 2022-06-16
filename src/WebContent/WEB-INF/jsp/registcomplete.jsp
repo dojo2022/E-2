@@ -28,7 +28,8 @@
 		</div>
 		<table id="center">
 			<tr>
-				<td class="back"><a href="/healthcare/MenuServlet">マイページに戻る</a></td>
+				<td><input class="" type="button" onclick="location.href='/healthcare/MypageServlet'"value="マイページに戻る"></td>
+
 			</tr>
 		</table>
 		<footer class="footer">

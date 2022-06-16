@@ -13,13 +13,33 @@
 
 .back {
 	text-align: center;
-	border: solid;
+	outline: solid 2px #006e54;
 	width: 200px;
 	height: 50px;
-	border: 1px solid;
 	display: table-cell;
 	vertical-align: middle;
 }
+
+.back a:link{
+  color:#1f3134;
+  text-decoration:none;
+}
+.back a:visited{
+  color:#3c454d;
+  text-decoration:none;
+}
+
+.back a:hover{
+  color:#7b8dac;
+  text-decoration:none
+}
+
+.back a:active{
+  color:#5a9bc0;
+  text-decoration:none;
+}
+
+
 
 #center {
 	margin: auto;

@@ -1,14 +1,51 @@
 @charset "UTF-8";
 
 #regichan {
- margin: auto;
- margin-top:60px;
+	margin: auto;
+	margin-top: 60px;
 }
-.back{
+
+.regi {
+	outline: solid 2px #98d98e;
+}
+.button {
+	box-shadow: 3px 3px 3px gray;
+	outline: solid 2px #006e54
+}
+.back {
 	text-align: right;
 	padding-right: 100px;
 }
+.back {
+	text-align: right;
+	padding-right: 100px;
+}
+.back a:link{
+  color:#1f3134;
+  text-decoration:none;
+}
+.back a:visited{
+  color:#3c454d;
+  text-decoration:none;
+}
 
-.center{
+.back a:hover{
+  color:#7b8dac;
+  text-decoration:none
+}
+
+.back a:active{
+  color:#5a9bc0;
+  text-decoration:none;
+}
+
+.back li{
+  display:inline;
+  list-style:none;
+  padding-right:30px;
+  text-align: center;
+}
+
+.center {
 	text-align: center;
 }
