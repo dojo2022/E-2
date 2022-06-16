@@ -14,7 +14,8 @@
 	<div class="wrapper">
 
 		<header>
-			<img src="/healthcare/img/">
+			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
+				height="40">
 		</header>
 
 		<h2 class="pagetitle">登録変更</h2>
@@ -50,7 +51,7 @@
 			</div>
 		</form>
 		<p class="back">
-			<a href="/healthcare/MenuServlet">マイページに戻る</a>
+			<a href="/healthcare/MypageServlet">マイページに戻る</a>
 		</p>
 
 		<footer class="footer">
