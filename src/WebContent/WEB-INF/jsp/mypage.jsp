@@ -26,7 +26,7 @@
 				<li><a href="/healthcare/LoginServlet" id="log_out">ログアウト</a></li>
 			</ul>
 		</nav>
-		<script src="/healthcare/js/common.js" type="text/javascript" type="text/javascript"></script>
+		<script src="/healthcare/js/common.js" type="text/javascript"></script>
 
 		<h2 class="pagetitle">MYページ</h2>
 		<div class="heading">

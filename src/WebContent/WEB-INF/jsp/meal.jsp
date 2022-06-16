@@ -26,6 +26,7 @@
 			<li><a href="/healthcare/LoginServlet" id="log_out">ログアウト</a></li>
 		</ul>
 	</nav>
+	<script src="/healthcare/js/common.js" type="text/javascript"></script>
 	</div>
 	<div class="meal">
 	<h2>食事記録</h2>

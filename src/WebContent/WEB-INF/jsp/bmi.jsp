@@ -25,6 +25,7 @@
 				<li><a href="/healthcare/LoginServlet" id="log_out">ログアウト</a></li>
 			</ul>
 		</nav>
+		<script src="/healthcare/js/common.js" type="text/javascript"></script>
 		<div class="bmi">
 			<h2 class="pagetitle">BMI計算</h2>
 			<img id="bmiimg" src="/healthcare/img/bmi.png" alt="">
