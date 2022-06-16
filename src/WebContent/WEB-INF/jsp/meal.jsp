@@ -12,7 +12,8 @@
 <body>
 <div class="wrapper">
 	<header>
-		<img src="/healthcare/img/">
+		<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
+				height="40">
 	</header>
 	<div class="wrapper">
 	<nav>
@@ -22,9 +23,10 @@
 			<li><a href="/healthcare/SportServlet">運動計算</a></li>
 			<li><a href="/healthcare/MealServlet">食事記録</a></li>
 			<li><a href="/healthcare/ContactServlet">お問い合わせ</a></li>
-			<li><a href="/healthcare/LoginServlet">ログアウト</a></li>
+			<li><a href="/healthcare/LoginServlet" id="log_out">ログアウト</a></li>
 		</ul>
 	</nav>
+	<script src="/healthcare/js/common.js" type="text/javascript"></script>
 	</div>
 	<div class="meal">
 	<h2>食事記録</h2>

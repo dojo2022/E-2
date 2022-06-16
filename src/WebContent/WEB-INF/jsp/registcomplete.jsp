@@ -14,7 +14,8 @@
 	<div class="wrapper">
 
 		<header>
-			<img src="/healthcare/img/">
+			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
+				height="40">
 		</header>
 
 		<h2 class="pagetitle">変更完了</h2>
@@ -28,7 +29,8 @@
 		</div>
 		<table id="center">
 			<tr>
-				<td class="back"><a href="/healthcare/MenuServlet">マイページに戻る</a></td>
+				<td><input class="" type="button" onclick="location.href='/healthcare/MypageServlet'"value="マイページに戻る"></td>
+
 			</tr>
 		</table>
 		<footer class="footer">

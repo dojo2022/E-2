@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Userdata {
+public class Userdata implements Serializable {
 	private String userid;//userid
 	private String password;//パスワード
 	private String email;//メールアドレス
