@@ -38,7 +38,11 @@
   color:#5a9bc0;
   text-decoration:none;
 }
-
+.honbun{
+border : 1px solid #00552E ;
+	padding : 10px ;
+	height : 50px ;
+}
 
 
 #center {

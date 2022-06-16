@@ -21,7 +21,7 @@
 <img class="image" src="/healthcare/img/お問い合わせ完了.png">
 </div>
 <div class="button">
-<input class="" type="button" onclick="location.href='/healthcare/MypageServlet'"value="マイページに戻る">
+<input class="buttoncolor" type="button" onclick="location.href='/healthcare/MypageServlet'"value="マイページに戻る">
 </div>
 <footer class ="footer">
           <div class ="footer_hone">

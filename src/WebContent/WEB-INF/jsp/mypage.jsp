@@ -14,7 +14,7 @@
 		<header>
 			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
 				height="40">
-			<input class="btn" type="button" onclick="location.href='/healthcare/IdentityServlet'"value="登録内容変更">
+			<input class="btn buttoncolor" type="button" onclick="location.href='/healthcare/IdentityServlet'"value="登録内容変更">
 		</header>
 		<nav>
 			<ul id="nav">

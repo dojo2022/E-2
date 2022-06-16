@@ -34,10 +34,10 @@
 			</table>
 
 			<p>
-				<input class="button" type="submit" name="LOGIN" value="login">
+				<input class="buttoncolor" type="submit" name="LOGIN" value="login">
 			</p>
 			<p>
-				<input class="button" type="submit" name="signup" value="新規登録">
+				<input class="buttoncolor" type="submit" name="signup" value="新規登録">
 			</p>
 		</form>
 
