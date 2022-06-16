@@ -21,19 +21,19 @@
 			<table id="regichan">
 				<tr>
 					<td class= "label req">ID</td>
-					<td><input type="text" name="ID" placeholder="5文字以上20文字以内で入力してください"></td>
+					<td><input class="regi" type="text" name="ID" placeholder="5文字以上20文字以内で入力してください"></td>
 				</tr>
 				<tr>
 					<td class= "label req">password</td>
-					<td><input type="password" name="PW" placeholder="8文字以上20文字以内で入力してください"></td>
+					<td><input class="regi" type="password" name="PW" placeholder="8文字以上20文字以内で入力してください"></td>
 				</tr>
 				<tr>
 					<td class= "label req">確認用password</td>
-					<td><input type="password" name="PW"></td>
+					<td><input class="regi" type="password" name="PW"></td>
 				</tr>
 				<tr>
 					<td class= "label req">メールアドレス</td>
-					<td><input type="text" name="EMAIL"></td>
+					<td><input class="regi" type="text" name="EMAIL"></td>
 				</tr>
 				<tr>
 					<td class= "label req">性別</td>
@@ -42,7 +42,7 @@
 				</tr>
 				<tr>
 					<td class= "label req">生年月日</td>
-					<td><select name="year">
+					<td><select class="regi" name="year">
 			<option value="1922">1922年</option>
 			<option value="1923">1923年</option>
 			<option value="1924">1924年</option>
@@ -144,7 +144,7 @@
 			<option value="2020">2020年</option>
 			<option value="2021">2021年</option>
 			<option value="2022">2022年</option>
-		</select> <select name="month">
+		</select> <select class="regi" name="month">
 			<option value="jan">1月</option>
 			<option value="feb">2月</option>
 			<option value="mar">3月</option>
@@ -157,7 +157,7 @@
 			<option value="oct">10月</option>
 			<option value="nov">11月</option>
 			<option value="dec">12月</option>
-		</select> <select name="day">
+		</select> <select class="regi" name="day">
 			<option value="1">1日</option>
 			<option value="2">2日</option>
 			<option value="3">3日</option>
@@ -193,15 +193,15 @@
 				</tr>
 				<tr>
 					<td class= "label req">身長</td>
-					<td><input type="text" name="HEIGHT"></td>
+					<td><input class="regi" type="text" name="HEIGHT"></td>
 				</tr>
 				<tr>
 					<td class= "label">目標体重</td>
-					<td><input type="text" name="TARGETWEIGHT"></td>
+					<td><input class="regi" type="text" name="TARGETWEIGHT"></td>
 				</tr>
 			</table>
 			<div class="btn">
-			<input  type="submit" name="SUBMIT" value="登録">
+			<input class="buttoncolor" type="submit" name="SUBMIT" value="登録">
 			</div>
 		</form>
 		<div class="loginbc">

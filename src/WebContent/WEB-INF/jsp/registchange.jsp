@@ -46,7 +46,7 @@
 			</table>
 			<div class="center">
 				<p>
-					<input class="button" type="submit" name="change" value="変更">
+					<input class="buttoncolor" type="submit" name="change" value="変更">
 				</p>
 			</div>
 		</form>

@@ -17,13 +17,13 @@
 <h2>お問い合わせ完了</h2>
 <div class="text">
 <p></p>
-<p class = "boxes">お問い合わせが完了しました。<br>
+<p class = "boxes regi">お問い合わせが完了しました。<br>
 内容を確認の上、改めてご連絡いたします。</p>
 <img class="image" src="/healthcare/img/お問い合わせ完了.png">
 </div>
 <div class="button">
-<input class="" type="button" onclick="location.href='/healthcare/ContactServlet'"value="お問い合わせ画面に戻る">
-<input class="" type="button" onclick="location.href='/healthcare/MypageServlet'"value="マイページに戻る">
+<input class="buttoncolor" type="button" onclick="location.href='/healthcare/ContactServlet'"value="お問い合わせ画面に戻る">
+<input class="buttoncolor" type="button" onclick="location.href='/healthcare/MypageServlet'"value="マイページに戻る">
 </div>
 <footer class ="footer">
           <div class ="footer_hone">

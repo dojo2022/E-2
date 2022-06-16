@@ -49,9 +49,9 @@
 				</p>
 			</div>
 
-			<input type="submit" value="計算" onclick="" />
+			<input class="buttoncolor" type="submit" value="計算" onclick="" />
 		</div>
-		<div></div>
+		<div class=""></div>
 
 		<table class="mg">
 			<tr>
