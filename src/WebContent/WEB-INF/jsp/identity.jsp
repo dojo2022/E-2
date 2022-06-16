@@ -41,7 +41,7 @@
 
 		</form>
 		<p class="back">
-			<a href="/healthcare/MenuServlet">マイページに戻る</a>
+			<a href="/healthcare/MypageServlet">マイページに戻る</a>
 		</p>
 
 		<footer class="footer">
