@@ -21,8 +21,8 @@
 <img class="image" src="/healthcare/img/お問い合わせ完了.png">
 </div>
 <div class="button">
-<p class = "box" >お問い合わせ画面に戻る</p>
-<p class = "box">マイページに戻る</p>
+<input class="" type="button" onclick="location.href='/healthcare/ContactServlet'"value="お問い合わせ画面に戻る">
+<input class="" type="button" onclick="location.href='/healthcare/MypageServlet'"value="マイページに戻る">
 </div>
 <footer class ="footer">
           <div class ="footer_hone">
