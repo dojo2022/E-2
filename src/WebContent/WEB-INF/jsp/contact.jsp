@@ -30,18 +30,20 @@
 		<h2 class = "pagetitle"> お問い合わせ</h2>
 		<img class="image" src="/healthcare/img/contact.png">
 		</div>
-				<form name="myform" onsubmit="return false">
+				<form method="POST" action="/healthcare/ContactServlet" >
         <table class="center">
 			<tr>
 				<td>ID</td><td><input class="regi" type="text" name="ID"readonly></td>
 			</tr>
 			<tr>
+				<td>メールアドレス</td><td><input type="text" name="EMAIL"></td>
 				<td>メールアドレス</td><td><input class="regi" type="text" name="email"></td>
 			</tr>
 			</table>
 			<table class = "moji">
 			<tr><td>お問い合わせ内容</td>
-           <td><textarea class="regi"></textarea></td></tr>
+           <td><textarea name = "TEXT"></textarea></td></tr>
+          <tr> <td><textarea class="regi"></textarea></td></tr>
                </table>
 		              <p class ="moj">＊1000文字以内で入力してください</p>
 			<div class ="mo "><input class="buttoncolor" type="submit" value ="この内容で問い合わせる"  onclick="con()">
