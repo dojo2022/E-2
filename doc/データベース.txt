@@ -14,16 +14,17 @@ height double NOT NULL
 
 平均体重
 create table aveweight (
-gender varchar PRIMARY KEY,
-age int PRIMARY KEY,
-aveweight double NOT NULL
+gender varchar,
+age int,
+aveweight double NOT NULL,
+PRIMARY KEY(gender, age)
 )
 
 
 お問い合わせ
 create table contact (
 userid varchar PRIMARY KEY,
-number auto_increment PRIMARY KEY,
+number int auto_increment PRIMARY KEY,
 email varchar (40) NOT NULL,
 contact varchar (1000) NOT NULL
 )
@@ -31,7 +32,7 @@ contact varchar (1000) NOT NULL
 
 スポーツ
 create table sports (
-number auto_increment PRIMARY KEY,
+spnumber int auto_increment PRIMARY KEY,
 sports varchar(40) NOT NULL,
 mets double NOT NULL
 )
