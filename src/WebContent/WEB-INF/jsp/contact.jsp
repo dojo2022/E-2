@@ -43,8 +43,7 @@
            <td><textarea></textarea></td></tr>
                </table>
 		              <p class ="moj">＊1000文字以内で入力してください</p>
-		              <p class="box"> この内容で問い合わせる</p>
-			<div class ="mo"><input type="submit" onclick="alert()"></div>
+			<div class ="mo"><input type="submit" value ="この内容で問い合わせる" onclick="alert()"></div>
 		</form>
 		</div>
 		<script>

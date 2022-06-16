@@ -34,3 +34,8 @@
 	margin : auto ;
 	line-height : 50px
 }
+textarea{
+	resize : none ;
+	height : 200px ;
+	width : 300px ;
+}
