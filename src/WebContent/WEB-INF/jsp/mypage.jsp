@@ -22,9 +22,10 @@
 				<li><a href="/healthcare/SportServlet">運動計算</a></li>
 				<li><a href="/healthcare/MealServlet">食事記録</a></li>
 				<li><a href="/healthcare/ContactServlet">お問い合わせ</a></li>
-				<li><a href="/healthcare/LoginServlet">ログアウト</a></li>
+				<li><a href="/healthcare/LoginServlet" id="log_out">ログアウト</a></li>
 			</ul>
 		</nav>
+		<script src="/healthcare/js/common.js" type="text/javascript"" type="text/javascript"></script>
 
 		<h2 class="pagetitle">MYページ</h2>
 		<div class="heading">
