@@ -1,6 +1,8 @@
 package model;
 
-public class Aveweight {
+import java.io.Serializable;
+
+public class Aveweight implements Serializable {
 	private String gender;//性別
 	private int age;//年齢
 	private double aveweight;//平均体重

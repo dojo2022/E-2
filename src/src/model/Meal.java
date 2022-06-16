@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Meal {
+public class Meal implements Serializable{
 	private String userid; //userid
 	private int foodnumber; //食事番号
 	private Date daily;// 日付
