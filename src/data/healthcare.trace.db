@@ -3185,3 +3185,77 @@ SELECT * FROM healthcare [42102-200]
 org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "SELECR[*] * FROM AVEWEIGHT"; 期待されるステートメント "SET, SAVEPOINT, SCRIPT, SHUTDOWN, SHOW"
 Syntax error in SQL statement "SELECR[*] * FROM AVEWEIGHT"; expected "SET, SAVEPOINT, SCRIPT, SHUTDOWN, SHOW"; SQL statement:
 selecr * from aveweight [42001-200]
+2022-06-16 16:24:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "HEALTHCARE" が見つかりません
+Table "HEALTHCARE" not found; SQL statement:
+INSERT INTO healthcare (sports, mets) VALUES ('立位(会話、電話、読書)', 1.8) [42102-200]
+2022-06-16 16:46:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "INSERT INTO SPORTS (SPORTS, METS) VALUES ('電動アシスト付き自転車に乗る',3.0)
+INSERT[*] INTO SPORTS (SPORTS, METS) VALUES ('家財道具の片付け',3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('子供の世話(立位)',3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('台所の手伝い',3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('大工仕事',3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('梱包',3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('ギター演奏(立位)',3.0)"
+Syntax error in SQL statement "INSERT INTO SPORTS (SPORTS, METS) VALUES ('電動アシスト付き自転車に乗る',3.0)
+INSERT[*] INTO SPORTS (SPORTS, METS) VALUES ('家財道具の片付け',3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('子供の世話(立位)',3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('台所の手伝い',3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('大工仕事',3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('梱包',3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('ギター演奏(立位)',3.0)"; SQL statement:
+INSERT INTO sports (sports, mets) VALUES ('電動アシスト付き自転車に乗る',3.0)
+INSERT INTO sports (sports, mets) VALUES ('家財道具の片付け',3.0)
+INSERT INTO sports (sports, mets) VALUES ('子供の世話(立位)',3.0)
+INSERT INTO sports (sports, mets) VALUES ('台所の手伝い',3.0)
+INSERT INTO sports (sports, mets) VALUES ('大工仕事',3.0)
+INSERT INTO sports (sports, mets) VALUES ('梱包',3.0)
+INSERT INTO sports (sports, mets) VALUES ('ギター演奏(立位)',3.0) [42000-200]
+2022-06-16 16:47:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "INSERT INTO SPORTS (SPORTS, METS) VALUES ('電動アシスト付き自転車に乗る', 3.0)
+INSERT[*] INTO SPORTS (SPORTS, METS) VALUES ('家財道具の片付け', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('子供の世話(立位)', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('台所の手伝い', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('大工仕事', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('梱包', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('ギター演奏(立位)', 3.0)"
+Syntax error in SQL statement "INSERT INTO SPORTS (SPORTS, METS) VALUES ('電動アシスト付き自転車に乗る', 3.0)
+INSERT[*] INTO SPORTS (SPORTS, METS) VALUES ('家財道具の片付け', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('子供の世話(立位)', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('台所の手伝い', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('大工仕事', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('梱包', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('ギター演奏(立位)', 3.0)"; SQL statement:
+INSERT INTO sports (sports, mets) VALUES ('電動アシスト付き自転車に乗る', 3.0)
+INSERT INTO sports (sports, mets) VALUES ('家財道具の片付け', 3.0)
+INSERT INTO sports (sports, mets) VALUES ('子供の世話(立位)', 3.0)
+INSERT INTO sports (sports, mets) VALUES ('台所の手伝い', 3.0)
+INSERT INTO sports (sports, mets) VALUES ('大工仕事', 3.0)
+INSERT INTO sports (sports, mets) VALUES ('梱包', 3.0)
+INSERT INTO sports (sports, mets) VALUES ('ギター演奏(立位)', 3.0) [42000-200]
+2022-06-16 16:49:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "INSERT INTO SPORTS (SPORTS, METS) VALUES ('家財道具の片付け', 3.0)
+INSERT[*] INTO SPORTS (SPORTS, METS) VALUES ('子供の世話(立位)', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('台所の手伝い', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('大工仕事', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('梱包', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('ギター演奏(立位)', 3.0)"
+Syntax error in SQL statement "INSERT INTO SPORTS (SPORTS, METS) VALUES ('家財道具の片付け', 3.0)
+INSERT[*] INTO SPORTS (SPORTS, METS) VALUES ('子供の世話(立位)', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('台所の手伝い', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('大工仕事', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('梱包', 3.0)
+INSERT INTO SPORTS (SPORTS, METS) VALUES ('ギター演奏(立位)', 3.0)"; SQL statement:
+INSERT INTO sports (sports, mets) VALUES ('家財道具の片付け', 3.0)
+INSERT INTO sports (sports, mets) VALUES ('子供の世話(立位)', 3.0)
+INSERT INTO sports (sports, mets) VALUES ('台所の手伝い', 3.0)
+INSERT INTO sports (sports, mets) VALUES ('大工仕事', 3.0)
+INSERT INTO sports (sports, mets) VALUES ('梱包', 3.0)
+INSERT INTO sports (sports, mets) VALUES ('ギター演奏(立位)', 3.0) [42000-200]
+2022-06-16 16:51:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "INSERT INTO SPORTS (SPORTS, METS) VALUES ('カーペット掃き', 3.3)
+INSERT[*] INTO SPORTS (SPORTS, METS) VALUES ('フロア掃き', 3.3)"
+Syntax error in SQL statement "INSERT INTO SPORTS (SPORTS, METS) VALUES ('カーペット掃き', 3.3)
+INSERT[*] INTO SPORTS (SPORTS, METS) VALUES ('フロア掃き', 3.3)"; SQL statement:
+INSERT INTO sports (sports, mets) VALUES ('カーペット掃き', 3.3)
+INSERT INTO sports (sports, mets) VALUES ('フロア掃き', 3.3) [42000-200]
