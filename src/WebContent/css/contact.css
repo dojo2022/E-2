@@ -2,10 +2,12 @@
 .center{
 	text-align : center ;
 	margin : auto ;
+	line-height : 50px
 }
 .moji{
 	text-align : center ;
 	margin : auto ;
+	line-height : 70px
 }
 .image{
 	height : 5% ;
@@ -14,4 +16,21 @@
 }
 .img{
 	display : flex ;
+}
+.moj {
+	text-align : center ;
+	margin : auto ;
+	line-height : 50px
+}
+.box{
+    text-align : center ;
+	margin : auto ;
+    border : 1px solid #00552E ;
+    width : 200px ;
+	padding : 4px ;
+}
+.mo{
+	text-align : center ;
+	margin : auto ;
+	line-height : 50px
 }

@@ -41,13 +41,13 @@
 			<table class = "moji">
 			<tr><td>お問い合わせ内容</td>
            <td><textarea></textarea></td></tr>
-		<tr><td>＊1000文字以内で入力してください</td></tr>
-			<tr><td><input type="submit" onclick="alert()"></td></tr>
-			</table>
+               </table>
+		              <p class ="moj">＊1000文字以内で入力してください</p>
+		              <p class="box"> この内容で問い合わせる</p>
+			<div class ="mo"><input type="submit" onclick="alert()"></div>
 		</form>
 		</div>
 		<script>
-
 		</script>
 		<footer class="footer">
 			<div class="footer_hone">
