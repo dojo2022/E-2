@@ -12,7 +12,8 @@
 <body>
 	<div class="wrapper">
 		<header>
-			<img src="/healthcare/img/">
+			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
+				height="40">
 			<input class="btn" type="button" onclick="location.href='/healthcare/IdentityServlet'"value="登録内容変更">
 		</header>
 		<nav>
@@ -25,7 +26,7 @@
 				<li><a href="/healthcare/LoginServlet" id="log_out">ログアウト</a></li>
 			</ul>
 		</nav>
-		<script src="/healthcare/js/common.js" type="text/javascript"" type="text/javascript"></script>
+		<script src="/healthcare/js/common.js" type="text/javascript" type="text/javascript"></script>
 
 		<h2 class="pagetitle">MYページ</h2>
 		<div class="heading">
