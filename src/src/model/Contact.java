@@ -9,6 +9,13 @@ import java.io.Serializable;
    private String contact ; //お問い合わせ内容
  public Contact() {
 	}
+
+	public Contact(String userid, String email, String contact) {
+	this.userid = userid;
+	this.email = email;
+	this.contact = contact;
+}
+
 	public Contact(String userid, int number, String email, String contact) {
 		this.userid = userid;
 		this.number = number;
