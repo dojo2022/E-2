@@ -22,9 +22,10 @@
 				<li><a href="/healthcare/SportServlet">運動計算</a></li>
 				<li><a href="/healthcare/MealServlet">食事記録</a></li>
 				<li><a href="/healthcare/ContactServlet">お問い合わせ</a></li>
-				<li><a href="/healthcare/LoginServlet">ログアウト</a></li>
+				<li><a href="/healthcare/LoginServlet" id="log_out">ログアウト</a></li>
 			</ul>
 		</nav>
+		<script src="/healthcare/js/common.js" type="text/javascript"></script>
 		<div class="bmi">
 			<h2 class="pagetitle">BMI計算</h2>
 			<img id="bmiimg" src="/healthcare/img/bmi.png" alt="">
@@ -48,9 +49,9 @@
 				</p>
 			</div>
 
-			<input type="submit" value="計算" onclick="" />
+			<input class="buttoncolor" type="submit" value="計算" onclick="" />
 		</div>
-		<div></div>
+		<div class=""></div>
 
 		<table class="mg">
 			<tr>

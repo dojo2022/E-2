@@ -22,9 +22,10 @@
 			<li><a href="/healthcare/SportServlet">運動計算</a></li>
 			<li><a href="/healthcare/MealServlet">食事記録</a></li>
 			<li><a href="/healthcare/ContactServlet">お問い合わせ</a></li>
-			<li><a href="/healthcare/LoginServlet">ログアウト</a></li>
+			<li><a href="/healthcare/LoginServlet" id="log_out">ログアウト</a></li>
 		</ul>
 	</nav>
+	<script src="/healthcare/js/common.js" type="text/javascript"></script>
 	<div class="sports">
 	<h2 class="pagetitle">運動計算</h2>
 	<img id="sportsimg" src="/healthcare/img/sport.png" alt="">
@@ -39,27 +40,27 @@
 		<input type="radio" name="radio" id="radio1" checked="checked"><label for="radio1">生活</label>
 		<input type="radio" name="radio" id="radio2"><label for="radio2">運動</label>
 	</p>
-	<select name="life">
+	<select class="regi" name="life">
 		<option value="1922">あいうえお</option>
 	</select>
 	<p>
-		時間<input type="text" value="">分
+		時間<input class="regi" type="text" value="">分
 	</p>
 	<p>
-		体重<input type="text" value="">kg
+		体重<input class="regi" type="text" value="">kg
 	</p>
-	<input type="button" value="計算">
-	<input type="button" value="クリア">
+	<input class="buttoncolor" type="button" value="計算">
+	<input class="buttoncolor" type="button" value="クリア">
 	</div>
 	<hr>
 	<div class="center">
 	<p>
-		運動強度<input type="text" value="">(メッツ)
+		運動強度<input class="regi" type="text" value="">(メッツ)
 	</p>
 	<p id = "out">
-		消費カロリー<input type="text" value="">kcal
+		消費カロリー<input class="regi" type="text" value="">kcal
 	</p>
-	<select name="year">
+	<select class="regi" name="year">
 		<option value="1922">1922年</option>
 		<option value="1923">1923年</option>
 		<option value="1924">1924年</option>
@@ -163,7 +164,7 @@
 		<option value="2022">2022年</option>
 	</select>
 
-	<select name="month">
+	<select class="regi" name="month">
 		<option value="jan">1月</option>
 		<option value="feb">2月</option>
 		<option value="mar">3月</option>
@@ -178,7 +179,7 @@
 		<option value="dec">12月</option>
 	</select>
 
-	<select name="day">
+	<select class="regi" name="day">
 		<option value="1">1日</option>
 		<option value="2">2日</option>
 		<option value="3">3日</option>
@@ -211,9 +212,9 @@
 		<option value="30">30日</option>
 		<option value="31">31日</option>
 	</select>
-	<p class="box">総消費カロリーは です。</p>
-	<input type="button" value="保存">
-	<input type="button" value="リセット">
+	<p class="box buttoncolor">総消費カロリーは です。</p>
+	<input class="buttoncolor" type="button" value="保存">
+	<input class="buttoncolor" type="button" value="リセット">
 	</div>
 	<footer class="footer">
 		<div class="footer_hone">
