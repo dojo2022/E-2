@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ContactDao;
-import model.Bc;
+import model.Contact;
 import model.Result;
 
 /**
@@ -40,17 +40,16 @@ public class ContactServlet extends HttpServlet {
 		String email = request.getParameter("EMAIL");
         String contact= request.getParameter("TEXT");
 
-        ContactDao bDao = new ContactDao();
-        if (bDao.insert(new Bc(number, name, company ,tell,address,email))) {	// 登録成功
-			request.setAttribute("result",
-			new Result("登録成功！", "レコードを登録しました。", "/simpleBC/MenuServlet"));
+        ContactDao cDao = new ContactDao();
+        if (cDao.contactin(new Contact (userid , email ,contact))) {	// 登録成功
+        	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/contactcomplete.jsp");
+    		dispatcher.forward(request, response);
 		}
 		else {												// 登録失敗
 			request.setAttribute("result",
-			new Result("登録失敗！", "レコードを登録できませんでした。", "/simpleBC/MenuServlet"));
+			new Result("登録失敗！", "レコードを登録できませんでした。", "/healthcare/MypageServlet"));
+			RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+			 dispatcher.forward(request, response);
 		}
-
-
 	}
-
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,7 @@
 	href="/healthcare/css/comstyle.css">
 <link rel="stylesheet" type="text/css" href="/healthcare/css/mypage.css">
 </head>
-<body>
+<body onload="">
 	<div class="wrapper">
 		<header>
 			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
@@ -30,9 +31,9 @@
 
 		<h2 class="pagetitle">MYページ</h2>
 		<div class="heading">
-			<h3>目標体重<br>〇kg</h3>
+			<h3>目標体重<br><c:out value="tagweight.aveweight"/>kg</h3>
 			<h3>
-				あなたは○日連続<br>&emsp;ログインです。
+				あなたは<c:out value=""/>日連続<br>&emsp;ログインです。
 			</h3>
 		</div>
 		<div class="center">

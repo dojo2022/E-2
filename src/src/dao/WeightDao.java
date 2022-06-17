@@ -1,5 +1,6 @@
 package dao;
 
+<<<<<<< HEAD
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -20,4 +21,12 @@ public class WeightDao {
 			//SQL文を準備
 	return result;
   }
+=======
+public class WeightDao {
+//目標体重を参照
+	public double findtagweight() {
+		return 0;
+
+	}
+>>>>>>> 886f1bfebce170b4cc7554cb69e18dbb489ff1ae
 }
