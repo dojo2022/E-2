@@ -17,6 +17,10 @@ public class Userdata implements Serializable {
 	public Userdata() {
 	}
 
+	public Userdata(double targetwight) {
+		this.targetwight = targetwight;
+	}
+
 	public Userdata(String userid, String password, String email, String gender, Date birth, double targetwight,
 			int daily,
 			Date lastlogin, double height) {
