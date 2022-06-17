@@ -8,6 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.UserDao;
+import model.LoginUser;
+import model.Result;
+import model.Userdata;
 
 /**
  * Servlet implementation class LoginServlet
@@ -20,8 +26,8 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");//この中のloginをファイル名に変えてください
+		// ログインページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -29,8 +35,31 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String userid = request.getParameter("ID");
+		String password = request.getParameter("PW");
 
+		// ログイン処理を行う
+		UserDao uDao = new UserDao();
+		if (request.getParameter("submit").equals("login")) {	// ログイン成功
+        if (uDao.isloginok(new Userdata(userid,password))) {
+
+        	HttpSession session = request.getSession();
+			session.setAttribute("id", new Loginuser(userid));
+
+
+			// メニューサーブレットにリダイレクトする
+			response.sendRedirect("/healthcare/MypageServlet");
+		}
+		else {									// ログイン失敗
+			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
+			request.setAttribute("result",
+			new Result("IDまたはパスワードに間違いがあります。","", "/healthcare/LoginServlet"));
+
+			// 結果ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+			dispatcher.forward(request, response);
+		}
+	}
 }
