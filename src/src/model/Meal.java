@@ -10,6 +10,7 @@ public class Meal implements Serializable{
 	private String meal;//食事写真
 	private int satiety;//満腹度
 
+
 	public Meal(String userid, int foodnumber, Date daily, String meal, int satiety) {
 		this.userid = userid;
 		this.foodnumber = foodnumber;
