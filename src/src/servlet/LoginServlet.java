@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
-import model.LoginUser;
+import model.Loginuser;
 import model.Result;
 import model.Userdata;
 
