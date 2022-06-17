@@ -10,7 +10,7 @@
 	href="/healthcare/css/comstyle.css">
 <link rel="stylesheet" type="text/css" href="/healthcare/css/mypage.css">
 </head>
-<body onload="">
+<body onload="test()">
 	<div class="wrapper">
 		<header>
 			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
@@ -27,11 +27,10 @@
 				<li><a href="/healthcare/LoginServlet" id="log_out">ログアウト</a></li>
 			</ul>
 		</nav>
-		<script src="/healthcare/js/common.js" type="text/javascript"></script>
 
 		<h2 class="pagetitle">MYページ</h2>
 		<div class="heading">
-			<h3>目標体重<br><c:out value="tagweight.aveweight"/>kg</h3>
+			<h3>目標体重<br><c:out value="${tagweight.targetwight}"/>kg</h3>
 			<h3>
 				あなたは<c:out value=""/>日連続<br>&emsp;ログインです。
 			</h3>
@@ -57,6 +56,8 @@
 			</div>
 			&copy;&copy;Copyright SeHealthCare. All rights reserved.
 		</footer>
+		<script src="/healthcare/js/common.js" type="text/javascript"></script>
+		<script src="/healthcare/js/mypage.js" type="text/javascript"></script>
 	</div>
 </body>
 </html>
