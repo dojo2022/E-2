@@ -1,30 +1,36 @@
 @charset "UTF-8";
 
-.text{
-	text-align : center ;
-    display : flex ;
-    justify-content : space-around ;
-    margin-left : 200px ;
-}
-.image{
-	height : 25% ;
-	width :  25% ;
-}
-.button{
-	display : flex ;
-	justify-content : space-evenly ;
-}
-.box{
-	border : 1px solid #00552E ;
-	padding : 4px ;
-}
-.boxes{
-	border : 1px solid #00552E ;
-	padding : 4px ;
-	height : 50px ;
+.text {
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+	margin-left: 200px;
 }
 
-.logo{
+.image {
+	height: 25%;
+	width: 25%;
+}
+
+.button {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.box {
+	border: 1px solid #00552E;
+	padding: 4px;
+}
+
+.boxes {
+	border: 1px solid #00552E;
+	text-align: center;
+	height: 60px;
+	width:250px;
+	vertical-align: middle;
+}
+
+.logo {
 	margin: auto;
 	text-align: center;
 }
