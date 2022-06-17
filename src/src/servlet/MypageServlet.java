@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UserDao;
+import dao.WeightDao;
+
 /**
  * Servlet implementation class MypageServlet
  */
@@ -16,11 +19,18 @@ import javax.servlet.http.HttpServletResponse;
 public class MypageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
+	/**s
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		WeightDao weDao = new WeightDao();
+		double tagweight = weDao.findtagweight();
+		request.setAttribute("tagweight", tagweight);
+
+		UserDao uDao = new UserDao();
+		int daily = uDao.finddaily();
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
 	}
