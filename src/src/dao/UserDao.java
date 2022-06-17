@@ -35,22 +35,18 @@ public class UserDao {
 			if (rs.getInt("count(*)") == 1) {
 				loginResult = true;
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 			loginResult = false;
-		}
-		catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			loginResult = false;
-		}
-		finally {
+		} finally {
 			// データベースを切断
 			if (conn != null) {
 				try {
 					conn.close();
-				}
-				catch (SQLException e) {
+				} catch (SQLException e) {
 					e.printStackTrace();
 					loginResult = false;
 				}

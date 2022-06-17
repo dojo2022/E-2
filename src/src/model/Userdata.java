@@ -17,9 +17,19 @@ public class Userdata implements Serializable {
 	public Userdata() {
 	}
 
+
 	public Userdata(String password, String email) {
 		this.password = password;
 		this.email = email;
+}
+
+	public Userdata(String userid, String password) {
+		this.userid = userid;
+		this.password = password;
+	}
+
+	public Userdata(double targetwight) {
+		this.targetwight = targetwight;
 	}
 
 	public Userdata(String userid, String password, String email, String gender, Date birth, double targetwight,
