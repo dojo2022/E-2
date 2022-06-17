@@ -34,9 +34,9 @@ public class MypageServlet extends HttpServlet {
 		request.setAttribute("tagweight", tagweight);
 
 		UserDao uDao = new UserDao();
-		int daily = uDao.finddaily();
+		//int daily = uDao.finddaily();
 
-		request.setAttribute("daily", daily);
+		//request.setAttribute("daily", daily);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
