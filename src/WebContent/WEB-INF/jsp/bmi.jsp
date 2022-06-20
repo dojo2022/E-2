@@ -57,8 +57,9 @@
 				class="buttoncolor" type="button" value="計算" id="btn"
 				onclick="test()">
 		</div>
-		<div>
-			<p id="id01"></p>
+		<br>
+		<div  class="butbmi" id="butbmi">
+		あなたのBMIは〇〇です
 		</div>
 		<div class=""></div>
 

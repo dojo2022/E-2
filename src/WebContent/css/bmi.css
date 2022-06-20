@@ -37,3 +37,10 @@ th,td{
 .mg{
 	margin-top: 20px;
 }
+.butbmi {
+	box-shadow: 3px 3px 3px gray;
+	outline: solid 2px #006e54;
+	text-align: center;
+	width:250px;
+	margin:auto;
+}
