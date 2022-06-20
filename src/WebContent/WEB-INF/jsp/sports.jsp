@@ -42,7 +42,7 @@
 		<input type="radio" name="radio" id="radio1" checked="checked"><label for="radio1">生活</label>
 		<input type="radio" name="radio" id="radio2"><label for="radio2">運動</label>
 	</p>
-	<select class="regi" name="life" id="sele">
+	<select class="regi" name="life" id="mets">
 		<option value="1922">あいうえお</option>
 	</select>
 	<p>
