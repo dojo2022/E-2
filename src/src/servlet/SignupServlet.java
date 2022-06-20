@@ -8,6 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.UserDao;
+import model.Result;
+import model.Userdata;
 
 /**
  * Servlet implementation class SignupServlet
@@ -30,7 +35,34 @@ public class SignupServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
 
+		request.setCharacterEncoding("UTF-8");
+		String userid = request.getParameter("ID");
+        String password = request .getParameter ("PW");
+		String email = request.getParameter("EMAIL");
+        String gender =request. getParameter("GENDER") ;
+        date birth = request.getParameter("BIRTH");
+        double targetwight =Double.parseDouble(request.getParameter("TARGETWIGHT"));
+        int daily =Integer.parseInt(request.getParameter("DAILY"));
+        String lastlogin = request.getParameter("LASTLOGIN");
+        	double height  =Double.parseDouble(request.getParameter("HEIGHT"));
+
+        UserDao uDao = new UserDao();
+		if (uDao.nw(new Userdata (userid, password,email,gender,birth,targetwight,daily,lastlogin,height))){		// 新規登録画面成功
+			// セッションスコープにIDを格納する
+			HttpSession session = request.getSession();
+			session.getAttribute("");
+						response.sendRedirect("/healthcare/LoginServlet");
+		}
+
+		else {					// 新規登録失敗
+				request.setAttribute("result",
+				new Result("！", ", ", "/healthcare/LoginServlet"));
+
+									// 結果ページにフォワードする
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+				dispatcher.forward(request, response);
+			}
+	}
 }
+

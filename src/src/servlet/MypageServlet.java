@@ -26,6 +26,7 @@ public class MypageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		HttpSession session = request.getSession();
 		Userdata userid = (Userdata) session.getAttribute("userid");
 		WeightDao weDao = new WeightDao();
@@ -33,8 +34,9 @@ public class MypageServlet extends HttpServlet {
 		request.setAttribute("tagweight", tagweight);
 
 		UserDao uDao = new UserDao();
-		int daily = uDao.finddaily();
-		request.setAttribute("daily", daily);
+		//int daily = uDao.finddaily();
+
+		//request.setAttribute("daily", daily);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);

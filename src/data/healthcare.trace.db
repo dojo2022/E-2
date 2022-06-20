@@ -3259,12 +3259,6 @@ Syntax error in SQL statement "INSERT INTO SPORTS (SPORTS, METS) VALUES ('カー
 INSERT[*] INTO SPORTS (SPORTS, METS) VALUES ('フロア掃き', 3.3)"; SQL statement:
 INSERT INTO sports (sports, mets) VALUES ('カーペット掃き', 3.3)
 INSERT INTO sports (sports, mets) VALUES ('フロア掃き', 3.3) [42000-200]
-<<<<<<< HEAD
-2022-06-17 09:44:37 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "SELECT * FROM SPORTS SPORTS SPORTS[*]"
-Syntax error in SQL statement "SELECT * FROM SPORTS SPORTS SPORTS[*]"; SQL statement:
-SELECT * FROM SPORTS SPORTS SPORTS [42000-200]
-=======
 2022-06-17 11:18:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
 Table "CONTACT" not found; SQL statement:
@@ -3273,4 +3267,3 @@ insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
 org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
 Table "CONTACT" not found; SQL statement:
 insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
->>>>>>> 886f1bfebce170b4cc7554cb69e18dbb489ff1ae

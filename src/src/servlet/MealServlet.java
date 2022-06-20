@@ -39,7 +39,7 @@ public class MealServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String userid = request.getParameter("ID");
 		int foodnumber = Integer.parseInt(request.getParameter("fnumber"));
-		Date daily = request.changeSessionId("day");
+		Date daily = request.getParameter("day");
 		String meal = request.getParameter("me");
 		String satiety = request.getParameter("sati");
 
