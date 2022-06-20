@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,9 +38,9 @@ public class MealServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String userid = request.getParameter("ID");
 		int foodnumber = Integer.parseInt(request.getParameter("fnumber"));
-		Date daily = request.getParameter("day");
+		java.sql.Date daily = java.sql.Date.valueOf(request.getParameter("day"));
 		String meal = request.getParameter("me");
-		String satiety = request.getParameter("sati");
+		int satiety = Integer.parseInt(request.getParameter("sati"));
 
 		MealDao mDao = new MealDao();
 		if (mDao.meal(new Meal(userid, foodnumber, daily, meal, satiety))) { //登録成功
