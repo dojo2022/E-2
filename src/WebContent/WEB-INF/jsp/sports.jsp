@@ -27,6 +27,7 @@
 		</ul>
 	</nav>
 	<script src="/healthcare/js/common.js" type="text/javascript"></script>
+	<script src="/healthcare/js/sport.js" type="text/javascript"></script>
 	<div class="sports">
 	<h2 class="pagetitle">運動計算</h2>
 	<img id="sportsimg" src="/healthcare/img/sport.png" alt="">
@@ -43,7 +44,7 @@
 		<input type="radio" name="radio" id="radio2"><label for="radio2">運動</label>
 	</p>
 	<select class="regi" name="life" id="mets">
-		<option value="1922">あいうえお</option>
+		<option value="2">あいうえお</option>
 	</select>
 	<p>
 		時間<input class="regi" type="text"id="time" name="time">分
@@ -59,10 +60,10 @@
 	<form method="POST" action="/healthcare/SportServlet">
 	<div class="center">
 	<p>
-		運動強度<input class="regi" type="text" value="">(メッツ)
+		運動強度<input class="regi" id="exe" type="text">(メッツ)
 	</p>
 	<p id = "out">
-		消費カロリー<input class="regi" type="text" value="">kcal
+		消費カロリー<input class="regi" id="calorieout" type="text">kcal
 	</p>
 	<select class="regi" name="year">
 		<option value="1922">1922年</option>
