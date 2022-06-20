@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+		<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +27,7 @@
 		</ul>
 	</nav>
 	<script src="/healthcare/js/common.js" type="text/javascript"></script>
+	<script src="/healthcare/js/sport.js" type="text/javascript"></script>
 	<div class="sports">
 	<h2 class="pagetitle">運動計算</h2>
 	<img id="sportsimg" src="/healthcare/img/sport.png" alt="">
@@ -35,30 +37,33 @@
 		メッツ値は運動による消費エネルギー量が、安静時の何倍にあたるかを示す値です。<br>
 		メッツ値は厚生労働省の「健康づくりのための身体活動基準2013」の値を使用しています。
 	</p>
+	<form method="POST" action="/healthcare/SportServlet">
 	<div class="center">
 	<p>
 		<input type="radio" name="radio" id="radio1" checked="checked"><label for="radio1">生活</label>
 		<input type="radio" name="radio" id="radio2"><label for="radio2">運動</label>
 	</p>
-	<select class="regi" name="life">
-		<option value="1922">あいうえお</option>
+	<select class="regi" name="life" id="mets">
+		<option value="2">あいうえお</option>
 	</select>
 	<p>
-		時間<input class="regi" type="text" value="">分
+		時間<input class="regi" type="text"id="time" name="time">分
 	</p>
 	<p>
-		体重<input class="regi" type="text" value="">kg
+		体重<input class="regi" type="text" id="weight" value="${weight.weight}" name="weight">kg
 	</p>
-	<input class="buttoncolor" type="button" value="計算">
-	<input class="buttoncolor" type="button" value="クリア">
+	<input class="buttoncolor" type="button" onclick="sportcalc()" value="計算">
+	<input class="buttoncolor" type="reset" value="クリア">
 	</div>
+	</form>
 	<hr>
+	<form method="POST" action="/healthcare/SportServlet">
 	<div class="center">
 	<p>
-		運動強度<input class="regi" type="text" value="">(メッツ)
+		運動強度<input class="regi" id="exe" type="text">(メッツ)
 	</p>
 	<p id = "out">
-		消費カロリー<input class="regi" type="text" value="">kcal
+		消費カロリー<input class="regi" id="calorieout" type="text">kcal
 	</p>
 	<select class="regi" name="year">
 		<option value="1922">1922年</option>
@@ -213,9 +218,10 @@
 		<option value="31">31日</option>
 	</select>
 	<p class="box buttoncolor">総消費カロリーは です。</p>
-	<input class="buttoncolor" type="button" value="保存">
-	<input class="buttoncolor" type="button" value="リセット">
+	<input class="buttoncolor" type="submit"  name="SUBMIT" value="保存">
+	<input class="buttoncolor" type="reset" value="リセット">
 	</div>
+	</form>
 	<footer class="footer">
 		<div class="footer_hone">
 			<img src="/healthcare/img/footer.png">

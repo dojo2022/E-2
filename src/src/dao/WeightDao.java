@@ -7,11 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.Userdata;
+import model.Weight;
 
 
 
 public class WeightDao {
-//目標体重を参照
+//目標体重参照
 	public Userdata findtagweight(Userdata use) {
 		Connection conn = null;
 		Userdata targetwight = null;
@@ -59,4 +60,45 @@ public class WeightDao {
 		return targetwight;
 
 	}
+	//体重参照
+		public Weight findweight() {
+			Connection conn = null;
+			Weight weight = null;
+
+			try {
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+				String sql = "select WEIGHT from WEIGHT ";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+				//pStmt.setString(1, use.getUserid());
+				ResultSet rs = pStmt.executeQuery();
+
+				while (rs.next()) {
+					Weight wg = new Weight(
+							rs.getDouble("WEIGHT"));
+					weight = wg;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				weight = null;
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				weight = null;
+			} finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+						weight = null;
+					}
+
+				}
+			}
+			return weight;
+		}
 }

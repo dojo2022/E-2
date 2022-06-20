@@ -29,14 +29,13 @@ public class MypageServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		Userdata userid = (Userdata) session.getAttribute("userid");
-		WeightDao weDao = new WeightDao();
-		Userdata tagweight = weDao.findtagweight(userid);
+		WeightDao wDao = new WeightDao();
+		Userdata tagweight = wDao.findtagweight(userid);
 		request.setAttribute("tagweight", tagweight);
 
 		UserDao uDao = new UserDao();
-		//int daily = uDao.finddaily();
-
-		//request.setAttribute("daily", daily);
+		Userdata daily = uDao.finddaily(userid);
+		request.setAttribute("daily", daily);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);

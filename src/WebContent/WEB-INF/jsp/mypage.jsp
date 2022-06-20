@@ -32,7 +32,7 @@
 		<div class="heading">
 			<h3>目標体重<br><c:out value="${tagweight.targetwight}"/>kg</h3>
 			<h3>
-				あなたは<c:out value=""/>日連続<br>&emsp;ログインです。
+				あなたは<c:out value="${daily.daily }"/>日連続<br>&emsp;ログインです。
 			</h3>
 		</div>
 		<div class="center">

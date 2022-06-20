@@ -10,7 +10,7 @@ import model.Userdata;
 
 public class UserDao {
 	// ログインできるならtrueを返す
-	public boolean isLoginOK(Userdata Userdata) {
+	public boolean LoginOK(Userdata Userdata) {
 		Connection conn = null;
 		boolean loginResult = false;
 
@@ -19,12 +19,12 @@ public class UserDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/src/data/healthcare", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "select count(*) from email, password where email = ? and password = ?";
+			String sql = "select count(*) from USERDATA  where USERID = ? and password = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, Userdata.getEmail());
+			pStmt.setString(1, Userdata.getUserid());
 			pStmt.setString(2, Userdata.getPassword());
 
 			// SELECT文を実行し、結果表を取得する
@@ -56,5 +56,96 @@ public class UserDao {
 		// 結果を返す
 		return loginResult;
 	}
-}
+//ログイン日数参照
+	public Userdata finddaily(Userdata use) {
 
+		Connection conn = null;
+		Userdata daily = null;
+
+		try {
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+			String sql = "select DAILY from userdata";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			//pStmt.setString(1, use.getUserid());
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Userdata day = new Userdata(
+						rs.getDouble("DAILY"));
+				daily = day;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			daily = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			daily = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					daily = null;
+				}
+
+			}
+		}
+		return daily;
+	}
+
+	//身長参照
+	public Userdata findheight() {
+		Connection conn = null;
+		Userdata height = null;
+
+		try {
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+			String sql = "select * from userdata ";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			//pStmt.setString(1, use.getUserid());
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Userdata hg = new Userdata(
+						rs.getString("userid"),
+						rs.getString("password"),
+						rs.getString("email"),
+						rs.getString("gender"),
+						rs.getDate("birth"),
+						rs.getDouble("TARGETWEIGHT"),
+						rs.getInt("daily"),
+						rs.getDate("lastlogin"),
+						rs.getDouble("height"));
+				height = hg;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			height = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			height = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					height = null;
+				}
+
+			}
+		}
+		return height;
+	}
+}

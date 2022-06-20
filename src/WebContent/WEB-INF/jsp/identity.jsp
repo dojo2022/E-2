@@ -23,12 +23,12 @@
 			<table id="identity">
 				<tr>
 					<td>メールアドレス</td>
-					<td><input class ="regi" type="text" name="mail"></td>
+					<td><input class ="regi" type="text" name="ID"></td>
 				</tr>
 
 				<tr>
 					<td>PW</td>
-					<td><input class ="regi" type="password" name="PW"></td>
+					<td><input class ="regi" type="password" name="password"></td>
 				</tr>
 
 			</table>

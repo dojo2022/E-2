@@ -5,13 +5,18 @@ import java.sql.Date;
 
 public class Weight implements Serializable {
 	private String userid;//userid
-	private double wight;//体重
+	private double weight;//体重
 	private Date indaily;//日付
 	public Weight() {
 	}
-	public Weight(String userid, double wight, Date indaily) {
+
+	public Weight(double weight) {
+		this.weight = weight;
+	}
+
+	public Weight(String userid, double weight, Date indaily) {
 		this.userid = userid;
-		this.wight = wight;
+		this.weight = weight;
 		this.indaily = indaily;
 	}
 	public String getUserid() {
@@ -20,11 +25,11 @@ public class Weight implements Serializable {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public double getWight() {
-		return wight;
+	public double getWeight() {
+		return weight;
 	}
-	public void setWight(double wight) {
-		this.wight = wight;
+	public void setWeight(double weight) {
+		this.weight = weight;
 	}
 	public Date getIndaily() {
 		return indaily;
