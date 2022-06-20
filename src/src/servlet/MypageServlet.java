@@ -30,13 +30,11 @@ public class MypageServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Userdata userid = (Userdata) session.getAttribute("userid");
 		WeightDao wDao = new WeightDao();
-		Userdata tagweight = wDao.findweight(userid);
+		Userdata tagweight = wDao.findtagweight(userid);
 		request.setAttribute("tagweight", tagweight);
 
 		UserDao uDao = new UserDao();
 		Userdata daily = uDao.finddaily(userid);
-
-
 		request.setAttribute("daily", daily);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");

@@ -110,15 +110,23 @@ public class UserDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
-			String sql = "select HEIGHT from userdata";
+			String sql = "select * from userdata ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//pStmt.setString(1, use.getUserid());
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
-				Userdata day = new Userdata(
-						rs.getDouble("HEIGHT"));
-				height = day;
+				Userdata hg = new Userdata(
+						rs.getString("userid"),
+						rs.getString("password"),
+						rs.getString("email"),
+						rs.getString("gender"),
+						rs.getDate("birth"),
+						rs.getDouble("TARGETWEIGHT"),
+						rs.getInt("daily"),
+						rs.getDate("lastlogin"),
+						rs.getDouble("height"));
+				height = hg;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -33,8 +33,7 @@ public class BmiServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Userdata userid = (Userdata) session.getAttribute("userid");
 		WeightDao wDao = new WeightDao();
-		//List<Weight> bmiList = wDao.select(new Weight(height, weight));
-		Weight weight = wDao.findweight(userid);
+		Weight weight = wDao.findweight();
 		request.setAttribute("weight", weight);
 
 		//身長呼び出し

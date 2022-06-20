@@ -46,7 +46,9 @@
 					身長<input class="text" type="text" id="height" value="">cm
 				</p>
 				<p>
-					体重<input class="text" type="text" id="weight" value="">kg
+
+					体重<input class="text" type="text" id="weight"value="${weight.weight}">kg
+
 				</p>
 			</div>
 
