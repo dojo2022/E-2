@@ -41,10 +41,10 @@ public class SignupServlet extends HttpServlet {
         String password = request .getParameter ("PW");
 		String email = request.getParameter("EMAIL");
         String gender =request. getParameter("GENDER") ;
-        date birth = request.getParameter("BIRTH");
+        java.util.Date birth = java.sql.Date.valueOf(request.getParameter("birth"));
         double targetwight =Double.parseDouble(request.getParameter("TARGETWIGHT"));
         int daily =Integer.parseInt(request.getParameter("DAILY"));
-        String lastlogin = request.getParameter("LASTLOGIN");
+        java.util.Date lastlogin =  java.sql.Date.valueOf (request.getParameter("LASTLOGIN"));
         	double height  =Double.parseDouble(request.getParameter("HEIGHT"));
 
         UserDao uDao = new UserDao();
