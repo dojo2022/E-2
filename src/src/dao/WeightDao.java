@@ -61,7 +61,7 @@ public class WeightDao {
 
 	}
 	//体重参照
-		public Weight findweight(Userdata userid) {
+		public Weight findweight() {
 			Connection conn = null;
 			Weight weight = null;
 
