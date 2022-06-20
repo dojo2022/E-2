@@ -37,14 +37,34 @@
 		メッツ値は運動による消費エネルギー量が、安静時の何倍にあたるかを示す値です。<br>
 		メッツ値は厚生労働省の「健康づくりのための身体活動基準2013」の値を使用しています。
 	</p>
-	<form method="POST" action="/healthcare/SportServlet">
+	<form>
 	<div class="center">
 	<p>
-		<input type="radio" name="radio" id="radio1" checked="checked"><label for="radio1">生活</label>
-		<input type="radio" name="radio" id="radio2"><label for="radio2">運動</label>
+		<input type="radio" name="radio" id="radio1" value="type1" checked="checked" onchange="setOption(this);"><label for="radio1">生活</label>
+		<input type="radio" name="radio" id="radio2" value="type2" onchange="setOption(this);"><label for="radio2">運動</label>
 	</p>
-	<select class="regi" name="life" id="mets">
-		<option value="2">あいうえお</option>
+	<select class="regi" name="category" id="mets">
+		<option value="1.8">▼生活</option>
+		<option value="">立位(会話、電話、読書)、皿洗い</option>
+		<option value="">ゆっくりした歩行、食事の準備、洗濯</option>
+		<option value="">子供と遊ぶ(座位、軽度)</option>
+		<option value="">ガーデニング、動物の世話、ピアノの演奏</option>
+		<option value="">植物の水やり、子供の世話、仕立て作業</option>
+		<option value="">子供・動物とアゾ部(立位、軽度)</option>
+		<option value="">普通歩行、ペットの散歩、台所の手伝い</option>
+		<option value="">フロア掃き、フロア掃き、体の動きを伴うスポーツ観戦</option>
+		<option value="">階段を降りる、軽い荷物運び、子供と遊ぶ(歩く/走る)</option>
+		<option value="">自転車に乗る(通勤など)、階段を上る、動物と遊ぶ(歩く/走る)</option>
+		<option value="">競歩、苗木の植栽</option>
+		<option value="">耕作、家の修理</option>
+		<option value="">走る、動物と走る</option>
+		<option value="">シャベルで土や泥をすくう</option>
+		<option value="">家具に・家財道具の移動・運搬</option>
+		<option value="">スコップで雪かきをする</option>
+		<option value="">農作業</option>
+		<option value="">運搬(重い荷物)</option>
+		<option value="">荷物を上の階に運ぶ</option>
+		<option value="">階段を走って上る</option>
 	</select>
 	<p>
 		時間<input class="regi" type="text"id="time" name="time">分
@@ -52,18 +72,19 @@
 	<p>
 		体重<input class="regi" type="text" id="weight" value="${weight.weight}" name="weight">kg
 	</p>
-	<input class="buttoncolor" type="button" onclick="sportcalc()" value="計算">
+	<span id="error_message" style="color: red"></span><br>
+	<input class="buttoncolor" type="button" value="計算" id="btn" onclick="sportcalc()">
 	<input class="buttoncolor" type="reset" value="クリア">
 	</div>
 	</form>
 	<hr>
-	<form method="POST" action="/healthcare/SportServlet">
+	<form method="POST" action="/healthcare/SportServlet" name="form">
 	<div class="center">
 	<p>
-		運動強度<input class="regi" id="exe" type="text">(メッツ)
+		運動強度<input class="regi" name="mets" id="exe" type="text" disabled="disabled" >(メッツ)
 	</p>
 	<p id = "out">
-		消費カロリー<input class="regi" id="calorieout" type="text">kcal
+		消費カロリー<input class="regi"name="calorieout" id="calorieout" type="text"readonly="readonly"  >kcal
 	</p>
 	<select class="regi" name="year">
 		<option value="1922">1922年</option>
@@ -217,7 +238,7 @@
 		<option value="30">30日</option>
 		<option value="31">31日</option>
 	</select>
-	<p class="box buttoncolor">総消費カロリーは です。</p>
+	<p class="box buttoncolor">総消費カロリーは <c:out value=""/>です。</p>
 	<input class="buttoncolor" type="submit"  name="SUBMIT" value="保存">
 	<input class="buttoncolor" type="reset" value="リセット">
 	</div>
