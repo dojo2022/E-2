@@ -16,6 +16,7 @@ public class Userdata implements Serializable {
 
 	public Userdata() {
 	}
+<<<<<<< HEAD
 
     //本人認証
 	/*
@@ -24,6 +25,8 @@ public class Userdata implements Serializable {
 		this.email = email;
 }
 */
+=======
+>>>>>>> bb218ae08f11577e22273ad3141238b771e1f303
 	//ログイン
 	public Userdata(String userid, String password) {
 		this.userid = userid;
@@ -34,6 +37,10 @@ public class Userdata implements Serializable {
 		this.targetwight = targetwight;
 	}
 
+	public Userdata(double height, String userid) {
+		this.height = height;
+		this.userid = userid;
+	}
 	public Userdata(String userid, String password, String email, String gender, Date birth, double targetwight,
 			int daily,
 			Date lastlogin, double height) {

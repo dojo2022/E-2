@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 import model.Meal;
 
 public class MealDao {
-	public boolean insert(Meal card) {
+	public boolean meal(Meal card) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -29,13 +30,13 @@ public class MealDao {
 			} else {
 				pStmt.setString(1, null);
 			}
-			if (card.getFoodnumber() == null && !card.getFoodnumber().equals("")) {
+			if (card.getFoodnumber == null && card.getFoodnumber()) {
 				pStmt.setInt(2, card.getFoodnumber());
 			} else {
 				pStmt.setString(2, null);
 			}
 			if (card.getDaily() != null && !card.getDaily().equals("")) {
-				pStmt.setDate(3, card.getDaily());
+				pStmt.setDate(3, (Date) card.getDaily());
 			} else {
 				pStmt.setString(3, null);
 			}

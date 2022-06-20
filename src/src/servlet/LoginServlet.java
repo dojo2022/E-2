@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
-<<<<<<< HEAD
-import model.LoginUser;
-=======
->>>>>>> 382653e1bd684264017a25918d2528cd7c3914c0
 import model.Loginuser;
 import model.Result;
 import model.Userdata;
