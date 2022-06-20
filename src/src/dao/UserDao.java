@@ -10,7 +10,7 @@ import model.Userdata;
 
 public class UserDao {
 	// ログインできるならtrueを返す
-	public boolean isLoginOK(Userdata Userdata) {
+	public boolean LoginOK(Userdata Userdata) {
 		Connection conn = null;
 		boolean loginResult = false;
 
@@ -19,12 +19,12 @@ public class UserDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/src/data/healthcare", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "select count(*) from email, password where email = ? and password = ?";
+			String sql = "select count(*) from USERDATA  where USERID = ? and password = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, Userdata.getEmail());
+			pStmt.setString(1, Userdata.getUserid());
 			pStmt.setString(2, Userdata.getPassword());
 
 			// SELECT文を実行し、結果表を取得する

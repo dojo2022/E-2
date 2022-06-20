@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 		// ログイン処理を行う
 		UserDao uDao = new UserDao();
 		if (request.getParameter("submit").equals("login")) {	// ログイン成功
-        if (uDao.isloginok(new Userdata(userid,password))) {
+        if (uDao.LoginOK(new Userdata(userid,password))) {
 
         	HttpSession session = request.getSession();
 			session.setAttribute("id", new Loginuser(userid));
@@ -62,4 +62,5 @@ public class LoginServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 	}
+}
 }
