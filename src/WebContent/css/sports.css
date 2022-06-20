@@ -16,6 +16,9 @@
 .text{
 	margin-left: 40px;
 }
+.texts{
+	text-align: right;
+}
 #sportsimg{
 	height: 5%;
 	width: 5%;
