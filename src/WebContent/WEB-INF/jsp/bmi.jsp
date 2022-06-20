@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +13,7 @@
 <body>
 	<div class="wrapper">
 		<header>
-			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
-				height="40">
+			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100" height="40">
 		</header>
 		<nav>
 			<ul id="nav">
@@ -27,6 +26,7 @@
 			</ul>
 		</nav>
 		<script src="/healthcare/js/common.js" type="text/javascript"></script>
+		<script src="/healthcare/js/bmi.js" type="text/javascript"></script>
 		<div class="bmi">
 			<h2 class="pagetitle">BMI計算</h2>
 			<img id="bmiimg" src="/healthcare/img/bmi.png" alt="">
@@ -43,14 +43,20 @@
 
 			<div class="">
 				<p>
-					身長<input class="text" type="text" value="${height.height}">cm
+					身長<input class="text" type="text" id="height" value="">cm
 				</p>
 				<p>
-					体重<input class="text" type="text" value="">kg
+					体重<input class="text" type="text" id="weight" value="">kg
 				</p>
 			</div>
 
-			<input class="buttoncolor" type="submit" value="計算" onclick="" />
+			<span id="error_message" style="color: red"></span><br>
+			 <input
+				class="buttoncolor" type="button" value="計算" id="btn"
+				onclick="test()">
+		</div>
+		<div>
+			<p id="id01"></p>
 		</div>
 		<div class=""></div>
 
