@@ -25,7 +25,8 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// ログインページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 		dispatcher.forward(request, response);
@@ -34,7 +35,8 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String userid = request.getParameter("ID");
@@ -42,25 +44,23 @@ public class LoginServlet extends HttpServlet {
 
 		// ログイン処理を行う
 		UserDao uDao = new UserDao();
-		if (request.getParameter("submit").equals("login")) {	// ログイン成功
-        if (uDao.LoginOK(new Userdata(userid,password))) {
+		if (request.getParameter("submit").equals("login")) { // ログイン成功
+			if (uDao.LoginOK(new Userdata(userid, password))) {
 
-        	HttpSession session = request.getSession();
-			session.setAttribute("id", new Loginuser(userid));
+				HttpSession session = request.getSession();
+				session.setAttribute("id", new Loginuser(userid));
 
+				// メニューサーブレットにリダイレクトする
+				response.sendRedirect("/healthcare/MypageServlet");
+			} else { // ログイン失敗
+				// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
+				request.setAttribute("result",
+						new Result("IDまたはパスワードに間違いがあります。", "", "/healthcare/LoginServlet"));
 
-			// メニューサーブレットにリダイレクトする
-			response.sendRedirect("/healthcare/MypageServlet");
-		}
-		else {									// ログイン失敗
-			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-			request.setAttribute("result",
-			new Result("IDまたはパスワードに間違いがあります。","", "/healthcare/LoginServlet"));
-
-			// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-			dispatcher.forward(request, response);
+				// 結果ページにフォワードする
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+				dispatcher.forward(request, response);
+			}
 		}
 	}
-}
 }

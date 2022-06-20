@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
+import model.Loginuser;
 import model.Result;
 import model.Userdata;
 
@@ -37,27 +38,28 @@ public class IdentityServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		String email =request.getParameter("email");
+		String userid =request.getParameter("ID");
 		String password = request.getParameter("password");
 
 		//認証処理
 		UserDao uDao = new UserDao();
-		if (uDao.isOK(new Userdata(email,password))) {//認証成功
-			//セッションスコープに
-			HttpSession session = request.getSession();
-			session.setAttribute("email, password", new Userdata(email, password));
+		if (request.getParameter("submit").equals("login")) { // 認証成功
+			if (uDao.LoginOK(new Userdata(userid, password))) {
 
-			// 登録変更サーブレットにリダイレクトする
-			response.sendRedirect("/healthcare/IdentityServlet");
-		}
-		else {	// 認証失敗
-			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-			request.setAttribute("result",
-			new Result("", "", "/healthcare/LesultServlet"));
+				HttpSession session = request.getSession();
+				session.setAttribute("id", new Loginuser(userid));
 
-			// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-			dispatcher.forward(request, response);
+				// メニューサーブレットにリダイレクトする
+				response.sendRedirect("/healthcare/MypageServlet");
+			} else { // ログイン失敗
+				// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
+				request.setAttribute("result",
+						new Result("IDまたはパスワードに間違いがあります。", "", "/healthcare/LoginServlet"));
+
+				// 結果ページにフォワードする
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+				dispatcher.forward(request, response);
+			}
 		}
 	}
 }

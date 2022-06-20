@@ -16,12 +16,6 @@ public class Userdata implements Serializable {
 
 	public Userdata() {
 	}
-
-    //本人認証
-//	public Userdata(String password, String email) {
-//		this.password = password;
-//		this.email = email;
-//}
 	//ログイン
 	public Userdata(String userid, String password) {
 		this.userid = userid;

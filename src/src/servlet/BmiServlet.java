@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import dao.UserDao;
 import dao.WeightDao;
+import model.Userdata;
 import model.Weight;
 
 /**
@@ -26,15 +28,20 @@ public class BmiServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		String height =request.getParameter("height");
-		String weight = request.getParameter("weight");
 
-		//
+		//体重呼び出し
+		HttpSession session = request.getSession();
+		Userdata userid = (Userdata) session.getAttribute("userid");
 		WeightDao wDao = new WeightDao();
-		List<Weight> bmiList = wDao.select(new Weight(height, weight));
+		//List<Weight> bmiList = wDao.select(new Weight(height, weight));
+		Weight weight = wDao.findweight(userid);
+		request.setAttribute("weight", weight);
 
-		request.setAttribute("WeightDao", wDao);
+		//身長呼び出し
+		UserDao uDao = new UserDao();
+		Userdata height = uDao.findheight();
+		request.setAttribute("height", height);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/bmi.jsp");
 		dispatcher.forward(request, response);
 	}

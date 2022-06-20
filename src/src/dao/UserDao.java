@@ -56,5 +56,88 @@ public class UserDao {
 		// 結果を返す
 		return loginResult;
 	}
-}
+//ログイン日数参照
+	public Userdata finddaily(Userdata use) {
 
+		Connection conn = null;
+		Userdata daily = null;
+
+		try {
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+			String sql = "select DAILY from userdata";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			//pStmt.setString(1, use.getUserid());
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Userdata day = new Userdata(
+						rs.getDouble("DAILY"));
+				daily = day;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			daily = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			daily = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					daily = null;
+				}
+
+			}
+		}
+		return daily;
+	}
+
+	//身長参照
+	public Userdata findheight() {
+		Connection conn = null;
+		Userdata height = null;
+
+		try {
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+			String sql = "select HEIGHT from userdata";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			//pStmt.setString(1, use.getUserid());
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Userdata day = new Userdata(
+						rs.getDouble("HEIGHT"));
+				height = day;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			height = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			height = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					height = null;
+				}
+
+			}
+		}
+		return height;
+	}
+}

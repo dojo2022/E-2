@@ -9,6 +9,11 @@ public class Weight implements Serializable {
 	private Date indaily;//日付
 	public Weight() {
 	}
+
+	public Weight(double wight) {
+		this.wight = wight;
+	}
+
 	public Weight(String userid, double wight, Date indaily) {
 		this.userid = userid;
 		this.wight = wight;
