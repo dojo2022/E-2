@@ -240,7 +240,7 @@
 		<option value="30">30日</option>
 		<option value="31">31日</option>
 	</select>
-	<p class="box buttoncolor">総消費カロリーは <c:out value=""/>です。</p>
+	<p name="caloriesout" class="box buttoncolor">総消費カロリーは <c:out value=""/>です。</p>
 	<input class="buttoncolor" type="submit"  name="SUBMIT" value="保存">
 	<input class="buttoncolor" type="reset" value="リセット">
 	</div>

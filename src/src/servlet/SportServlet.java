@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UserDao;
 import dao.WeightDao;
+import model.Loginuser;
 import model.Userdata;
 import model.Weight;
 
@@ -39,6 +41,21 @@ public class SportServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		//消費カロリーを保存
+		request.setCharacterEncoding("UTF-8");
+		String indaily = request.getParameter("year");
+		String indaily2 = request.getParameter("month");
+		String indaily3 = request.getParameter("day");
+		String caloriesout = request.getParameter("caloriesout");
+
+		SportDao sDao = new SportDao();
+		if (sDao.LoginOK(new caloriesout())) {
+
+			HttpSession session = request.getSession();
+			session.setAttribute("id", new Loginuser(userid));
+
+			// メニューサーブレットにリダイレクトする
+			response.sendRedirect("/healthcare/MypageServlet");
 			}
 	}
 
