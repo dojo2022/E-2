@@ -18,7 +18,7 @@ function sportcalc() {
 		kcal = parseInt(kcal,10);
 		document.form.mets.value = mets;
 		document.form.calorieout.value = kcal;
-		total = total + kcal;
+				total = total + kcal;
 		console.log(total);
 		document.form.caloriesout.value = total;
 	}
