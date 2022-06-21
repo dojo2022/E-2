@@ -13,6 +13,7 @@ function sportcalc() {
 		height = Number(weight);
 		let kcal = mets * weight * (time * 1.05); // 運動強度を計算
 		console.log(kcal);
+		kcal = parseInt(kcal,10);
 		document.form.mets.value = mets;
 		document.form.calorieout.value = kcal;
 	}
@@ -42,7 +43,7 @@ var type1Arr = [
 	{ value: "8.8", label: "階段を走って上る" },
 ];
 var type2Arr = [
-	{ value: "", label: "▼運動" },
+	{ value: "", label: "▼運動　* 試合の場合" },
 	{ value: "2.3", label: "ストレッチング" },
 	{ value: "2.5", label: "ヨガ、ビリヤード" },
 	{ value: "2.8", label: "座って行うラジオ体操" },
