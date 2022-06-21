@@ -27,3 +27,6 @@
 .sports{
 	display: flex;
 }
+select{
+	text-align: center;
+}

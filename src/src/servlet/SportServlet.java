@@ -10,10 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.SportDao;
 import dao.WeightDao;
-import model.LoginUser;
-import model.Result;
 import model.Userdata;
 import model.Weight;
 
@@ -36,6 +33,7 @@ public class SportServlet extends HttpServlet {
 				Weight weight = wDao.findweight();
 				request.setAttribute("weight", weight);
 
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sports.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -43,27 +41,12 @@ public class SportServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		int time = Integer.parseInt( request.getParameter("time"));
-		double weight = Double.parseDouble(request.getParameter("weight"));
-		double number = .parseDouble(request.getParameter("mets"));
+		String year = request.getParameter("year");
+        String month = request .getParameter ("month");
+		String day = request.getParameter("day");
+        String gender =request. getParameter("") ;
 
-		SportDao sport = new SportDao();
-		if (request.getParameter("SUBMIT").equals("計算")) {
-			if (sport.sportscalc(time, weight)) { // 計算成功
-				// セッションスコープにIDを格納する
-				HttpSession session = request.getSession();
-				session.setAttribute("id", new LoginUser(id));
-
-			} else { // 計算失敗
-				// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-				request.setAttribute("result",
-						new Result("ログイン失敗！", "IDまたはPWに間違いがあります。", "/simpleBC/LoginServlet"));
-
-				// 結果ページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-				dispatcher.forward(request, response);
 			}
-		}
 	}
 
-}
+
