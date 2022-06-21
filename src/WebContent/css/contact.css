@@ -1,41 +1,54 @@
 @charset "UTF-8";
-.center{
-	text-align : center ;
-	margin : auto ;
-	line-height : 50px
+
+.center {
+	text-align: center;
+	margin: auto;
+	line-height: 50px
 }
-.moji{
-	text-align : center ;
-	margin : auto ;
-	line-height : 70px
+
+.moji {
+	text-align: center;
+	margin: auto;
+	line-height: 70px
 }
-.image{
-	height : 5% ;
-	width :  5% ;
-	margin-top : 22px ;
+
+.image {
+	height: 5%;
+	width: 5%;
+	margin-top: 22px;
 }
-.img{
-	display : flex ;
+
+.img {
+	display: flex;
 }
+
 .moj {
-	text-align : center ;
-	margin : auto ;
-	line-height : 50px
+	text-align: center;
+	margin: auto;
+	line-height: 50px
 }
-.box{
-    text-align : center ;
-	margin : auto ;
-    border : 1px solid #00552E ;
-    width : 200px ;
-	padding : 4px ;
+
+.box {
+	text-align: center;
+	margin: auto;
+	border: 1px solid #00552E;
+	width: 200px;
+	padding: 4px;
 }
-.mo{
-	text-align : center ;
-	margin : auto ;
-	line-height : 50px
+
+.mo {
+	text-align: center;
+	margin: auto;
+	line-height: 50px
 }
-textarea{
-	resize : none ;
-	height : 200px ;
-	width : 300px ;
+
+textarea {
+	resize: none;
+	height: 200px;
+	width: 300px;
+}
+
+.center {
+	text-align: center;
+	/*centerクラスを中央に表示させる*/
 }

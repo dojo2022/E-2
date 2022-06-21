@@ -1,46 +1,54 @@
 @charset "UTF-8";
 
 .center {
-  text-align: center;
-  /*centerクラスを中央に表示させる*/
+	text-align: center;
+	/*centerクラスを中央に表示させる*/
 }
 
-table{
-	margin:auto;
+table {
+	margin: auto;
 	/*テーブルを中央に表示させる*/
-	border:1px black solid;
-    border-collapse: collapse;
-    width: 80%;
+	border: 1px black solid;
+	border-collapse: collapse;
+	width: 80%;
 }
-th,td{
-    border:1px black solid;
-    text-align: center;
+
+th, td {
+	border: 1px black solid;
+	text-align: center;
 }
-.bmi{
+
+.bmi {
 	display: flex;
 }
-#bmiimg{
+
+#bmiimg {
 	height: 5%;
 	width: 5%;
 	margin-top: 22px;
 }
-.text{
+
+.text {
 	text-align: right;
 }
-#t_name{
+
+#t_name {
 	background-color: black;
 	color: white;
 }
-#i_name{
-	background-color:#d3d3d3;
+
+#i_name {
+	background-color: #d3d3d3;
 }
-.mg{
+
+.mg {
 	margin-top: 20px;
 }
+
 .butbmi {
 	box-shadow: 3px 3px 3px gray;
 	outline: solid 2px #006e54;
 	text-align: center;
-	width:250px;
-	margin:auto;
+	width: 250px;
+	margin: auto;
 }
