@@ -39,6 +39,8 @@ public class SportServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		java.util.Date daily = java.sql.Date.valueOf(request.getParameter("day"));
+
 			}
 	}
 
