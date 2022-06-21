@@ -33,13 +33,18 @@ public class SportServlet extends HttpServlet {
 				Weight weight = wDao.findweight();
 				request.setAttribute("weight", weight);
 
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sports.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		java.util.Date daily = java.sql.Date.valueOf(request.getParameter("day"));
+		request.setCharacterEncoding("UTF-8");
+		String year = request.getParameter("year");
+        String month = request .getParameter ("month");
+		String day = request.getParameter("day");
+        String gender =request. getParameter("") ;
 
 			}
 	}
