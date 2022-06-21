@@ -4,37 +4,41 @@
 	margin: auto;
 	margin-top: 60px;
 }
+
 .regi {
 	outline: solid 2px #98d98e;
 }
+
 .back {
 	text-align: right;
 	padding-right: 100px;
 }
-.back a:link{
-  color:#1f3134;
-  text-decoration:none;
-}
-.back a:visited{
-  color:#3c454d;
-  text-decoration:none;
+
+.back a:link {
+	color: #1f3134;
+	text-decoration: none;
 }
 
-.back a:hover{
-  color:#7b8dac;
-  text-decoration:none
+.back a:visited {
+	color: #3c454d;
+	text-decoration: none;
 }
 
-.back a:active{
-  color:#5a9bc0;
-  text-decoration:none;
+.back a:hover {
+	color: #7b8dac;
+	text-decoration: none
 }
 
-.back li{
-  display:inline;
-  list-style:none;
-  padding-right:30px;
-  text-align: center;
+.back a:active {
+	color: #5a9bc0;
+	text-decoration: none;
+}
+
+.back li {
+	display: inline;
+	list-style: none;
+	padding-right: 30px;
+	text-align: center;
 }
 
 .button {
@@ -42,4 +46,13 @@
 	outline: solid 2px #006e54;
 	text-align: center;
 	margin: auto;
+}
+
+#error_message {
+	  margin:  0 auto;
+}
+
+.center{
+	text-align: center;
+	/*centerクラスを中央に表示させる*/
 }

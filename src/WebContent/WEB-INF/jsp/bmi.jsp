@@ -47,20 +47,18 @@
 				</p>
 				<p>
 
-					体重<input class="text" type="text" id="weight"value="${weight.weight}">kg
+					体重<input class="text" type="text" id="weight"
+						value="${weight.weight}">kg
 
 				</p>
 			</div>
 
-			<span id="error_message" style="color: red"></span><br>
-			 <input
+			<span id="error_message" style="color: red"></span><br> <input
 				class="buttoncolor" type="button" value="計算" id="btn"
 				onclick="test()">
 		</div>
 		<br>
-		<div  class="butbmi" id="butbmi">
-		あなたのBMIは〇〇です
-		</div>
+		<div class="butbmi" id="butbmi">あなたのBMIは〇〇です</div>
 		<div class=""></div>
 
 		<table class="mg">

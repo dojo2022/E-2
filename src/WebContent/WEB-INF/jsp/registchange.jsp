@@ -19,7 +19,7 @@
 		</header>
 
 		<h2 class="pagetitle">登録変更</h2>
-		<form method="POST" action="/healthcare/MypageServlet">
+		<form method="POST" action="/healthcare/RegistcompleteServlet">
 			<table id="regichan">
 				<tr>
 					<td>password</td>
