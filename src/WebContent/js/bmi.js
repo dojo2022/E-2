@@ -12,6 +12,6 @@ function test() {
     height = Number(height);
     var bmi = weight / (height * height) * 10000; // BMIを計算
     var bmi = parseInt(bmi,10);
-    document.getElementById('id01').innerHTML = "あなたのBMIは" + bmi + "です" // 結果を表示
+    document.getElementById('butbmi').innerHTML = "あなたのBMIは" + bmi + "です" // 結果を表示
   }
 }

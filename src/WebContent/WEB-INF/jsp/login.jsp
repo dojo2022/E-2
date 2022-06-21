@@ -10,7 +10,9 @@
 <link rel="stylesheet" type="text/css" href="/healthcare/css/login.css">
 </head>
 <body>
-	<div class="wrapper">
+	<script defer src="/healthcare/js/common.js" type="text/javascript"></script>
+
+	<div class="wrapper">f
 
 
 		<header>
@@ -24,12 +26,12 @@
 			<table id="regichan">
 				<tr>
 					<td>ID</td>
-					<td><input class ="regi" type="text" name="ID"></td>
+					<td><input class="regi" type="text" id="id" name="ID"></td>
 				</tr>
 
 				<tr>
 					<td>PW</td>
-					<td><input class="regi" type="password" name="PW"></td>
+					<td><input class="regi" type="password" id="pw" name="PW"></td>
 				</tr>
 			</table>
 
@@ -39,6 +41,7 @@
 			<p>
 				<input class="buttoncolor" type="submit" name="submit" value="新規登録">
 			</p>
+			<span id="error_message" style="color: red"></span><br>s
 		</form>
 
 
@@ -52,5 +55,6 @@
 
 		</footer>
 	</div>
+
 </body>
 </html>
