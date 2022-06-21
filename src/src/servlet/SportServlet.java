@@ -41,6 +41,7 @@ public class SportServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		//消費カロリーを保存
 		request.setCharacterEncoding("UTF-8");
 		String indaily = request.getParameter("year");
@@ -56,6 +57,10 @@ public class SportServlet extends HttpServlet {
 
 			// メニューサーブレットにリダイレクトする
 			response.sendRedirect("/healthcare/MypageServlet");
+
+		java.util.Date daily = java.sql.Date.valueOf(request.getParameter("day"));
+
+
 			}
 	}
 
