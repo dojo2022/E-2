@@ -16,6 +16,15 @@ public class Caloriesout {
 		this.caloriesout = caloriesout;
 	}
 
+	public Caloriesout(int caloriesout, Date sqldate) {
+		this.indaily = sqldate;
+		this.caloriesout = caloriesout;
+	}
+
+	public Caloriesout(int caloriesout) {
+		this.caloriesout = caloriesout;
+	}
+
 	public String getUserid() {
 		return userid;
 	}
