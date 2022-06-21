@@ -25,6 +25,7 @@ public class Userdata implements Serializable {
 		this.email = email;
 }
 */
+
 	//ログイン
 	public Userdata(String userid, String password) {
 		this.userid = userid;

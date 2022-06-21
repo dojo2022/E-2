@@ -16,10 +16,11 @@ function writeweigh() {
 }
 
 function test() {
-	if (window.prompt('この内容で問い合わせますか')) {
+	if (window.prompt('今日の体重を入力してください')) {
 		console.log('ログアウトしました');
 	} else {
 		console.log('キャンセルしました');
 		return false;
 	}
 }
+

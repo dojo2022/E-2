@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.SportDao;
 import dao.WeightDao;
-import model.LoginUser;
+import model.Caloriesout;
 import model.Result;
 import model.Userdata;
 import model.Weight;
@@ -27,43 +28,44 @@ public class SportServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//体重呼び出し
-				HttpSession session = request.getSession();
-				Userdata userid = (Userdata) session.getAttribute("userid");
-				WeightDao wDao = new WeightDao();
-				Weight weight = wDao.findweight();
-				request.setAttribute("weight", weight);
-
+		HttpSession session = request.getSession();
+		Userdata userid = (Userdata) session.getAttribute("userid");
+		WeightDao wDao = new WeightDao();
+		Weight weight = wDao.findweight();
+		request.setAttribute("weight", weight);
+		//総消費カロリー呼び出し
+		SportDao sDao = new SportDao();
+		Caloriesout caloriesout = sDao.findcalo();
+		request.setAttribute("caloriesout", caloriesout);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sports.jsp");
 		dispatcher.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		request.setCharacterEncoding("UTF-8");
-		int time = Integer.parseInt( request.getParameter("time"));
-		double weight = Double.parseDouble(request.getParameter("weight"));
-		double number = .parseDouble(request.getParameter("mets"));
+		String year = request.getParameter("year");
+		String month = request.getParameter("month");
+		String day = request.getParameter("day");
+		int caloriesout = Integer.parseInt(request.getParameter("calories"));
+		String indaily = year + "-" + month + "-" + day;
+		Date sqldate = Date.valueOf(indaily);
 
-		SportDao sport = new SportDao();
-		if (request.getParameter("SUBMIT").equals("計算")) {
-			if (sport.sportscalc(time, weight)) { // 計算成功
-				// セッションスコープにIDを格納する
-				HttpSession session = request.getSession();
-				session.setAttribute("id", new LoginUser(id));
+		SportDao sDao = new SportDao();
+		if (sDao.save(new Caloriesout(caloriesout, sqldate))) { // 登録成功
 
-			} else { // 計算失敗
-				// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-				request.setAttribute("result",
-						new Result("ログイン失敗！", "IDまたはPWに間違いがあります。", "/simpleBC/LoginServlet"));
-
-				// 結果ページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-				dispatcher.forward(request, response);
-			}
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sports.jsp");
+			dispatcher.forward(request, response);
+		} else { // 登録失敗
+			request.setAttribute("result",
+					new Result("登録失敗！", "レコードを登録できませんでした。", "/simpleBC/MenuServlet"));
 		}
 	}
-
 }
+
