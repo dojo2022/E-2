@@ -32,7 +32,7 @@
 	<h2>食事記録</h2>
 	</div>
 	<div class="center">
-		<select name="year">
+		<select>
 			<option value="1922">1922年</option>
 			<option value="1923">1923年</option>
 			<option value="1924">1924年</option>
@@ -134,7 +134,7 @@
 			<option value="2020">2020年</option>
 			<option value="2021">2021年</option>
 			<option value="2022">2022年</option>
-		</select> <select name="month">
+		</select> <select>
 			<option value="jan">1月</option>
 			<option value="feb">2月</option>
 			<option value="mar">3月</option>
@@ -147,7 +147,7 @@
 			<option value="oct">10月</option>
 			<option value="nov">11月</option>
 			<option value="dec">12月</option>
-		</select> <select name="day">
+		</select> <select>
 			<option value="1">1日</option>
 			<option value="2">2日</option>
 			<option value="3">3日</option>
