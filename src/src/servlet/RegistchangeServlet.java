@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class RegistchangeServlet
@@ -22,6 +23,12 @@ public class RegistchangeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+		HttpSession session = request.getSession();
+		if (session.getAttribute("Userid") == null) {
+			response.sendRedirect("/healthcare/LoginServlet");
+			return;
+		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registchange.jsp");//この中のloginをファイル名に変えてください
 		dispatcher.forward(request, response);
