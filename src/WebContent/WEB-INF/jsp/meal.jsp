@@ -32,7 +32,7 @@
 	<h2>食事記録</h2>
 	</div>
 	<div class="center">
-		<select name="year">
+		<select>
 			<option value="1922">1922年</option>
 			<option value="1923">1923年</option>
 			<option value="1924">1924年</option>
@@ -134,20 +134,20 @@
 			<option value="2020">2020年</option>
 			<option value="2021">2021年</option>
 			<option value="2022">2022年</option>
-		</select> <select name="month">
-			<option value="jan">1月</option>
-			<option value="feb">2月</option>
-			<option value="mar">3月</option>
-			<option value="apr">4月</option>
-			<option value="may">5月</option>
-			<option value="jun">6月</option>
-			<option value="jul">7月</option>
-			<option value="aug">8月</option>
-			<option value="sep">9月</option>
-			<option value="oct">10月</option>
-			<option value="nov">11月</option>
-			<option value="dec">12月</option>
-		</select> <select name="day">
+		</select> <select>
+			<option value="1">1月</option>
+			<option value="2">2月</option>
+			<option value="3">3月</option>
+			<option value="4">4月</option>
+			<option value="5">5月</option>
+			<option value="6">6月</option>
+			<option value="7">7月</option>
+			<option value="8">8月</option>
+			<option value="9">9月</option>
+			<option value="10">10月</option>
+			<option value="11">11月</option>
+			<option value="12">12月</option>
+		</select> <select>
 			<option value="1">1日</option>
 			<option value="2">2日</option>
 			<option value="3">3日</option>
@@ -391,7 +391,7 @@
 	        break;
 	      }
 	    }
-	    document.getElementById("result2").textContent = "あなたはその朝食を"+ str +"食べました。";
+	    document.getElementById("result2").textContent = "あなたはその昼食を"+ str +"食べました。";
 	    document.getElementById("comment2").textContent = rul;
 	  }
   function clickBtn3() {
@@ -406,7 +406,7 @@
 	        break;
 	      }
 	    }
-	    document.getElementById("result3").textContent = "あなたはその朝食を"+ str +"食べました。";
+	    document.getElementById("result3").textContent = "あなたはその夕食を"+ str +"食べました。";
 	    document.getElementById("comment3").textContent = rul;
 	  }
   function clickBtn4() {
@@ -421,7 +421,7 @@
 	        break;
 	      }
 	    }
-	    document.getElementById("result4").textContent = "あなたはその朝食を"+ str +"食べました。";
+	    document.getElementById("result4").textContent = "あなたはその間食を"+ str +"食べました。";
 	    document.getElementById("comment4").textContent = rul;
 	  }
   </script>
