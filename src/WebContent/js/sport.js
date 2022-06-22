@@ -2,6 +2,7 @@ function sportcalc() {
 	let mets = document.getElementById('mets').value;
 	let time = document.getElementById('time').value;
 	let weight = document.getElementById('weight').value;
+	let total = document.getElementById('caloriesout').value;
 	let errorMessageObj = document.getElementById('error_message');
 	if (time === "" || weight === "" || mets === "") {
 		errorMessageObj.textContent = '※運動・生活、時間または体重が入力されていません';
@@ -11,11 +12,19 @@ function sportcalc() {
 		mets = Number(mets);
 		weight = Number(time); // 入力された文字列を数値に変換する
 		height = Number(weight);
+		total = Number(total);
 		let kcal = mets * weight * (time * 1.05); // 運動強度を計算
 		console.log(kcal);
 		kcal = parseInt(kcal,10);
 		document.form.mets.value = mets;
 		document.form.calorieout.value = kcal;
+
+		total = total + kcal;
+
+				total = total + kcal;
+
+		console.log(total);
+		document.form.caloriesout.value = total;
 	}
 }
 

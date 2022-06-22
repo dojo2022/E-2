@@ -193,18 +193,18 @@
 	</select>
 
 	<select class="regi" name="month">
-		<option value="jan">1月</option>
-		<option value="feb">2月</option>
-		<option value="mar">3月</option>
-		<option value="apr">4月</option>
-		<option value="may">5月</option>
-		<option value="jun">6月</option>
-		<option value="jul">7月</option>
-		<option value="aug">8月</option>
-		<option value="sep">9月</option>
-		<option value="oct">10月</option>
-		<option value="nov">11月</option>
-		<option value="dec">12月</option>
+		<option value="1">1月</option>
+		<option value="2">2月</option>
+		<option value="3">3月</option>
+		<option value="4">4月</option>
+		<option value="5">5月</option>
+		<option value="6">6月</option>
+		<option value="7">7月</option>
+		<option value="8">8月</option>
+		<option value="9">9月</option>
+		<option value="10">10月</option>
+		<option value="11">11月</option>
+		<option value="12">12月</option>
 	</select>
 
 	<select class="regi" name="day">
@@ -240,7 +240,15 @@
 		<option value="30">30日</option>
 		<option value="31">31日</option>
 	</select>
-	<p class="box buttoncolor">総消費カロリーは <c:out value=""/>です。</p>
+
+
+
+
+
+
+
+	<p class="box buttoncolor">総消費カロリーは<input class="regi"name="calories" id="caloriesout" type="text" value="${calo.calo}" readonly="readonly">です。</p>
+
 	<input class="buttoncolor" type="submit"  name="SUBMIT" value="保存">
 	<input class="buttoncolor" type="reset" value="リセット">
 	</div>
