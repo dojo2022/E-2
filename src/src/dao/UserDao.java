@@ -336,5 +336,8 @@ public class UserDao {
 		return result;
 	}
 
+
 }
+
+	//体重アップデート（登録変更のほぼコピーがんばって）
 
