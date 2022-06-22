@@ -20,11 +20,11 @@ public class SportDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/DojoSample/data/dojosample", "sa",
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa",
 					"");
 
 			// SQL文を準備する
-			String sql = "SELECT * FROM caloriesout WHERE id = ?";
+			String sql = "SELECT * FROM caloriesout WHERE userid = ?";
 
 			// プリペアードステートメントを生成（取得）する
 			PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -69,11 +69,11 @@ public class SportDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/DojoSample/data/dojosample", "sa",
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa",
 					"");
 
 			// SQL文を準備する
-			String sql = "SELECT * FROM caloriesout WHERE id = ?";
+			String sql = "SELECT * FROM caloriesout WHERE userid = ?";
 
 			// プリペアードステートメントを生成（取得）する
 			PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -118,11 +118,11 @@ public class SportDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/DojoSample/data/dojosample", "sa",
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa",
 					"");
 
 			Caloriesout target = this.selectById(item.getUserid());
-			Caloriesout time = this.selectByindaily(item.getIndaily());
+			//Caloriesout time = this.selectByindaily(item.getIndaily());
 			if (target == null) {
 				//idでデータが取れない＝新規作成
 				// INSERT用SQL文を準備する
@@ -134,6 +134,7 @@ public class SportDao {
 					pStmt.setString(1, item.getUserid());
 				} else {
 					result = false;
+					//pStmt.setString(1, "tete");
 				}
 				if (item.getIndaily() != null && !item.getIndaily().equals("")) {
 					pStmt.setDate(2, item.getIndaily());
@@ -147,7 +148,7 @@ public class SportDao {
 					result = true;
 				}
 			} else {
-				if (time != null || time.equals(item.getIndaily())) {
+				//if (time != null || time.equals(item.getIndaily())) {
 					//idでデータが取れた＝更新
 					// UPDATE用SQL文を準備する
 					String sql = "UPDATE caloriesout SET caloriesout = ? WHERE userid = ?";
@@ -163,29 +164,29 @@ public class SportDao {
 					if (pStmt.executeUpdate() == 1) {
 						result = true;
 					}
-				}else {
-					//日付が違っていたら
-					String sql = "INSERT INTO caloriesout (userid, indaily, caloriesout) values (?,?,?)";
-					PreparedStatement pStmt = conn.prepareStatement(sql);
-
-					//パラメータ（データの値）を設定する
-					if (item.getUserid() != null && !item.getUserid().equals("")) {
-						pStmt.setString(1, item.getUserid());
-					} else {
-						result = false;
-					}
-					if (item.getIndaily() != null && !item.getIndaily().equals("")) {
-						pStmt.setDate(2, item.getIndaily());
-					} else {
-						result = false;
-					}
-					pStmt.setInt(3, item.getCaloriesout());
-
-					// SQL文を実行する
-					if (pStmt.executeUpdate() == 1) {
-						result = true;
-					}
-				}
+//				}else {
+//					//日付が違っていたら
+//					String sql = "INSERT INTO caloriesout (userid, indaily, caloriesout) values (?,?,?)";
+//					PreparedStatement pStmt = conn.prepareStatement(sql);
+//
+//					//パラメータ（データの値）を設定する
+//					if (item.getUserid() != null && !item.getUserid().equals("")) {
+//						pStmt.setString(1, item.getUserid());
+//					} else {
+//						result = false;
+//					}
+//					if (item.getIndaily() != null && !item.getIndaily().equals("")) {
+//						pStmt.setDate(2, item.getIndaily());
+//					} else {
+//						result = false;
+//					}
+//					pStmt.setInt(3, item.getCaloriesout());
+//
+//					// SQL文を実行する
+//					if (pStmt.executeUpdate() == 1) {
+//						result = true;
+//					}
+//				}
 
 			}
 		} catch (Exception ex) {
@@ -205,4 +206,53 @@ public class SportDao {
 		return result;
 
 	}
+
+	public Caloriesout findcalo() {
+		Connection conn = null;
+		Caloriesout calorie = null;
+
+		try {
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+			String sql = "select caloriesout from caloriesout";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			//pStmt.setString(1, use.getUserid());
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Caloriesout tag = new Caloriesout(
+				rs.getInt("caloriesout")
+				);
+				calorie = tag;
+			}
+
+
+		}catch (SQLException e) {
+				e.printStackTrace();
+				calorie = null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				calorie = null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						calorie = null;
+					}
+				}
+			}
+
+		return calorie;
+
+	}
+
 }

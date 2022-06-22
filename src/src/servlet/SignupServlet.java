@@ -48,7 +48,10 @@ public class SignupServlet extends HttpServlet {
         	double height  =Double.parseDouble(request.getParameter("HEIGHT"));
 
         UserDao uDao = new UserDao();
-		if (uDao.nw(new Userdata (userid, password,email,gender,birth,targetwight,daily,lastlogin,height))){		// 新規登録画面成功
+		if (uDao.userdata(new Userdata (userid, password ,email ,gender ,birth ,targetwight ,daily ,lastlogin ,height))){	// 新規登録画面成功
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signup.jsp");
+    		dispatcher.forward(request, response);
+
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
 			session.getAttribute("");
