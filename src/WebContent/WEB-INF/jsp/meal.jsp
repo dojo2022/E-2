@@ -214,7 +214,7 @@
 		<p id="comment"></p>
 		</div>
 			</form>
-		<form action="/healthcare/MealServlet" method="post" enctype="multipart/form-data">
+		<form action="/healthcare/MealresultServlet" method="post" enctype="multipart/form-data">
 		<table>
 		<tr>
 			<td><canvas id="preview" width="100" height="100"></canvas></td>
@@ -249,7 +249,7 @@
 		<p id="comment2"></p>
 		</div>
 			</form>
-		<form action="/healthcare/MealServlet" method="post" enctype="multipart/form-data">
+		<form action="/healthcare/MealresultServlet" method="post" enctype="multipart/form-data">
 		<table>
 		<tr>
 			<td><canvas id="preview" width="100" height="100"></canvas></td>
@@ -284,7 +284,7 @@
 		<p id="comment3"></p>
 		</div>
 			</form>
-		<form action="/healthcare/MealServlet" method="post" enctype="multipart/form-data">
+		<form action="/healthcare/MealresultServlet" method="post" enctype="multipart/form-data">
 		<table>
 		<tr>
 			<td><canvas id="preview" width="100" height="100"></canvas></td>
@@ -319,7 +319,7 @@
 		<p id="comment4"></p>
 		</div>
 			</form>
-		<form action="/healthcare/MealServlet" method="post" enctype="multipart/form-data">
+		<form action="/healthcare/MealresultServlet" method="post" enctype="multipart/form-data">
 		<table>
 		<tr>
 			<td><canvas id="preview" width="100" height="100"></canvas></td>

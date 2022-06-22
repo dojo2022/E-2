@@ -18,6 +18,14 @@ public class Meal implements Serializable{
 		this.satiety = satiety;
 	}
 
+	public Meal(String string) {
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
+
+	public Meal(int int1) {
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
+
 	public String getUserid() {
 		return userid;
 	}
