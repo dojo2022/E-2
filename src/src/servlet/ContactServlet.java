@@ -28,7 +28,7 @@ public class ContactServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		HttpSession session = request.getSession();
-		if (session.getAttribute("Userid") == null) {
+		if (session.getAttribute("userid") == null) {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
 		}

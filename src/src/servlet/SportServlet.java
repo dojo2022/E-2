@@ -15,7 +15,6 @@ import dao.SportDao;
 import dao.WeightDao;
 import model.Caloriesout;
 import model.Result;
-import model.Userdata;
 import model.Weight;
 
 /**
@@ -33,13 +32,13 @@ public class SportServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		HttpSession session = request.getSession();
-		if (session.getAttribute("Userid") == null) {
+		if (session.getAttribute("userid") == null) {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
 		}
 
 		//体重呼び出し
-		Userdata userid = (Userdata) session.getAttribute("userid");
+		Object userid =session.getAttribute("userid");
 		WeightDao wDao = new WeightDao();
 		Weight weight = wDao.findweight();
 		request.setAttribute("weight", weight);

@@ -45,7 +45,6 @@ public class MealresultServlet extends HttpServlet {
 		Date sqldate = Date.valueOf("daily");
 		String meal = request.getParameter("me");
 		int satiety = Integer.parseInt(request.getParameter("sati"));
-
 		MealDao mDao = new MealDao();
 		List<Meal> cardList = mDao.select(new Meal(userid, foodnumber, daily, meal, satiety));
 
