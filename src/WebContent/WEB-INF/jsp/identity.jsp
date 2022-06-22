@@ -20,17 +20,17 @@
 		<div class="center">
 			<h2 class="pagetitle">本人確認</h2>
 			<form id="form" method="POST"
-				action="/healthcare/RegistchangeServlet">
+				action="/healthcare/IdentityServlet">
 				<table id="identity">
 					<tr>
-						<td>メールアドレス</td>
-						<td><input class="regi" id="email" type="text" name="email"></td>
+						<td>ID</td>
+						<td><input class="regi" id="email" type="text" name="ID"></td>
 					</tr>
 
 					<tr>
 						<td>PW</td>
 						<td><input class="regi" id="pw" type="password"
-							name="password"></td>
+							name="PW"></td>
 					</tr>
 
 				</table>

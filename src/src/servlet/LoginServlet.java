@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
+import model.Loginpass;
 import model.Loginuser;
 import model.Result;
 import model.Userdata;
@@ -44,11 +45,12 @@ public class LoginServlet extends HttpServlet {
 
 		// ログイン処理を行う
 		UserDao uDao = new UserDao();
-		if (request.getParameter("submit").equals("login")) { // ログイン成功
+		if (request.getParameter("submit").equals("login")) {
 			if (uDao.LoginOK(new Userdata(userid, password))) {
-
+				// ログイン成功
 				HttpSession session = request.getSession();
-				session.setAttribute("id", new Loginuser(userid));
+				session.setAttribute("userid", new Loginuser(userid));
+				session.setAttribute("password", new Loginpass(password));
 
 				// メニューサーブレットにリダイレクトする
 				response.sendRedirect("/healthcare/MypageServlet");
@@ -56,11 +58,13 @@ public class LoginServlet extends HttpServlet {
 				// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
 				request.setAttribute("result",
 						new Result("IDまたはパスワードに間違いがあります。", "", "/healthcare/LoginServlet"));
-
 				// 結果ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 				dispatcher.forward(request, response);
 			}
+		}else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Signup.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 }

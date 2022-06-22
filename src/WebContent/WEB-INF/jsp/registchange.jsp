@@ -19,7 +19,7 @@
 		</header>
 
 		<h2 class="pagetitle">登録変更</h2>
-		<form method="POST" action="/healthcare/RegistcompleteServlet">
+		<form method="POST" action="/healthcare/RegistchangeServlet">
 			<table id="regichan">
 				<tr>
 					<td>password</td>
@@ -28,7 +28,7 @@
 
 				<tr>
 					<td>password</td>
-					<td><input class ="regi" type="password" name="PW"></td>
+					<td><input class ="regi" type="password" ></td>
 				</tr>
 				<tr>
 					<td>メールアドレス</td>
