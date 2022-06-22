@@ -8,9 +8,60 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Caloriesout;
 import model.Meal;
 
 public class MealDao {
+
+	//ユーザーのIDを参照
+		public Caloriesout selectById(String userid) {
+			Connection conn = null;
+			//今回は1件だけを返すメソッドなのでArrayListではない
+			Caloriesout ret = new Caloriesout();
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa",
+						"");
+
+				// SQL文を準備する
+				String sql = "SELECT * FROM meal WHERE userid = ?";
+
+				// プリペアードステートメントを生成（取得）する
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+				pStmt.setString(1, userid);
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				//0件のケースもある
+				if (rs.next()) {
+					//next()がtrue＝1件のデータが取れた
+					ret.setUserid(rs.getString("userid"));
+				} else {
+					//next()がfalse＝データが無い
+					ret = null;
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				ret = null;
+			} finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+						ret = null;
+					}
+				}
+			}
+			return ret;
+
+		}
+
 	//食事記録の登録
 	public boolean meal(Meal card) {
 		Connection conn = null;
@@ -135,7 +186,87 @@ public class MealDao {
 		return cardList;
 	}
 
-	//日付参照
+	//画像参照
+	public Meal imgfind() {
+		Connection conn = null;
+		Meal meal = null;
 
+		try {
+			Class.forName("org.h2.Driver");
 
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+			String sql = "select meal from meal ";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			//pStmt.setString(1, use.getUserid());
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Meal me = new Meal(
+						rs.getString("meal"));
+				meal = me;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			meal = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			meal = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					meal = null;
+				}
+
+			}
+		}
+		return meal;
+	}
+
+	//満足度参照
+		public Meal satifind() {
+			Connection conn = null;
+			Meal satiety = null;
+
+			try {
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+				String sql = "select satiety from meal ";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+				//pStmt.setString(1, use.getUserid());
+				ResultSet rs = pStmt.executeQuery();
+
+				while (rs.next()) {
+					Meal sati = new Meal(
+							rs.getInt("satiety"));
+					satiety = sati;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				satiety = null;
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				satiety = null;
+			} finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+						satiety = null;
+					}
+
+				}
+			}
+			return satiety;
+		}
 }

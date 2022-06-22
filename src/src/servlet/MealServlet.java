@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import dao.MealDao;
 import model.Meal;
 import model.Result;
+import model.Userdata;
 
 /**
  * Servlet implementation class MealServlet
@@ -28,8 +29,18 @@ public class MealServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		//画像と満腹度の呼び出し
+		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+		Userdata userid = (Userdata) session.getAttribute("userid");
+		MealDao mDao = new MealDao();
+		Meal meal = mDao.imgfind();
+		request.setAttribute("meal", meal);
+		Meal satiety = mDao.imgfind();
+		request.setAttribute("meal", satiety);
+
+
+				// 結果ページにフォワードする
 		if (session.getAttribute("userid") == null) {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
@@ -45,7 +56,6 @@ public class MealServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
 		String day = request.getParameter("day");
@@ -68,7 +78,5 @@ public class MealServlet extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 			dispatcher.forward(request, response);
 		}
-
 	}
-
 }

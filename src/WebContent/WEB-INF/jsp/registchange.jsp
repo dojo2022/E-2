@@ -11,8 +11,7 @@
 	href="/healthcare/css/registchange.css">
 </head>
 <body>
-	<script defer src="/healthcare/js/registchange.js"
-		type="text/javascript"></script>
+	<script defer src="/healthcare/js/registchange.js" type="text/javascript"></script>
 	<div class="wrapper">
 
 		<header>
@@ -22,37 +21,23 @@
 		<h2 class="pagetitle">登録変更</h2>
 
 		<form id="form" method="POST"
-			action="/healthcare/RegistcompleteServlet">
+			action="/healthcare/RegistchangeServlet">
 			<table id="regichan">
 				<tr>
 					<td>password</td>
-					<td><input class="regi" type="password" id="pw1" name="PW"></td>
-				</tr>
-
-				<tr>
-					<td>password</td>
 					<td><input class ="regi" type="password" ></td>
+					</tr>
+					<tr>
 					<td>password(確認)</td>
 					<td><input class="regi" type="password" id="pw2" name="PW"></td>
 				</tr>
 				<tr>
 					<td>メールアドレス</td>
-
-					<td><input class="regi" type="text" name="email"></td>
-
 					<td><input class ="regi" type="text"value="${email.email }" name="email"></td>
-
 				</tr>
 
 				<tr>
 					<td>身長</td>
-
-					<td><input class="regi" type="text" name="height"></td>
-				</tr>
-				<tr>
-					<td>目標体重</td>
-					<td><input class="regi" type="text" name="targetweight"></td>
-
 					<td><input class ="regi" type="text" value="${height.height }" name="height"></td>
 				</tr>
 				<tr>
