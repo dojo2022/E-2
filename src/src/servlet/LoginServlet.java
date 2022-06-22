@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
+import model.Loginpass;
 import model.Loginuser;
 import model.Result;
 import model.Userdata;
@@ -49,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 				// ログイン成功
 				HttpSession session = request.getSession();
 				session.setAttribute("userid", new Loginuser(userid));
-
+				session.setAttribute("password", new Loginpass(password));
 
 				// メニューサーブレットにリダイレクトする
 				response.sendRedirect("/healthcare/MypageServlet");

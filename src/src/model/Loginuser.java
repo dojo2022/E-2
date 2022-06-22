@@ -11,7 +11,7 @@ public class Loginuser implements Serializable {
 		this.userid = userid;
 	}
 
-	public String getUserid() {
+	public Object getUserid() {
 		return userid;
 	}
 

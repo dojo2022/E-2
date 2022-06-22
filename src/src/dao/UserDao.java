@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Loginpass;
 import model.Userdata;
 
 public class UserDao {
@@ -279,7 +280,7 @@ public class UserDao {
 		return email;
 	}
 	//登録変更
-	public boolean save(Userdata user, Object pass) {
+	public boolean save(Userdata user, Loginpass pass) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -295,7 +296,7 @@ public class UserDao {
 			if (user.getPassword() != null && !user.getPassword().equals("")) {
 				pStmt.setString(1, user.getPassword());
 			} else {
-				pStmt.setString(1,( (Userdata) pass).getPassword());
+				pStmt.setString(1, pass.getPassword());
 			}
 			if (user.getEmail() != null && !user.getEmail().equals("")) {
 				pStmt.setString(2, user.getEmail());
