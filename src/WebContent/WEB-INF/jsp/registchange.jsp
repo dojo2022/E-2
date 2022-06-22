@@ -32,16 +32,16 @@
 				</tr>
 				<tr>
 					<td>メールアドレス</td>
-					<td><input class ="regi" type="text" name="email"></td>
+					<td><input class ="regi" type="text"value="${email.email }" name="email"></td>
 				</tr>
 
 				<tr>
 					<td>身長</td>
-					<td><input class ="regi" type="text" name="height"></td>
+					<td><input class ="regi" type="text" value="${height.height }" name="height"></td>
 				</tr>
 				<tr>
 					<td>目標体重</td>
-					<td><input class ="regi" type="text" name="targetweight"></td>
+					<td><input class ="regi" type="text"value="${tagweight.targetweight }" name="targetweight"></td>
 				</tr>
 			</table>
 			<div class="center">

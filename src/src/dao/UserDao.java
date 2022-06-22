@@ -195,4 +195,96 @@ public class UserDao {
 		}
 		return height;
 	}
+
+
+public Userdata findheight() {
+	Connection conn = null;
+	Userdata height = null;
+
+	try {
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+		String sql = "select * from userdata ";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+		//pStmt.setString(1, use.getUserid());
+		ResultSet rs = pStmt.executeQuery();
+
+		while (rs.next()) {
+			Userdata hg = new Userdata(
+					rs.getString("userid"),
+					rs.getString("password"),
+					rs.getString("email"),
+					rs.getString("gender"),
+					rs.getDate("birth"),
+					rs.getDouble("TARGETWEIGHT"),
+					rs.getInt("daily"),
+					rs.getDate("lastlogin"),
+					rs.getDouble("height"));
+			height = hg;
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+		height = null;
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		height = null;
+	} finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				height = null;
+			}
+
+		}
+	}
+	return height;
+}
+
+//email参照
+public Userdata findemail() {
+	Connection conn = null;
+	Userdata email = null;
+
+	try {
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+		String sql = "select email from userdata";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+		//pStmt.setString(1, use.getUserid());
+		ResultSet rs = pStmt.executeQuery();
+
+		while (rs.next()) {
+			Userdata em = new Userdata(
+					rs.getString("email"));
+			email = em;
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+		email = null;
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		email = null;
+	} finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				email = null;
+			}
+
+		}
+	}
+	return email;
+}
 }
