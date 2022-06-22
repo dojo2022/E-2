@@ -27,10 +27,16 @@ public class BmiServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+		if (session.getAttribute("userid") == null) {
+			response.sendRedirect("/healthcare/LoginServlet");
+			return;
+		}
 		// TODO Auto-generated method stub
 
 		//体重呼び出し
-		HttpSession session = request.getSession();
+
 		Userdata userid = (Userdata) session.getAttribute("userid");
 		WeightDao wDao = new WeightDao();
 		Weight weight = wDao.findweight();

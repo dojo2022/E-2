@@ -22,7 +22,7 @@
 		</header>
 
 		<h2 class="pagetitle">ログイン</h2>
-		<form id="form" method="POST" action="/healthcare/MypageServlet"
+		<form id="form" method="POST" action="/healthcare/LoginServlet"
 			style="text-align: center">
 			<table id="regichan">
 				<tr>

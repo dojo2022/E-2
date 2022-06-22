@@ -29,6 +29,7 @@ public class MealServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		//画像と満腹度の呼び出し
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
@@ -41,6 +42,15 @@ public class MealServlet extends HttpServlet {
 
 
 				// 結果ページにフォワードする
+=======
+
+		HttpSession session = request.getSession();
+		if (session.getAttribute("userid") == null) {
+			response.sendRedirect("/healthcare/LoginServlet");
+			return;
+		}
+
+>>>>>>> eadb07e415f818c44a253d35525c956aec7f6c71
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/meal.jsp");//この中のmealをファイル名に変えてください
 		dispatcher.forward(request, response);
 	}

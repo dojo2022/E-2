@@ -1,4 +1,4 @@
-function writeweigh() {
+function writeweight() {
 	let today = new Date();
 	let a = 0;//仮設定
 	if (a < today.getFullYear()) {
