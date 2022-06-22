@@ -82,3 +82,9 @@ header {
 	box-shadow: 3px 3px 3px gray;
 	outline: solid 2px #006e54
 }
+#image {
+	height: 5%;
+	width: 5%;
+	margin-top: 22px;
+	display: flex;
+}

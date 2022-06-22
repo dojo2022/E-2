@@ -221,7 +221,7 @@
 		</tr>
 		<tr>
 			<td><input type="file" name="IMAGE" accept="image/png, image/jpeg"></td>
-			<td><input type="button" value="保存" onchange="previewImage(this);"></td>
+			<td><input type="submit" value="a" onchange="previewImage(this);"></td>
 		</tr>
 	</table>
 	</form>
@@ -256,7 +256,7 @@
 		</tr>
 		<tr>
 			<td><input type="file" name="IMAGE" accept="image/png, image/jpeg"></td>
-			<td><input type="button" value="保存" onchange="previewImage(this);"></td>
+			<td><input type="button" value="b" onchange="previewImage(this);"></td>
 		</tr>
 	</table>
 	</form>

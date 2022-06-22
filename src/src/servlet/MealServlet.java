@@ -39,13 +39,13 @@ public class MealServlet extends HttpServlet {
 		Meal satiety = mDao.imgfind();
 		request.setAttribute("meal", satiety);
 
-
+/*
 				// 結果ページにフォワードする
 		if (session.getAttribute("userid") == null) {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
 		}
-
+*/
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/meal.jsp");//この中のmealをファイル名に変えてください
 		dispatcher.forward(request, response);
 	}
