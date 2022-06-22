@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +11,7 @@ import java.util.List;
 import model.Meal;
 
 public class MealDao {
-	@SuppressWarnings("unlikely-arg-type")
+	//食事記録の登録
 	public boolean meal(Meal card) {
 		Connection conn = null;
 		boolean result = false;
@@ -40,7 +39,7 @@ public class MealDao {
 				pStmt.setString(2, null);
 			}
 			if (card.getDaily() != null & !card.getDaily().equals("")) {
-				pStmt.setDate(3, (Date) card.getDaily());
+				pStmt.setString(3, card.getDaily());
 			} else {
 				pStmt.setString(3, null);
 			}
@@ -72,7 +71,7 @@ public class MealDao {
 		return result;
 	}
 
-	// 引数paramで検索項目を指定し、検索結果のリストを返す
+	// 食事記録の過去データの参照
 	public List<Meal> select(Meal param) {
 		Connection conn = null;
 		List<Meal> cardList = new ArrayList<Meal>();
@@ -84,7 +83,7 @@ public class MealDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/src/data/healthcare", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select userid, foodnumber, daily, meal, satiety from MEAL WHERE userid LIKE ? AND foodnumber LIKE ? AND daily LIKE ? AND meal LIKE ? AND satiety LIKE ? ORDER BY userid, foodnumber, daily";
+			String sql = "select userid, foodnumber, daily from MEAL WHERE userid LIKE ? AND foodnumber LIKE ? AND daily LIKE ? ORDER BY userid, foodnumber, daily";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -93,28 +92,27 @@ public class MealDao {
 			} else {
 				pStmt.setString(1, "%");
 			}
-			if (param.getFoodnumber() != (0)) {
-				pStmt.setInt(2, "%" + param.getFoodnumber() + "%");
-			} else {
-				pStmt.setString(2, "%");
+			if (param.getFoodnumber() != 0) {
+				pStmt.setInt(2 + param.getFoodnumber(), 0);
 			}
 			if (param.getDaily() != null) {
-				pStmt.setDate(3, "%" + (Date)param.getDaily() + "%");
+				pStmt.setString(3, "%" + param.getDaily() + "%");
 			} else {
 				pStmt.setString(3, "%");
 			}
-			if (param.getMeal() != null) {
-				pStmt.setString(4, "%" + param.getMeal() + "%");
-			} else {
-				pStmt.setString(4, "%");
-			}
-			if (param.getSatiety() != (0)) {
-				pStmt.setInt(5, "%" + param.getSatiety() + "%");
-			} else {
-				pStmt.setString(5, "%");
-			}
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Meal card = new Meal(
+						rs.getString("userid"),
+						rs.getInt("foodnumber"),
+						rs.getString("daily"),
+						rs.getString("meal"),
+						rs.getInt("satiety"));
+				cardList.add(card);
+			}
+
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -136,4 +134,8 @@ public class MealDao {
 		// 結果を返す
 		return cardList;
 	}
+
+	//日付参照
+
+
 }

@@ -1,17 +1,16 @@
 package model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Meal implements Serializable{
 	private String userid; //userid
 	private int foodnumber; //食事番号
-	private Date daily;// 日付
+	private String daily;// 日付
 	private String meal;//食事写真
 	private int satiety;//満腹度
 
 
-	public Meal(String userid, int foodnumber, Date daily, String meal, int satiety) {
+	public Meal(String userid, int foodnumber, String daily, String meal, int satiety) {
 		this.userid = userid;
 		this.foodnumber = foodnumber;
 		this.daily = daily;
@@ -35,11 +34,11 @@ public class Meal implements Serializable{
 		this.foodnumber = foodnumber;
 	}
 
-	public Date getDaily() {
+	public String getDaily() {
 		return daily;
 	}
 
-	public void setDaily(Date daily) {
+	public void setString(String daily) {
 		this.daily = daily;
 	}
 
