@@ -32,11 +32,12 @@ public class RegistchangeServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		HttpSession session = request.getSession();
-		Userdata userid = (Userdata) session.getAttribute("userid");
+
 		if (session.getAttribute("userid") == null) {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
 		}
+		Userdata userid = (Userdata) session.getAttribute("userid");
 		UserDao uDao = new UserDao();
 		Userdata email = uDao.findemail();
 		request.setAttribute("email", email);
