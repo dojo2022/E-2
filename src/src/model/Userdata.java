@@ -32,7 +32,7 @@ public class Userdata implements Serializable {
 		this.password = password;
 	}
 
-	public Userdata(double targetwight) {
+	public Userdata(double targetweight) {
 		this.targetweight = targetweight;
 	}
 
