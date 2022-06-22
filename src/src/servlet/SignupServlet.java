@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,14 +49,14 @@ public class SignupServlet extends HttpServlet {
         String password = request .getParameter ("PW");
 		String email = request.getParameter("EMAIL");
         String gender =request. getParameter("GENDER") ;
-        java.util.Date birth = java.sql.Date.valueOf(request.getParameter("birth"));
-        double targetwight =Double.parseDouble(request.getParameter("TARGETWIGHT"));
+        java.sql.Date birth = Date.valueOf(request.getParameter("birth"));
+        double targetweight =Double.parseDouble(request.getParameter("TARGETWEIGHT"));
         int daily =Integer.parseInt(request.getParameter("DAILY"));
-        java.util.Date lastlogin =  java.sql.Date.valueOf (request.getParameter("LASTLOGIN"));
+        java.sql.Date lastlogin =  Date.valueOf (request.getParameter("LASTLOGIN"));
         	double height  =Double.parseDouble(request.getParameter("HEIGHT"));
 
         UserDao uDao = new UserDao();
-		if (uDao.userdata(new Userdata (userid, password ,email ,gender ,birth ,targetwight ,daily ,lastlogin ,height))){	// 新規登録画面成功
+		if (uDao.userdata(new Userdata (userid, password ,email ,gender ,birth ,targetweight ,daily ,lastlogin ,height))){	// 新規登録画面成功
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signup.jsp");
     		dispatcher.forward(request, response);
 

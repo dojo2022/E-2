@@ -23,7 +23,7 @@ public class WeightDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
-			String sql = "select TARGETWEIGHT from userdata";
+			String sql = "select TARGETWEIGHT from userdata ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//pStmt.setString(1, use.getUserid());
 			ResultSet rs = pStmt.executeQuery();
