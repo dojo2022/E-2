@@ -100,9 +100,9 @@ public class UserDao {
 	}
 
 	//身長参照
-	public Userdata findheight() {
+	public boolean userdata(Userdata user) {
 		Connection conn = null;
-		Userdata height = null;
+		boolean result= false;
 
 		try {
 			Class.forName("org.h2.Driver");
@@ -110,30 +110,77 @@ public class UserDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
-			String sql = "select * from userdata ";
+			String sql = "insert into userdata (userid, password , email, gender, birth, targetweight,daily,lastlogin,height) "
+					+ "values (?, ?, ?, ? ,? ,?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//pStmt.setString(1, use.getUserid());
-			ResultSet rs = pStmt.executeQuery();
+			 pStmt.executeQuery();
 
-			while (rs.next()) {
-				Userdata hg = new Userdata(
-						rs.getString("userid"),
-						rs.getString("password"),
-						rs.getString("email"),
-						rs.getString("gender"),
-						rs.getDate("birth"),
-						rs.getDouble("TARGETWEIGHT"),
-						rs.getInt("daily"),
-						rs.getDate("lastlogin"),
-						rs.getDouble("height"));
-				height = hg;
+			if (user.getUserid() != null && ! user.getUserid().equals("")) {
+				pStmt.setString(1, user .getUserid());
 			}
+			else {
+				result= false;
+			}
+			if  (user.getPassword() != null && ! user.getPassword().equals("")) {
+			  pStmt.setString(2, user.getPassword());
+			}
+			else {
+				result= false;
+			}
+
+			if  (user.getEmail() != null && ! user.getEmail().equals("")) {
+				  pStmt.setString(3, user.getEmail());
+				}
+				else {
+					result = false;
+				}
+
+			if  (user.getGender() != null && ! user.getGender().equals("")) {
+				  pStmt.setString(4, user.getGender());
+				}
+				else {
+					result= false;
+				}
+
+			if  (user.getBirth()!= null ) {
+				  pStmt.setDate(5, user.getBirth());
+				}
+				else {
+					result= false;
+				}
+
+			if  (user.getTargetweight() !=0 ) {
+				  pStmt.setDouble(6, user.getTargetweight());
+				}
+				else {
+					result= false;
+				}
+			if  (user.getDaily() !=0) {
+				  pStmt.setInt(7, user.getDaily());
+				}
+				else {
+					result = false;
+				}
+			if  (user.getLastlogin()!=null ) {
+				  pStmt.setDate(8, user.getLastlogin());
+				}
+				else {
+					result= false;
+				}
+			if  (user.getHeight()!=0) {
+				  pStmt.setDouble(9, user.getHeight());
+				}
+				else {
+					result= false;
+				}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
-			height = null;
+			result= false;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			height = null;
+			result= false;
 		} finally {
 			// データベースを切断
 			if (conn != null) {
@@ -141,11 +188,103 @@ public class UserDao {
 					conn.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
-					height = null;
+					result= false;
 				}
 
 			}
 		}
-		return height;
+		return result;
 	}
+
+
+public Userdata findheight() {
+	Connection conn = null;
+	Userdata height = null;
+
+	try {
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+		String sql = "select * from userdata ";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+		//pStmt.setString(1, use.getUserid());
+		ResultSet rs = pStmt.executeQuery();
+
+		while (rs.next()) {
+			Userdata hg = new Userdata(
+					rs.getString("userid"),
+					rs.getString("password"),
+					rs.getString("email"),
+					rs.getString("gender"),
+					rs.getDate("birth"),
+					rs.getDouble("TARGETWEIGHT"),
+					rs.getInt("daily"),
+					rs.getDate("lastlogin"),
+					rs.getDouble("height"));
+			height = hg;
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+		height = null;
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		height = null;
+	} finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				height = null;
+			}
+
+		}
+	}
+	return height;
+}
+
+//email参照
+public Userdata findemail() {
+	Connection conn = null;
+	Userdata email = null;
+
+	try {
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+		String sql = "select email from userdata";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+		//pStmt.setString(1, use.getUserid());
+		ResultSet rs = pStmt.executeQuery();
+
+		while (rs.next()) {
+			Userdata em = new Userdata(
+					rs.getString("email"));
+			email = em;
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+		email = null;
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		email = null;
+	} finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				email = null;
+			}
+
+		}
+	}
+	return email;
+}
 }

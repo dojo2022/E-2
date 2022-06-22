@@ -28,6 +28,11 @@ public class MypageServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		HttpSession session = request.getSession();
+		if (session.getAttribute("Userid") == null) {
+			response.sendRedirect("/healthcare/LoginServlet");
+			return;
+		}
+
 		Userdata userid = (Userdata) session.getAttribute("userid");
 		WeightDao wDao = new WeightDao();
 		Userdata tagweight = wDao.findtagweight(userid);
