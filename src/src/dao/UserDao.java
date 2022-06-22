@@ -143,32 +143,32 @@ public class UserDao {
 					height= false;
 				}
 
-			if  (user.getBirth()!= null && user.getBirth().equals("")) {
+			if  (user.getBirth()!= null ) {
 				  pStmt.setDate(5, user.getBirth());
 				}
 				else {
 					height= false;
 				}
 
-			if  (user.getTargetweight()!=  null && ! user.getTargetweight().equals("")) {
+			if  (user.getTargetweight() !=0 ) {
 				  pStmt.setDouble(6, user.getTargetweight());
 				}
 				else {
 					height= false;
 				}
-			if  (user.getDaily()!= null && ! user.getDaily().equals("")) {
+			if  (user.getDaily() !=0) {
 				  pStmt.setInt(7, user.getDaily());
 				}
 				else {
 					height = false;
 				}
-			if  (user.getLastlogin()!=null && ! user.getLastlogin().equals("")) {
+			if  (user.getLastlogin()!=null ) {
 				  pStmt.setDate(8, user.getLastlogin());
 				}
 				else {
 					height = false;
 				}
-			if  (user.getHeight()null && ! user.getHeight().equals("")) {
+			if  (user.getHeight()!=0) {
 				  pStmt.setDouble(9, user.getHeight());
 				}
 				else {
