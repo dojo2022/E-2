@@ -102,7 +102,7 @@ public class UserDao {
 	//身長参照
 	public boolean userdata(Userdata user) {
 		Connection conn = null;
-		boolean height= false;
+		boolean result= false;
 
 		try {
 			Class.forName("org.h2.Driver");
@@ -114,73 +114,73 @@ public class UserDao {
 					+ "values (?, ?, ?, ? ,? ,?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//pStmt.setString(1, use.getUserid());
-			ResultSet rs = pStmt.executeQuery();
+			 pStmt.executeQuery();
 
 			if (user.getUserid() != null && ! user.getUserid().equals("")) {
 				pStmt.setString(1, user .getUserid());
 			}
 			else {
-				height= false;
+				result= false;
 			}
 			if  (user.getPassword() != null && ! user.getPassword().equals("")) {
 			  pStmt.setString(2, user.getPassword());
 			}
 			else {
-				height= false;
+				result= false;
 			}
 
 			if  (user.getEmail() != null && ! user.getEmail().equals("")) {
 				  pStmt.setString(3, user.getEmail());
 				}
 				else {
-					height = false;
+					result = false;
 				}
 
 			if  (user.getGender() != null && ! user.getGender().equals("")) {
 				  pStmt.setString(4, user.getGender());
 				}
 				else {
-					height= false;
+					result= false;
 				}
 
 			if  (user.getBirth()!= null ) {
 				  pStmt.setDate(5, user.getBirth());
 				}
 				else {
-					height= false;
+					result= false;
 				}
 
 			if  (user.getTargetweight() !=0 ) {
 				  pStmt.setDouble(6, user.getTargetweight());
 				}
 				else {
-					height= false;
+					result= false;
 				}
 			if  (user.getDaily() !=0) {
 				  pStmt.setInt(7, user.getDaily());
 				}
 				else {
-					height = false;
+					result = false;
 				}
 			if  (user.getLastlogin()!=null ) {
 				  pStmt.setDate(8, user.getLastlogin());
 				}
 				else {
-					height = false;
+					result= false;
 				}
 			if  (user.getHeight()!=0) {
 				  pStmt.setDouble(9, user.getHeight());
 				}
 				else {
-					height= false;
+					result= false;
 				}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			height = false;
+			result= false;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			height = false;
+			result= false;
 		} finally {
 			// データベースを切断
 			if (conn != null) {
@@ -188,12 +188,12 @@ public class UserDao {
 					conn.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
-					height = false;
+					result= false;
 				}
 
 			}
 		}
-		return height;
+		return result;
 	}
 
 
