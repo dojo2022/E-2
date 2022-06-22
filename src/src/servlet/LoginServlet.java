@@ -28,12 +28,6 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		HttpSession session = request.getSession();
-		if (session.getAttribute("Userid") == null) {
-			response.sendRedirect("/healthcare/LoginServlet");
-			return;
-		}
-
 		// ログインページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 		dispatcher.forward(request, response);
@@ -55,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 			if (uDao.LoginOK(new Userdata(userid, password))) {
 
 				HttpSession session = request.getSession();
-				session.setAttribute("id", new Loginuser(userid));
+				session.setAttribute("userid", new Loginuser(userid));
 
 				// メニューサーブレットにリダイレクトする
 				response.sendRedirect("/healthcare/MypageServlet");

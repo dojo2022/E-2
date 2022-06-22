@@ -8,29 +8,32 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ContactcompleteServlet
+ * Servlet implementation class WrecordServlret
  */
-@WebServlet("/ContactcompleteServlet")
-public class ContactcompleteServlet extends HttpServlet {
+@WebServlet("/WrecordServlret")
+public class WrecordServlret extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public WrecordServlret() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		HttpSession session = request.getSession();
-		if (session.getAttribute("userid") == null) {
-			response.sendRedirect("/healthcare/LoginServlet");
-			return;
-		}
 		// TODO Auto-generated method stub
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/contactcomplete.jsp");//この中のloginをファイル名に変えてください
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/wrecord.jsp");//この中のloginをファイル名に変えてください
 		dispatcher.forward(request, response);
-	}
+		}
+
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

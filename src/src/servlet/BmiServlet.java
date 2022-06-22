@@ -29,7 +29,7 @@ public class BmiServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		if (session.getAttribute("Userid") == null) {
+		if (session.getAttribute("userid") == null) {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
 		}

@@ -32,7 +32,7 @@ public class RegistchangeServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
-		if (session.getAttribute("Userid") == null) {
+		if (session.getAttribute("userid") == null) {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
 		}
