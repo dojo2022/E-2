@@ -3267,3 +3267,87 @@ insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
 org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
 Table "CONTACT" not found; SQL statement:
 insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 09:58:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 10:54:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 11:59:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 11:59:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 12:00:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 12:00:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 13:39:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 13:39:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 13:41:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 13:42:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 13:42:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 13:45:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 13:45:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 13:45:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 13:47:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 13:47:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 14:14:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 14:14:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 14:14:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 14:15:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-21 14:15:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
+Table "CONTACT" not found; SQL statement:
+insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]

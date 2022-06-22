@@ -11,40 +11,44 @@
 	href="/healthcare/css/registchange.css">
 </head>
 <body>
+	<script defer src="/healthcare/js/registchange.js"
+		type="text/javascript"></script>
 	<div class="wrapper">
 
 		<header>
-			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
-				height="40">
+			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100" height="40">
 		</header>
 
 		<h2 class="pagetitle">登録変更</h2>
-		<form method="POST" action="/healthcare/RegistcompleteServlet">
+		<form id="form" method="POST"
+			action="/healthcare/RegistcompleteServlet">
 			<table id="regichan">
 				<tr>
 					<td>password</td>
-					<td><input class ="regi" type="password" name="PW"></td>
+					<td><input class="regi" type="password" id="pw1" name="PW"></td>
 				</tr>
 
 				<tr>
-					<td>password</td>
-					<td><input class ="regi" type="password" name="PW"></td>
+					<td>password(確認)</td>
+					<td><input class="regi" type="password" id="pw2" name="PW"></td>
 				</tr>
 				<tr>
 					<td>メールアドレス</td>
-					<td><input class ="regi" type="text" name="email"></td>
+					<td><input class="regi" type="text" name="email"></td>
 				</tr>
 
 				<tr>
 					<td>身長</td>
-					<td><input class ="regi" type="text" name="height"></td>
+					<td><input class="regi" type="text" name="height"></td>
 				</tr>
 				<tr>
 					<td>目標体重</td>
-					<td><input class ="regi" type="text" name="targetweight"></td>
+					<td><input class="regi" type="text" name="targetweight"></td>
 				</tr>
 			</table>
+
 			<div class="center">
+				<span id="error_message" style="color: red"></span> <br>
 				<p>
 					<input class="buttoncolor" type="submit" name="change" value="変更">
 				</p>
