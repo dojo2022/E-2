@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import dao.WeightDao;
+import model.Result;
 import model.Userdata;
 
 
@@ -36,10 +37,7 @@ public class RegistchangeServlet extends HttpServlet {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
 		}
-
 		Userdata userid = (Userdata) session.getAttribute("userid");
-
-
 		UserDao uDao = new UserDao();
 		Userdata email = uDao.findemail();
 		request.setAttribute("email", email);
@@ -62,6 +60,26 @@ public class RegistchangeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		Userdata pass = (Userdata) session.getAttribute("password");
+		request.setCharacterEncoding("UTF-8");
+		String password = request.getParameter("PW");
+		String email = request.getParameter("email");
+		double height = Double.parseDouble(request.getParameter("height"));
+		double targetweight = Double.parseDouble(request.getParameter("targetweight"));
+
+		UserDao uDao = new UserDao();
+		WeightDao wDao = new WeightDao();
+
+		if (uDao.save(new Userdata(password, email,height),pass) && wDao.save(new Userdata(targetweight))) { // 登録成功
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
+			dispatcher.forward(request, response);
+		} else { // 登録失敗
+			request.setAttribute("result",
+					new Result("登録失敗！", "レコードを登録できませんでした。", "/healthcare/ResultServlet"));
+		}
+
 
 	}
 

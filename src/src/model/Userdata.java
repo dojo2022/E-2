@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.sql.Date;
 
-public class Userdata implements Serializable {
+public class Userdata implements Serializable{
 	private String userid;//userid
 	private String password;//パスワード
 	private String email;//メールアドレス
@@ -17,11 +17,15 @@ public class Userdata implements Serializable {
 	public Userdata() {
 	}
 
-
 	public Userdata(String email) {
 		this.email = email;
 	}
 
+	public Userdata(String password, String email, double height) {
+		this.password = password;
+		this.email = email;
+		this.height = height;
+	}
 
 	//ログイン
 	public Userdata(String userid, String password) {
@@ -37,6 +41,7 @@ public class Userdata implements Serializable {
 		this.height = height;
 		this.userid = userid;
 	}
+
 	public Userdata(String userid, String password, String email, String gender, Date birth, double targetweight,
 			int daily,
 			Date lastlogin, double height) {

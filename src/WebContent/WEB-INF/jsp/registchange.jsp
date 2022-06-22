@@ -20,6 +20,7 @@
 		</header>
 
 		<h2 class="pagetitle">登録変更</h2>
+
 		<form id="form" method="POST"
 			action="/healthcare/RegistcompleteServlet">
 			<table id="regichan">
@@ -29,6 +30,8 @@
 				</tr>
 
 				<tr>
+					<td>password</td>
+					<td><input class ="regi" type="password" ></td>
 					<td>password(確認)</td>
 					<td><input class="regi" type="password" id="pw2" name="PW"></td>
 				</tr>
