@@ -29,6 +29,10 @@ public class MypageServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		Object userid = session.getAttribute("userid");
+		if (session.getAttribute("Userid") == null) {
+			response.sendRedirect("/healthcare/LoginServlet");
+			return;
+		}
 		WeightDao wDao = new WeightDao();
 		Userdata tagweight = wDao.findtagweight(userid);
 		request.setAttribute("tagweight", tagweight);

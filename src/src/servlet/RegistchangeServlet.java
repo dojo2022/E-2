@@ -15,6 +15,8 @@ import dao.WeightDao;
 import model.Result;
 import model.Userdata;
 
+
+
 /**
  * Servlet implementation class RegistchangeServlet
  */
@@ -30,8 +32,11 @@ public class RegistchangeServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		HttpSession session = request.getSession();
-		Object userid = session.getAttribute("userid");
-
+		Userdata userid = (Userdata) session.getAttribute("userid");
+		if (session.getAttribute("userid") == null) {
+			response.sendRedirect("/healthcare/LoginServlet");
+			return;
+		}
 		UserDao uDao = new UserDao();
 		Userdata email = uDao.findemail();
 		request.setAttribute("email", email);
@@ -42,6 +47,7 @@ public class RegistchangeServlet extends HttpServlet {
 		WeightDao wDao = new WeightDao();
 		Userdata tagweight = wDao.findtagweight(userid);
 		request.setAttribute("tagweight", tagweight);
+
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registchange.jsp");//この中のloginをファイル名に変えてください
 		dispatcher.forward(request, response);

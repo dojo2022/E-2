@@ -26,6 +26,13 @@ public class IdentityServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+		HttpSession session = request.getSession();
+		if (session.getAttribute("Userid") == null) {
+			response.sendRedirect("/healthcare/LoginServlet");
+			return;
+		}
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/identity.jsp");
 		dispatcher.forward(request, response);
 	}
