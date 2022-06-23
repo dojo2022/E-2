@@ -60,7 +60,7 @@ public class UserDao {
 	}
 
 	//ログイン日数参照
-	public Userdata finddaily(Object userid) {
+	public Userdata finddaily(Loginuser user) {
 
 		Connection conn = null;
 		Userdata daily = null;
@@ -71,9 +71,9 @@ public class UserDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
-			String sql = "select DAILY from userdata";
+			String sql = "select DAILY from userdata where USERID = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			//pStmt.setString(1, use.getUserid());
+			pStmt.setString(1, user.getUserid());
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
@@ -189,8 +189,12 @@ public class UserDao {
 		}
 		return result;
 	}
-//身長参照
-	public Userdata findheight( Loginuser user) {
+
+
+	//身長参照
+	public Userdata findheight() {
+
+
 		Connection conn = null;
 		Userdata height = null;
 
@@ -280,6 +284,7 @@ public class UserDao {
 		}
 		return email;
 	}
+
 	//登録変更
 	public boolean save(Userdata user, Loginpass pass,  Loginuser use) {
 		Connection conn = null;
@@ -305,7 +310,7 @@ public class UserDao {
 			} else {
 				result = false;
 			}
-			if (user.getHeight() > 50.0  && user.getHeight() < 300.0){
+			if (user.getHeight() > 50.0 && user.getHeight() < 300.0) {
 				pStmt.setDouble(3, user.getHeight());
 			} else {
 				result = false;
@@ -340,6 +345,3 @@ public class UserDao {
 
 
 }
-
-	//体重アップデート（登録変更のほぼコピーがんばって）
-

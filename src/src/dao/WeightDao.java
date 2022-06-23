@@ -64,7 +64,7 @@ public class WeightDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/w	orkspace/data/healthcare", "sa", "");
 
 			String sql = "select WEIGHT from WEIGHT where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -110,7 +110,7 @@ public class WeightDao {
 			String sql = "update userdata set targetweight = ? where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			if (user.getTargetweight() > 50.0  && user.getTargetweight() < 300.0) {
+			if (user.getTargetweight() > 50.0 && user.getTargetweight() < 300.0) {
 				pStmt.setDouble(1, user.getTargetweight());
 			} else {
 				result = false;
@@ -143,5 +143,25 @@ public class WeightDao {
 		return result;
 
 	}
+
+	//体重記録の追加
+
+	public boolean save(Userdata user) {
+	Connection conn = null;
+	boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+			// SQL文を準備する
+			String sql = "update userdata set userid=? weight=? indaily=?";
+			// プリペアードステートメントを生成（取得）する
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+	}
+
+
+    }
 
 }
