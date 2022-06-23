@@ -74,7 +74,7 @@ public class MealServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		} else { // 過去データの検索失敗
 			request.setAttribute("result",
-					new Result("登録失敗！", "レコードを登録できませんでした。", "/healthcare/MealServlet"));
+					new Result("登録失敗！", "食事記録へ戻る", "/healthcare/MealServlet"));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 			dispatcher.forward(request, response);
 		}

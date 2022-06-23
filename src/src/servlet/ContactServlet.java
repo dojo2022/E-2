@@ -55,7 +55,7 @@ public class ContactServlet extends HttpServlet {
 		}
 		else {												// 登録失敗
 			request.setAttribute("result",
-			new Result("登録失敗！", "レコードを登録できませんでした。", "/healthcare/MypageServlet"));
+			new Result("登録失敗！", "マイページへ戻る", "/healthcare/MypageServlet"));
 			RequestDispatcher dispatcher =request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 			 dispatcher.forward(request, response);
 		}

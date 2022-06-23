@@ -78,7 +78,7 @@ public class RegistchangeServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		} else { // 登録失敗
 			request.setAttribute("result",
-					new Result("登録失敗！", "レコードを登録できませんでした。", "/healthcare/ResultServlet"));
+					new Result("登録失敗！", "マイページへ戻る", "/healthcare/ResultServlet"));
 		}
 	}
 
