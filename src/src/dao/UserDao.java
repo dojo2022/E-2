@@ -188,7 +188,8 @@ public class UserDao {
 		}
 		return result;
 	}
-//身長参照
+
+	//身長参照
 	public Userdata findheight() {
 		Connection conn = null;
 		Userdata height = null;
@@ -279,6 +280,7 @@ public class UserDao {
 		}
 		return email;
 	}
+
 	//登録変更
 	public boolean save(Userdata user, Loginpass pass) {
 		Connection conn = null;
@@ -303,7 +305,7 @@ public class UserDao {
 			} else {
 				result = false;
 			}
-			if (user.getHeight() > 50.0  && user.getHeight() < 300.0){
+			if (user.getHeight() > 50.0 && user.getHeight() < 300.0) {
 				pStmt.setDouble(3, user.getHeight());
 			} else {
 				result = false;
@@ -338,6 +340,3 @@ public class UserDao {
 
 
 }
-
-	//体重アップデート（登録変更のほぼコピーがんばって）
-

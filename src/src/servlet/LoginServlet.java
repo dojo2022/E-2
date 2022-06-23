@@ -51,9 +51,13 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("userid", new Loginuser(userid));
 				session.setAttribute("password", new Loginpass(password));
-				// メニューサーブレットにリダイレクトする
-				response.sendRedirect("/healthcare/MypageServlet");
+				//初回ログインか判定
+				if (uDao.)
 				//初回の場合
+				response.sendRedirect("/healthcare/WrecordServlet");
+				// 2回目以降、メニューサーブレットにリダイレクトする
+				response.sendRedirect("/healthcare/MypageServlet");
+
 			} else { // ログイン失敗
 				// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
 				request.setAttribute("result",
@@ -69,4 +73,4 @@ public class LoginServlet extends HttpServlet {
 	}
 }
 
-//一度目のログインか否か
+
