@@ -10,7 +10,7 @@
 	href="/healthcare/css/comstyle.css">
 <link rel="stylesheet" type="text/css" href="/healthcare/css/sports.css">
 </head>
-<body>
+<body onload="today()">
 	<div class="wrapper">
 	<header>
 	<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
