@@ -56,7 +56,7 @@ public class WeightDao {
 	}
 
 	//体重参照
-	public Weight findweight() {
+	public Weight findweight(Loginuser user) {
 		Connection conn = null;
 		Weight weight = null;
 
@@ -66,9 +66,9 @@ public class WeightDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
-			String sql = "select WEIGHT from WEIGHT ";
+			String sql = "select WEIGHT from WEIGHT where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			//pStmt.setString(1, use.getUserid());
+			pStmt.setString(1, user.getUserid());
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {

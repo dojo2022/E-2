@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import dao.SportDao;
 import dao.WeightDao;
 import model.Caloriesout;
+import model.Loginuser;
 import model.Result;
 import model.Weight;
 
@@ -38,13 +39,13 @@ public class SportServlet extends HttpServlet {
 		}
 
 		//体重呼び出し
-		Object userid =session.getAttribute("userid");
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		WeightDao wDao = new WeightDao();
-		Weight weight = wDao.findweight();
+		Weight weight = wDao.findweight(userid);
 		request.setAttribute("weight", weight);
 		//総消費カロリー呼び出し
 		SportDao sDao = new SportDao();
-		Caloriesout caloriesout = sDao.findcalo();
+		Caloriesout caloriesout = sDao.findcalo(userid);
 		request.setAttribute("caloriesout", caloriesout);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sports.jsp");
 		dispatcher.forward(request, response);
