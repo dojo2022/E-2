@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import dao.WeightDao;
+import model.Loginuser;
 import model.Userdata;
 
 /**
@@ -32,7 +33,7 @@ public class MypageServlet extends HttpServlet {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
 		}
-		Object userid = session.getAttribute("userid");
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		WeightDao wDao = new WeightDao();
 		Userdata tagweight = wDao.findtagweight(userid);
 		request.setAttribute("tagweight", tagweight);

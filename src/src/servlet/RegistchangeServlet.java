@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import dao.UserDao;
 import dao.WeightDao;
 import model.Loginpass;
+import model.Loginuser;
 import model.Result;
 import model.Userdata;
 
@@ -38,12 +39,12 @@ public class RegistchangeServlet extends HttpServlet {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
 		}
-		Object userid = session.getAttribute("userid");
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		UserDao uDao = new UserDao();
-		Userdata email = uDao.findemail();
+		Userdata email = uDao.findemail(userid);
 		request.setAttribute("email", email);
 		//身長呼び出し
-		Userdata height = uDao.findheight();
+		Userdata height = uDao.findheight(userid);
 		request.setAttribute("height", height);
 		//目標体重
 		WeightDao wDao = new WeightDao();
