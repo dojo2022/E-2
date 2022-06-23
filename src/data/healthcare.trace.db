@@ -3267,3 +3267,25 @@ insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
 org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
 Table "CONTACT" not found; SQL statement:
 insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-23 09:57:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "MEAL" はすでに存在します
+Table "MEAL" already exists; SQL statement:
+create table meal (
+userid varchar (20),
+foodnumber int,
+indaily date,
+food varchar,
+satiety int,
+primary key(userid, foodnumber, indaily)
+) [42101-200]
+2022-06-23 09:57:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "MEAL" はすでに存在します
+Table "MEAL" already exists; SQL statement:
+create table meal (
+userid varchar (20),
+foodnumber int,
+indaily date,
+food varchar,
+satiety int,
+primary key(userid, foodnumber, indaily)
+) [42101-200]

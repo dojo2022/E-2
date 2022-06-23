@@ -21,44 +21,55 @@ import model.Meal;
 public class MealresultServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MealresultServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public MealresultServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
 		String year = request.getParameter("year");
+
 		String month = request.getParameter("month");
+
 		String day = request.getParameter("day");
+
 		String userid = request.getParameter("ID");
+
 		int foodnumber = Integer.parseInt(request.getParameter("fnumber"));
+
 		String daily = year + "-" + month + "-" + day;
+
 		Date sqldate = Date.valueOf("daily");
+
 		String meal = request.getParameter("me");
+
 		int satiety = Integer.parseInt(request.getParameter("sati"));
+
 		MealDao mDao = new MealDao();
 		List<Meal> cardList = mDao.select(new Meal(userid, foodnumber, daily, meal, satiety));
 
 		// リスト結果をリクエストスコープに格納する
-				request.setAttribute("cardList", cardList);
+		request.setAttribute("cardList", cardList);
 
-				// 結果ページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/meal.jsp");
-				dispatcher.forward(request, response);
+		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/meal.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 	}
 
