@@ -175,7 +175,28 @@ public class SportDao {
 					} else {
 						result = false;
 					}
+				}else {
+				//日付が違っていたら
+				String sql = "INSERT INTO caloriesout (userid, indaily, caloriesout) values (?,?,?)";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
 
+				//パラメータ（データの値）を設定する
+				if (item.getUserid() != null && !item.getUserid().equals("")) {
+					pStmt.setString(1, item.getUserid());
+				} else {
+					result = false;
+				}
+				if (item.getIndaily() != null && !item.getIndaily().equals("")) {
+					pStmt.setDate(2, item.getIndaily());
+				} else {
+					result = false;
+				}
+				pStmt.setInt(3, item.getCaloriesout());
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
 				}
 			}
 		} catch (Exception ex) {
