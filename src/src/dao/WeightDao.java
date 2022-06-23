@@ -98,7 +98,7 @@ public class WeightDao {
 	}
 
 	//目標体重登録
-	public boolean save(Userdata user) {
+	public boolean save(Userdata user, Loginuser use) {
 		Connection conn = null;
 		boolean result = false;
 		try {
@@ -107,7 +107,7 @@ public class WeightDao {
 
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
-			String sql = "update userdata set targetweight = ?";
+			String sql = "update userdata set targetweight = ? where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (user.getTargetweight() > 50.0  && user.getTargetweight() < 300.0) {
@@ -115,6 +115,7 @@ public class WeightDao {
 			} else {
 				result = false;
 			}
+			pStmt.setString(2, use.getUserid());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
