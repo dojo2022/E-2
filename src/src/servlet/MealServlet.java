@@ -14,9 +14,9 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.MealDao;
-import model.Loginuser;
 import model.Meal;
 import model.Result;
+import model.Userdata;
 
 /**
  *
@@ -36,9 +36,18 @@ public class MealServlet extends HttpServlet {
 		//画像と満腹度の呼び出し
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+<<<<<<< HEAD
+
+		Userdata userid = (Userdata) session.getAttribute("userid");
+
+=======
+>>>>>>> 639d6889c5400cb25ec0a8b31afdcc15742f667f
 		Part part = request.getPart("IMAGE");// getPartで取得
 		String image = this.getFileName(part);
+<<<<<<< HEAD
+=======
 		Loginuser userid = (Loginuser) session.getAttribute("userid");
+>>>>>>> 639d6889c5400cb25ec0a8b31afdcc15742f667f
 		MealDao mDao = new MealDao();
 
 		Meal meal = mDao.imgfind();
@@ -91,7 +100,7 @@ public class MealServlet extends HttpServlet {
 		MealDao mDao = new MealDao();
 		if (mDao.meal(new Meal(userid, foodnumber, daily, meal, satiety))) { //過去データの検索成功
 			request.setAttribute("result",
-					new Result("", "", "/healthcare/MealresultServlet"));
+					new Result("登録成功!", "食事記録へ戻る", "/healthcare/MealresultServlet"));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/meal.jsp");
 			dispatcher.forward(request, response);
 		} else { // 過去データの検索失敗
