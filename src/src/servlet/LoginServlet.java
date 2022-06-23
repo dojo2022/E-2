@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
+import model.Loginday;
 import model.Loginpass;
 import model.Loginuser;
 import model.Result;
@@ -42,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String userid = request.getParameter("ID");
 		String password = request.getParameter("PW");
-
+		Date lastlogin = null;
 		// ログイン処理を行う
 		UserDao uDao = new UserDao();
 		if (request.getParameter("submit").equals("login")) {
@@ -51,6 +53,7 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("userid", new Loginuser(userid));
 				session.setAttribute("password", new Loginpass(password));
+				session.setAttribute("password", new Loginday(lastlogin));
 				// メニューサーブレットにリダイレクトする
 				response.sendRedirect("/healthcare/MypageServlet");
 				//初回の場合

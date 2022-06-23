@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -61,7 +60,7 @@ public class SportDao {
 	}
 
 	//時間を参照
-	public Caloriesout selectByindaily(Date date) {
+	public Caloriesout selectByindaily(String user) {
 		Connection conn = null;
 		//今回は1件だけを返すメソッドなのでArrayListではない
 		Caloriesout ret = new Caloriesout();
@@ -78,7 +77,7 @@ public class SportDao {
 
 			// プリペアードステートメントを生成（取得）する
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setDate(1, date);
+			pStmt.setString(1, user);
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -86,7 +85,7 @@ public class SportDao {
 			//0件のケースもある
 			if (rs.next()) {
 				//next()がtrue＝1件のデータが取れた
-				ret.setUserid(rs.getString("indaily"));
+				ret.setIndaily(rs.getDate("indaily"));
 			} else {
 				//next()がfalse＝データが無い
 				ret = null;
@@ -110,7 +109,7 @@ public class SportDao {
 	}
 
 	//消費カロリーを保存
-	public Boolean save(Caloriesout item) {
+	public Boolean save(Caloriesout item, Loginuser user) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -122,8 +121,8 @@ public class SportDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa",
 					"");
 
-			Caloriesout target = this.selectById(item.getUserid());
-			//Caloriesout time = this.selectByindaily(item.getIndaily());
+			Caloriesout target = this.selectById(user.getUserid());
+			Caloriesout time = this.selectByindaily(user.getUserid());
 			if (target == null) {
 				//idでデータが取れない＝新規作成
 				// INSERT用SQL文を準備する
@@ -131,64 +130,81 @@ public class SportDao {
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				//パラメータ（データの値）を設定する
-				if (item.getUserid() != null && !item.getUserid().equals("")) {
-					pStmt.setString(1, item.getUserid());
+				if (user.getUserid() != null && !user.getUserid().equals("")) {
+					pStmt.setString(1, user.getUserid());
 				} else {
 					result = false;
-					//pStmt.setString(1, "tete");
 				}
 				if (item.getIndaily() != null && !item.getIndaily().equals("")) {
 					pStmt.setDate(2, item.getIndaily());
 				} else {
 					result = false;
 				}
-				pStmt.setInt(3, item.getCaloriesout());
-
+				if (item.getCaloriesout() > 0) {
+					pStmt.setInt(3, item.getCaloriesout());
+				} else {
+					result = false;
+				}
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
 					result = true;
 				}
 			} else {
-				//if (time != null || time.equals(item.getIndaily())) {
+				if (time != null && time.getIndaily().equals(item.getIndaily())) {
 					//idでデータが取れた＝更新
 					// UPDATE用SQL文を準備する
-					String sql = "UPDATE caloriesout SET caloriesout = ? WHERE userid = ?";
+					String sql = "UPDATE caloriesout SET caloriesout = ? WHERE userid = ? AND indaily = ?";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
 
 					//パラメータ（データの値）を設定する
 					//更新する値(SET caloriesout = ?)
-					pStmt.setInt(1, item.getCaloriesout());
+					if (item.getCaloriesout() > 0) {
+						pStmt.setInt(1, item.getCaloriesout());
+					} else {
+						result = false;
+					}
 					//検索条件(WHERE userid = ?)
-					pStmt.setString(2, item.getUserid());
+					if (user.getUserid() != null && !user.getUserid().equals("")) {
+						pStmt.setString(2, user.getUserid());
+					} else {
+						result = false;
+					}
+					if (item.getIndaily() != null && !item.getIndaily().equals("")) {
+						pStmt.setDate(3,item.getIndaily());
+					} else {
+						result = false;
+					}
+					// SQL文を実行する
+					if (pStmt.executeUpdate() == 1) {
+						result = true;
+					}
+				} else {
+					//日付が違っていたら
+					String sql = "INSERT INTO caloriesout (userid, indaily, caloriesout) values (?,?,?)";
+					PreparedStatement pStmt = conn.prepareStatement(sql);
+
+					//パラメータ（データの値）を設定する
+					if (user.getUserid() != null && !user.getUserid().equals("")) {
+						pStmt.setString(1, user.getUserid());
+					} else {
+						result = false;
+					}
+					if (item.getIndaily() != null && !item.getIndaily().equals("")) {
+						pStmt.setDate(2, item.getIndaily());
+					} else {
+						result = false;
+					}
+					if (item.getCaloriesout() > 0) {
+						pStmt.setInt(3, item.getCaloriesout());
+					} else {
+						result = false;
+					}
 
 					// SQL文を実行する
 					if (pStmt.executeUpdate() == 1) {
 						result = true;
 					}
-//				}else {
-//					//日付が違っていたら
-//					String sql = "INSERT INTO caloriesout (userid, indaily, caloriesout) values (?,?,?)";
-//					PreparedStatement pStmt = conn.prepareStatement(sql);
-//
-//					//パラメータ（データの値）を設定する
-//					if (item.getUserid() != null && !item.getUserid().equals("")) {
-//						pStmt.setString(1, item.getUserid());
-//					} else {
-//						result = false;
-//					}
-//					if (item.getIndaily() != null && !item.getIndaily().equals("")) {
-//						pStmt.setDate(2, item.getIndaily());
-//					} else {
-//						result = false;
-//					}
-//					pStmt.setInt(3, item.getCaloriesout());
-//
-//					// SQL文を実行する
-//					if (pStmt.executeUpdate() == 1) {
-//						result = true;
-//					}
-//				}
-
+				}
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -220,37 +236,36 @@ public class SportDao {
 
 			String sql = "select caloriesout from caloriesout where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, user.getUserid());
+			if (user.getUserid() != null && !user.getUserid().equals("")) {
+				pStmt.setString(1, user.getUserid());
+			} else {
+				calorie = null;
+			}
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
 				Caloriesout tag = new Caloriesout(
-				rs.getInt("caloriesout")
-				);
+						rs.getInt("caloriesout"));
 				calorie = tag;
 			}
 
-
-		}catch (SQLException e) {
-				e.printStackTrace();
-				calorie = null;
-			}
-			catch (ClassNotFoundException e) {
-				e.printStackTrace();
-				calorie = null;
-			}
-			finally {
-				// データベースを切断
-				if (conn != null) {
-					try {
-						conn.close();
-					}
-					catch (SQLException e) {
-						e.printStackTrace();
-						calorie = null;
-					}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			calorie = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			calorie = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					calorie = null;
 				}
 			}
+		}
 
 		return calorie;
 
