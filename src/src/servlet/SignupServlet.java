@@ -68,7 +68,7 @@ public class SignupServlet extends HttpServlet {
 
 		else {					// 新規登録失敗
 				request.setAttribute("result",
-				new Result("！", ", ", "/healthcare/LoginServlet"));
+				new Result("登録失敗！", "ログインページへ戻る ", "/healthcare/LoginServlet"));
 
 									// 結果ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");

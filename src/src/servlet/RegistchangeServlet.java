@@ -74,11 +74,11 @@ public class RegistchangeServlet extends HttpServlet {
 
 		if (uDao.save(new Userdata(password, email,height),pass) && wDao.save(new Userdata(targetweight))) { // 登録成功
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registcomplete.jsp");
 			dispatcher.forward(request, response);
 		} else { // 登録失敗
 			request.setAttribute("result",
-					new Result("登録失敗！", "マイページへ戻る", "/healthcare/ResultServlet"));
+					new Result("登録失敗！", "マイページへ戻る", "/healthcare/MypageServlet"));
 		}
 	}
 
