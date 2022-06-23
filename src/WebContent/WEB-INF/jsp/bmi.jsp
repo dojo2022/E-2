@@ -43,7 +43,7 @@
 
 			<div class="">
 				<p>
-					身長<input class="text" type="text" id="height" value="">cm
+					身長<input class="text" type="text" id="height" value="${height.height}">cm
 				</p>
 				<p>
 
