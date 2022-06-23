@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.Caloriesout;
+import model.Loginuser;
 
 public class SportDao {
 	//ユーザーのIDを参照
@@ -207,7 +208,7 @@ public class SportDao {
 
 	}
 
-	public Caloriesout findcalo() {
+	public Caloriesout findcalo(Loginuser user) {
 		Connection conn = null;
 		Caloriesout calorie = null;
 
@@ -217,9 +218,9 @@ public class SportDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
-			String sql = "select caloriesout from caloriesout";
+			String sql = "select caloriesout from caloriesout where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			//pStmt.setString(1, use.getUserid());
+			pStmt.setString(1, user.getUserid());
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
