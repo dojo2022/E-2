@@ -60,7 +60,7 @@ public class UserDao {
 	}
 
 	//ログイン日数参照
-	public Userdata finddaily(Object userid) {
+	public Userdata finddaily(Loginuser user) {
 
 		Connection conn = null;
 		Userdata daily = null;
@@ -71,9 +71,9 @@ public class UserDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
-			String sql = "select DAILY from userdata";
+			String sql = "select DAILY from userdata where USERID = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			//pStmt.setString(1, use.getUserid());
+			pStmt.setString(1, user.getUserid());
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
