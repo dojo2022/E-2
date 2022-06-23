@@ -23,16 +23,17 @@ PRIMARY KEY(gender, age)
 
 お問い合わせ
 create table contact (
-userid varchar PRIMARY KEY,
-number int auto_increment PRIMARY KEY,
+userid varchar,
+number int auto_increment,
 email varchar (40) NOT NULL,
-contact varchar (1000) NOT NULL
+contact varchar (1000) NOT NULL,
+PRIMARY KEY(userid, number)
 )
 
 
 スポーツ
 create table sports (
-spnumber int auto_increment PRIMARY KEY,
+number int auto_increment PRIMARY KEY,
 sports varchar(40) NOT NULL,
 mets double NOT NULL
 )
@@ -40,19 +41,21 @@ mets double NOT NULL
 
 食事記録
 create table meal (
-userid varchar (20) PRIMARY KEY,
-foodnumber int PRIMARY KEY,
-indaily date PRIMARY KEY,
-food varchar,
-satiety int
+userid varchar (20),
+foodnumber int,
+indaily date,
+meal varchar,
+satiety int,
+PRYMARY KEY(userid, foodnumber, indaily)
 )
 
 
 総消費カロリー
 create table caloriesout (
-userid varchar(20) PRIMARY KEY,
-indaily date PRIMARY KEY,
-caloriesout int
+userid varchar(20),
+indaily date,
+caloriesout int,
+PRIMARY KEY(userid, indaily)
 )
 
 

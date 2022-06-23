@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import dao.SportDao;
 import dao.WeightDao;
 import model.Caloriesout;
+import model.Loginuser;
 import model.Result;
 import model.Weight;
 
@@ -38,13 +39,13 @@ public class SportServlet extends HttpServlet {
 		}
 
 		//体重呼び出し
-		Object userid =session.getAttribute("userid");
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		WeightDao wDao = new WeightDao();
-		Weight weight = wDao.findweight();
+		Weight weight = wDao.findweight(userid);
 		request.setAttribute("weight", weight);
 		//総消費カロリー呼び出し
 		SportDao sDao = new SportDao();
-		Caloriesout caloriesout = sDao.findcalo();
+		Caloriesout caloriesout = sDao.findcalo(userid);
 		request.setAttribute("caloriesout", caloriesout);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sports.jsp");
 		dispatcher.forward(request, response);
@@ -53,7 +54,8 @@ public class SportServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		HttpSession session = request.getSession();
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		request.setCharacterEncoding("UTF-8");
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
@@ -63,13 +65,17 @@ public class SportServlet extends HttpServlet {
 		Date sqldate = Date.valueOf(indaily);
 
 		SportDao sDao = new SportDao();
-		if (sDao.save(new Caloriesout(caloriesout, sqldate))) { // 登録成功
+		if (sDao.save(new Caloriesout(caloriesout, sqldate),userid)) { // 登録成功
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sports.jsp");
+			request.setAttribute("result",
+					new Result("登録成功", "運動計算へ戻る", "/healthcare/SportServlet"));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sportscmp.jsp");
 			dispatcher.forward(request, response);
 		} else { // 登録失敗
 			request.setAttribute("result",
-					new Result("登録失敗！", "運動計算へ戻る", "/simpleBC/SportServlet"));
+					new Result("登録失敗！", "運動計算へ戻る", "/healthcare/SportServlet"));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 }

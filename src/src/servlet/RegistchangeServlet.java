@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import dao.UserDao;
 import dao.WeightDao;
 import model.Loginpass;
+import model.Loginuser;
 import model.Result;
 import model.Userdata;
 
@@ -38,12 +39,12 @@ public class RegistchangeServlet extends HttpServlet {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
 		}
-		Object userid = session.getAttribute("userid");
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		UserDao uDao = new UserDao();
-		Userdata email = uDao.findemail();
+		Userdata email = uDao.findemail(userid);
 		request.setAttribute("email", email);
 		//身長呼び出し
-		Userdata height = uDao.findheight();
+		Userdata height = uDao.findheight(userid);
 		request.setAttribute("height", height);
 		//目標体重
 		WeightDao wDao = new WeightDao();
@@ -62,6 +63,7 @@ public class RegistchangeServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		Loginpass pass = (Loginpass) session.getAttribute("password");
 		request.setCharacterEncoding("UTF-8");
 		String password = request.getParameter("PW");
@@ -72,7 +74,7 @@ public class RegistchangeServlet extends HttpServlet {
 		UserDao uDao = new UserDao();
 		WeightDao wDao = new WeightDao();
 
-		if (uDao.save(new Userdata(password, email,height),pass) && wDao.save(new Userdata(targetweight))) { // 登録成功
+		if (uDao.save(new Userdata(password, email,height),pass,userid) && wDao.save(new Userdata(targetweight),userid)) { // 登録成功
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registcomplete.jsp");
 			dispatcher.forward(request, response);

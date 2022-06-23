@@ -6,12 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Loginuser;
 import model.Userdata;
 import model.Weight;
 
 public class WeightDao {
 	//目標体重参照
-	public Userdata findtagweight(Object userid) {
+	public Userdata findtagweight(Loginuser user) {
 		Connection conn = null;
 		Userdata targetwight = null;
 
@@ -21,9 +22,9 @@ public class WeightDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
-			String sql = "select TARGETWEIGHT from userdata ";
+			String sql = "select TARGETWEIGHT from userdata where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			//pStmt.setString(1, use.getUserid());
+			pStmt.setString(1, user.getUserid());
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
@@ -55,7 +56,7 @@ public class WeightDao {
 	}
 
 	//体重参照
-	public Weight findweight() {
+	public Weight findweight(Loginuser user) {
 		Connection conn = null;
 		Weight weight = null;
 
@@ -65,9 +66,9 @@ public class WeightDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/w	orkspace/data/healthcare", "sa", "");
 
-			String sql = "select WEIGHT from WEIGHT ";
+			String sql = "select WEIGHT from WEIGHT where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			//pStmt.setString(1, use.getUserid());
+			pStmt.setString(1, user.getUserid());
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
@@ -97,7 +98,7 @@ public class WeightDao {
 	}
 
 	//目標体重登録
-	public boolean save(Userdata user) {
+	public boolean save(Userdata user, Loginuser use) {
 		Connection conn = null;
 		boolean result = false;
 		try {
@@ -106,7 +107,7 @@ public class WeightDao {
 
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
-			String sql = "update userdata set targetweight = ?";
+			String sql = "update userdata set targetweight = ? where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			if (user.getTargetweight() > 50.0 && user.getTargetweight() < 300.0) {
@@ -114,6 +115,7 @@ public class WeightDao {
 			} else {
 				result = false;
 			}
+			pStmt.setString(2, use.getUserid());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {

@@ -10,19 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.UserDao;
-import dao.WeightDao;
-import model.Loginuser;
-import model.Userdata;
-
 /**
- * Servlet implementation class MypageServlet
+ * Servlet implementation class SportServletcmp
  */
-@WebServlet("/MypageServlet")
-public class MypageServlet extends HttpServlet {
+@WebServlet("/SportServletcmp")
+public class SportServletcmp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**s
+	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,16 +28,8 @@ public class MypageServlet extends HttpServlet {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
 		}
-		Loginuser userid = (Loginuser) session.getAttribute("userid");
-		WeightDao wDao = new WeightDao();
-		Userdata tagweight = wDao.findtagweight(userid);
-		request.setAttribute("tagweight", tagweight);
 
-		UserDao uDao = new UserDao();
-		Userdata daily = uDao.finddaily(userid);
-		request.setAttribute("daily", daily);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sportscnp.jsp");//この中のloginをファイル名に変えてください
 		dispatcher.forward(request, response);
 	}
 
@@ -53,4 +40,5 @@ public class MypageServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 }
