@@ -247,7 +247,7 @@
 
 
 
-	<p class="box buttoncolor">総消費カロリーは<input class="regi"name="calories" id="caloriesout" type="text" value="${calo.calo}" readonly="readonly">です。</p>
+	<p class="box buttoncolor">総消費カロリーは<input class="regi"name="calories" id="caloriesout" type="text" value="${caloriesout.caloriesout}" readonly="readonly">です。</p>
 
 	<input class="buttoncolor" type="submit"  name="SUBMIT" value="保存">
 	<input class="buttoncolor" type="reset" value="リセット">

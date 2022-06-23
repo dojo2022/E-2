@@ -54,7 +54,8 @@ public class SportServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		HttpSession session = request.getSession();
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		request.setCharacterEncoding("UTF-8");
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
@@ -64,13 +65,15 @@ public class SportServlet extends HttpServlet {
 		Date sqldate = Date.valueOf(indaily);
 
 		SportDao sDao = new SportDao();
-		if (sDao.save(new Caloriesout(caloriesout, sqldate))) { // 登録成功
+		if (sDao.save(new Caloriesout(caloriesout, sqldate),userid)) { // 登録成功
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sports.jsp");
 			dispatcher.forward(request, response);
 		} else { // 登録失敗
 			request.setAttribute("result",
-					new Result("登録失敗！", "運動計算へ戻る", "/simpleBC/SportServlet"));
+					new Result("登録失敗！", "運動計算へ戻る", "/healthcare/SportServlet"));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 }

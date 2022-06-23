@@ -21,8 +21,6 @@ function sportcalc() {
 
 		total = total + kcal;
 
-				total = total + kcal;
-
 		console.log(total);
 		document.form.caloriesout.value = total;
 	}
