@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.MealDao;
+import model.Loginuser;
 import model.Meal;
 import model.Result;
-import model.Userdata;
 
 /**
  * Servlet implementation class MealServlet
@@ -32,7 +32,7 @@ public class MealServlet extends HttpServlet {
 		//画像と満腹度の呼び出し
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		Userdata userid = (Userdata) session.getAttribute("userid");
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		MealDao mDao = new MealDao();
 		Meal meal = mDao.imgfind();
 		request.setAttribute("meal", meal);

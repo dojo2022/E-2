@@ -281,7 +281,7 @@ public class UserDao {
 		return email;
 	}
 	//登録変更
-	public boolean save(Userdata user, Loginpass pass) {
+	public boolean save(Userdata user, Loginpass pass,  Loginuser use) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -291,8 +291,9 @@ public class UserDao {
 
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
-			String sql = "update userdata set password=?, email=?, height=?";
+			String sql = "update userdata set password=?, email=?, height=? where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
+
 
 			if (user.getPassword() != null && !user.getPassword().equals("")) {
 				pStmt.setString(1, user.getPassword());
@@ -309,7 +310,7 @@ public class UserDao {
 			} else {
 				result = false;
 			}
-
+			pStmt.setString(4, use.getUserid());
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
