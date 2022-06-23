@@ -8,11 +8,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Caloriesout;
 import model.Meal;
 
 public class MealDao {
-
+	/*
 	//ユーザーのIDを参照
 		public Caloriesout selectById(String userid) {
 			Connection conn = null;
@@ -61,6 +60,7 @@ public class MealDao {
 			return ret;
 
 		}
+		*/
 
 	//食事記録の登録
 	public boolean meal(Meal card) {
@@ -94,10 +94,15 @@ public class MealDao {
 			} else {
 				pStmt.setString(3, null);
 			}
-			if (card.getSatiety() != (0 & card.getSatiety())) {
-				pStmt.setInt(4, card.getSatiety());
+			if(card.getMeal() != null & !card.getMeal().equals("")) {
+				pStmt.setString(4, card.getMeal());
 			} else {
 				pStmt.setString(4, null);
+			}
+			if (card.getSatiety() != (0 & card.getSatiety())) {
+				pStmt.setInt(5, card.getSatiety());
+			} else {
+				pStmt.setString(5, null);
 			}
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {

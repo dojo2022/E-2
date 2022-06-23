@@ -7,6 +7,7 @@
 <title>healthcare</title>
 <link rel="stylesheet" type="text/css"
 	href="/healthcare/css/comstyle.css">
+	<link rel="stylesheet" type="text/css" href="/healthcare/css/wrecord.css">
 </head>
 <body>
 	<div class="wrapper">
@@ -19,11 +20,12 @@
 			<img id="image" src="/healthcare/img/contact.png">
 		</div>
 		<form method="POST" action="/healthcare/WrecordServlet">
-			<table class="center">
+			<table class="mo">
 				<tr>
 					<td>今日の体重を入力してください</td>
-
-					<td><input class="regi" type="text" id="email" name="weight"></td>
+				</tr>
+                <tr>
+					<td><input class="regi" type="text" id="email" name="weight">kg</td>
 				</tr>
 			</table>
 			<div class="center">
