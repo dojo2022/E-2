@@ -61,6 +61,56 @@ public class MealDao {
 
 		}
 		*/
+	/*
+	//時間を参照
+		public Caloriesout selectByindaily(String user) {
+			Connection conn = null;
+			//今回は1件だけを返すメソッドなのでArrayListではない
+			Caloriesout ret = new Caloriesout();
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa",
+						"");
+
+				// SQL文を準備する
+				String sql = "SELECT * FROM meal WHERE userid = ?";
+
+				// プリペアードステートメントを生成（取得）する
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+				pStmt.setString(1, user);
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				//0件のケースもある
+				if (rs.next()) {
+					//next()がtrue＝1件のデータが取れた
+					ret.setIndaily(rs.getDate("indaily"));
+				} else {
+					//next()がfalse＝データが無い
+					ret = null;
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				ret = null;
+			} finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+						ret = null;
+					}
+				}
+			}
+			return ret;
+
+		}
+		*/
 
 	//食事記録の登録
 	public boolean meal(Meal card) {
@@ -75,7 +125,7 @@ public class MealDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/src/data/healthcare", "sa", "");
 
 			// SQL文を準備する
-			String sql = "insert into meal (userid, foodnumber, daily, meal, satiety) values (?, ?, ?, ?, ?)";
+			String sql = "insert into meal (userid, foodnumber, indaily, meal, satiety) values (?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
