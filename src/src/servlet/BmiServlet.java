@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import dao.WeightDao;
+import model.Loginuser;
 import model.Userdata;
 import model.Weight;
 
@@ -37,14 +38,14 @@ public class BmiServlet extends HttpServlet {
 
 		//体重呼び出し
 
-		Object userid = session.getAttribute("userid");
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		WeightDao wDao = new WeightDao();
-		Weight weight = wDao.findweight();
+		Weight weight = wDao.findweight(userid);
 		request.setAttribute("weight", weight);
 
 		//身長呼び出し
 		UserDao uDao = new UserDao();
-		Userdata height = uDao.findheight();
+		Userdata height = uDao.findheight(userid);
 		request.setAttribute("height", height);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/bmi.jsp");

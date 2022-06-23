@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import dao.UserDao;
 import dao.WeightDao;
 import model.Loginpass;
+import model.Loginuser;
 import model.Result;
 import model.Userdata;
 
@@ -38,12 +39,12 @@ public class RegistchangeServlet extends HttpServlet {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
 		}
-		Object userid = session.getAttribute("userid");
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		UserDao uDao = new UserDao();
-		Userdata email = uDao.findemail();
+		Userdata email = uDao.findemail(userid);
 		request.setAttribute("email", email);
 		//身長呼び出し
-		Userdata height = uDao.findheight();
+		Userdata height = uDao.findheight(userid);
 		request.setAttribute("height", height);
 		//目標体重
 		WeightDao wDao = new WeightDao();
@@ -74,11 +75,11 @@ public class RegistchangeServlet extends HttpServlet {
 
 		if (uDao.save(new Userdata(password, email,height),pass) && wDao.save(new Userdata(targetweight))) { // 登録成功
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registcomplete.jsp");
 			dispatcher.forward(request, response);
 		} else { // 登録失敗
 			request.setAttribute("result",
-					new Result("登録失敗！", "レコードを登録できませんでした。", "/healthcare/ResultServlet"));
+					new Result("登録失敗！", "マイページへ戻る", "/healthcare/MypageServlet"));
 		}
 	}
 

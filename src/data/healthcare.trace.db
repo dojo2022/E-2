@@ -3267,3 +3267,59 @@ insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
 org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "CONTACT" が見つかりません
 Table "CONTACT" not found; SQL statement:
 insert into contact (userid, email, contact) values (?, ?, ?) [42102-199]
+2022-06-23 09:57:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "MEAL" はすでに存在します
+Table "MEAL" already exists; SQL statement:
+create table meal (
+userid varchar (20),
+foodnumber int,
+indaily date,
+food varchar,
+satiety int,
+primary key(userid, foodnumber, indaily)
+) [42101-200]
+2022-06-23 09:57:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "MEAL" はすでに存在します
+Table "MEAL" already exists; SQL statement:
+create table meal (
+userid varchar (20),
+foodnumber int,
+indaily date,
+food varchar,
+satiety int,
+primary key(userid, foodnumber, indaily)
+) [42101-200]
+2022-06-23 13:54:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: 不明なデータ型: "KEY"
+Unknown data type: "KEY"; SQL statement:
+create table caloriesout (
+userid varchar(20),
+indaily date,
+caloriesout int,
+PRYMARY KEY(userid, indaily)
+) [50004-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5971)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5697)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8442)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8379)
+	at org.h2.command.Parser.parseCreate(Parser.java:6276)
+	at org.h2.command.Parser.parsePrepared(Parser.java:903)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1459)
+	at org.h2.server.web.WebApp.query(WebApp.java:1116)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1078)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1065)
+	at org.h2.server.web.WebThread.process(WebThread.java:178)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.base/java.lang.Thread.run(Thread.java:834)

@@ -69,12 +69,12 @@ public class MealServlet extends HttpServlet {
 		MealDao mDao = new MealDao();
 		if (mDao.meal(new Meal(userid, foodnumber, daily, meal, satiety))) { //過去データの検索成功
 			request.setAttribute("result",
-					new Result("", "", "/healthcare/MealresutServlet"));
+					new Result("", "", "/healthcare/MealresultServlet"));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/meal.jsp");
 			dispatcher.forward(request, response);
 		} else { // 過去データの検索失敗
 			request.setAttribute("result",
-					new Result("登録失敗！", "レコードを登録できませんでした。", "/healthcare/MealServlet"));
+					new Result("登録失敗！", "食事記録へ戻る", "/healthcare/MealServlet"));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 			dispatcher.forward(request, response);
 		}

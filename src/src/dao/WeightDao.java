@@ -6,12 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Loginuser;
 import model.Userdata;
 import model.Weight;
 
 public class WeightDao {
 	//目標体重参照
-	public Userdata findtagweight(Object userid) {
+	public Userdata findtagweight(Loginuser user) {
 		Connection conn = null;
 		Userdata targetwight = null;
 
@@ -21,9 +22,9 @@ public class WeightDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
-			String sql = "select TARGETWEIGHT from userdata ";
+			String sql = "select TARGETWEIGHT from userdata where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			//pStmt.setString(1, use.getUserid());
+			pStmt.setString(1, user.getUserid());
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
@@ -55,7 +56,7 @@ public class WeightDao {
 	}
 
 	//体重参照
-	public Weight findweight() {
+	public Weight findweight(Loginuser user) {
 		Connection conn = null;
 		Weight weight = null;
 
@@ -65,9 +66,9 @@ public class WeightDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
-			String sql = "select WEIGHT from WEIGHT ";
+			String sql = "select WEIGHT from WEIGHT where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			//pStmt.setString(1, use.getUserid());
+			pStmt.setString(1, user.getUserid());
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
