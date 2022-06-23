@@ -35,14 +35,19 @@ public class MealServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//画像と満腹度の呼び出し
 		request.setCharacterEncoding("UTF-8");
-
 		HttpSession session = request.getSession();
+<<<<<<< HEAD
 
 		Userdata userid = (Userdata) session.getAttribute("userid");
 
+=======
+>>>>>>> 639d6889c5400cb25ec0a8b31afdcc15742f667f
 		Part part = request.getPart("IMAGE");// getPartで取得
-
 		String image = this.getFileName(part);
+<<<<<<< HEAD
+=======
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
+>>>>>>> 639d6889c5400cb25ec0a8b31afdcc15742f667f
 		MealDao mDao = new MealDao();
 
 		Meal meal = mDao.imgfind();
