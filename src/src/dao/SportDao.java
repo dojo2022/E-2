@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +9,8 @@ import java.sql.SQLException;
 
 import model.Caloriesout;
 import model.Loginuser;
+import model.Userdata;
+import model.Userdatas;
 
 public class SportDao {
 	//ユーザーのIDを参照
@@ -234,6 +237,11 @@ public class SportDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
+			UserDao uDao = new UserDao();
+			Userdata lastday = uDao.findlastday(user.getUserid());
+			Userdatas users = new Userdatas();
+			Date todays = users.today();
+			if(lastday.equals(todays));
 			String sql = "select caloriesout from caloriesout where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			if (user.getUserid() != null && !user.getUserid().equals("")) {
