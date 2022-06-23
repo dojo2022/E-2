@@ -30,16 +30,6 @@ public class signtest {
 }
 */
 
-
-
-
-
-
-
-
-
-
-
 /*package test;
 
 import java.text.ParseException;
@@ -76,20 +66,6 @@ public class signtest {
 					}
 				}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 			//データ
 /*create table userdata (

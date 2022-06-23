@@ -27,6 +27,8 @@ public class SignupServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signup.jsp");//この中のloginをファイル名に変えてください
 		dispatcher.forward(request, response);
 	}
@@ -46,7 +48,7 @@ public class SignupServlet extends HttpServlet {
 		String day = request.getParameter("day");
 		String indaily = year + "-" + month + "-" + day;
 		Date sqldate = Date.valueOf(indaily);
-        double targetweight =Double.parseDouble(request.getParameter("TARGETWEIGHT"));
+        double targetweight = Double.parseDouble(request.getParameter("TARGETWEIGHT"));
         int daily =Integer.parseInt(request.getParameter("DAILY"));
         java.sql.Date lastlogin =  Date.valueOf (request.getParameter("LASTLOGIN"));
         	double height  =Double.parseDouble(request.getParameter("HEIGHT"));
@@ -64,7 +66,7 @@ public class SignupServlet extends HttpServlet {
 
 		else {					// 新規登録失敗
 				request.setAttribute("result",
-				new Result("！", ", ", "/healthcare/LoginServlet"));
+				new Result("登録失敗！", "ログインページへ戻る ", "/healthcare/LoginServlet"));
 
 									// 結果ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
