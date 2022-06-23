@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.Loginpass;
+import model.Loginuser;
 import model.Userdata;
 
 public class UserDao {
@@ -189,7 +190,7 @@ public class UserDao {
 		return result;
 	}
 //身長参照
-	public Userdata findheight() {
+	public Userdata findheight( Loginuser user) {
 		Connection conn = null;
 		Userdata height = null;
 
@@ -199,9 +200,9 @@ public class UserDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
-			String sql = "select * from userdata ";
+			String sql = "select * from userdata where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			//pStmt.setString(1, use.getUserid());
+			pStmt.setString(1, user.getUserid());
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
@@ -239,7 +240,7 @@ public class UserDao {
 	}
 
 	//email参照
-	public Userdata findemail() {
+	public Userdata findemail(Loginuser user) {
 		Connection conn = null;
 		Userdata email = null;
 
@@ -249,9 +250,9 @@ public class UserDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
-			String sql = "select email from userdata";
+			String sql = "select email from userdata where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			//pStmt.setString(1, use.getUserid());
+			pStmt.setString(1, user.getUserid());
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {

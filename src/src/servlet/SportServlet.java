@@ -69,7 +69,7 @@ public class SportServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		} else { // 登録失敗
 			request.setAttribute("result",
-					new Result("登録失敗！", "レコードを登録できませんでした。", "/simpleBC/MenuServlet"));
+					new Result("登録失敗！", "運動計算へ戻る", "/simpleBC/SportServlet"));
 		}
 	}
 }

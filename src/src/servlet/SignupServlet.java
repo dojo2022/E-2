@@ -28,12 +28,6 @@ public class SignupServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		HttpSession session = request.getSession();
-		if (session.getAttribute("userid") == null) {
-			response.sendRedirect("/healthcare/LoginServlet");
-			return;
-		}
-
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signup.jsp");//この中のloginをファイル名に変えてください
 		dispatcher.forward(request, response);
 	}
@@ -68,7 +62,7 @@ public class SignupServlet extends HttpServlet {
 
 		else {					// 新規登録失敗
 				request.setAttribute("result",
-				new Result("！", ", ", "/healthcare/LoginServlet"));
+				new Result("登録失敗！", "ログインページへ戻る ", "/healthcare/LoginServlet"));
 
 									// 結果ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");

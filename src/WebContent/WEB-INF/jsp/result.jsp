@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,12 +19,12 @@
 		<h2 class="pagetitle">エラー</h2>
 		<div class="text">
 			<p></p>
-			<p class="boxes">正しい処理が出来ませんでした。</p>
+			<p class="boxes"><c:out value="${result.title}" /></p>
 			<img class="image" src="/healthcare/img/お問い合わせ完了.png">
 		</div>
 		<div class="button">
 			<input class="" type="button"
-				onclick="location.href='/healthcare/MypageServlet'" value="マイページに戻る">
+				onclick="location.href='${result.backTo}'" value="${result.message}">
 		</div>
 		<footer class="footer">
 			<div class="footer_hone">
