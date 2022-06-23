@@ -67,7 +67,9 @@ public class SportServlet extends HttpServlet {
 		SportDao sDao = new SportDao();
 		if (sDao.save(new Caloriesout(caloriesout, sqldate),userid)) { // 登録成功
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sports.jsp");
+			request.setAttribute("result",
+					new Result("登録成功", "運動計算へ戻る", "/healthcare/SportServlet"));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sportscmp.jsp");
 			dispatcher.forward(request, response);
 		} else { // 登録失敗
 			request.setAttribute("result",

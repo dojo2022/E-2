@@ -37,13 +37,15 @@ public class SignupServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+Date today = new Date();
 		request.setCharacterEncoding("UTF-8");
 		String userid = request.getParameter("ID");
         String password = request .getParameter ("PW");
 		String email = request.getParameter("EMAIL");
         String gender =request. getParameter("GENDER") ;
-        java.sql.Date birth = Date.valueOf(request.getParameter("birth"));
+        String year = request.getParameter("year");
+		String month = request.getParameter("month");
+		String day = request.getParameter("day");
         double targetweight =Double.parseDouble(request.getParameter("TARGETWEIGHT"));
         int daily =Integer.parseInt(request.getParameter("DAILY"));
         java.sql.Date lastlogin =  Date.valueOf (request.getParameter("LASTLOGIN"));
