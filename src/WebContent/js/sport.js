@@ -139,15 +139,32 @@ function today() {
 
 }
 
-function day(yy, mm, dd) {
-	console.log(yy);
-	console.log(mm);
-	console.log(dd);
-	let yaer = "<option value='" + yy + "' selected>" + yy + "</option>";
-	let month = "<option value='" + mm + "' selected>" + mm + "</option>";
-	let day = "<option value='" + dd + "' selected>" + dd + "</option>";
-	document.getElementById('id_year').innerHTML = yaer;
-	document.getElementById('id_month').innerHTML = month;
-	document.getElementById('id_day').innerHTML = day;
+function day(yy, mm, dd){
 
+let optionLoop;
+
+	/*
+	  ループ処理（スタート数字、終了数字、表示id名、デフォルト数字）
+	 */
+	optionLoop = function(start, end, id, this_day) {
+		var i, opt;
+
+		opt = null;
+		for (i = start; i <= end; i++) {
+			if (i === this_day) {
+				opt += "<option value='" + i + "' selected>" + i + "</option>";
+			} else {
+				opt += "<option value='" + i + "'>" + i + "</option>";
+			}
+		}
+		return document.getElementById(id).innerHTML = opt;
+	};
+
+
+	/*
+	  関数設定（スタート数字[必須]、終了数字[必須]、表示id名[省略可能]、デフォルト数字[省略可能]）
+	 */
+	optionLoop(1950, yy, 'id_year', yy);
+	optionLoop(1, 12, 'id_month', mm);
+	optionLoop(1, 31, 'id_day', dd);
 }
