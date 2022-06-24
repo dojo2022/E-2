@@ -12,6 +12,7 @@ public class Userdatas {
 				+ months[gcalendar.get(Calendar.MONTH)] + "-"
 				+ Integer.valueOf(gcalendar.get(Calendar.DATE)).toString();
 		Date sqldate = Date.valueOf(today);
+		System.out.println(sqldate);
 		return sqldate;
 	}
 }

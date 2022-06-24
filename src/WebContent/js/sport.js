@@ -103,7 +103,6 @@ function setOption(radio) {
 //今日の日付
 
 function today() {
-
 	/*
 		今日の日付データを変数todayに格納
 	   */
@@ -137,5 +136,18 @@ function today() {
 	optionLoop(1950, this_year, 'id_year', this_year);
 	optionLoop(1, 12, 'id_month', this_month);
 	optionLoop(1, 31, 'id_day', this_day);
+
+}
+
+function day(yy, mm, dd) {
+	console.log(yy);
+	console.log(mm);
+	console.log(dd);
+	let yaer = "<option value='" + yy + "' selected>" + yy + "</option>";
+	let month = "<option value='" + mm + "' selected>" + mm + "</option>";
+	let day = "<option value='" + dd + "' selected>" + dd + "</option>";
+	document.getElementById('id_year').innerHTML = yaer;
+	document.getElementById('id_month').innerHTML = month;
+	document.getElementById('id_day').innerHTML = day;
 
 }

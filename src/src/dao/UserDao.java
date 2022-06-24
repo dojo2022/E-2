@@ -356,7 +356,7 @@ public class UserDao {
 					"");
 
 			// SQL文を準備する
-			String sql = "SELECT * FROM userdate WHERE userid = ?";
+			String sql = "SELECT * FROM userdata WHERE userid = ?";
 
 			// プリペアードステートメントを生成（取得）する
 			PreparedStatement pStmt = conn.prepareStatement(sql);

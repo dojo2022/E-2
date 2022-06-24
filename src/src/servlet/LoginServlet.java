@@ -55,10 +55,10 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("password", new Loginpass(password));
 
 				//初回ログインか判定
-				if (uDao.)
+				//if (uDao.)
 				session.setAttribute("password", new Loginday(lastlogin));
 				//初回の場合
-				response.sendRedirect("/healthcare/WrecordServlet");
+				//response.sendRedirect("/healthcare/WrecordServlet");
 				// 2回目以降、メニューサーブレットにリダイレクトする
 				response.sendRedirect("/healthcare/MypageServlet");
 

@@ -10,7 +10,15 @@
 	href="/healthcare/css/comstyle.css">
 <link rel="stylesheet" type="text/css" href="/healthcare/css/sports.css">
 </head>
-<body onload="today()">
+<c:choose>
+	<c:when test="${empty day}">
+	<body onload="today()">
+	</c:when>
+	<c:otherwise>
+	<body onload="day(${year},${month},${day})">
+	</c:otherwise>
+</c:choose>
+
 	<div class="wrapper">
 		<header>
 			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100" height="40">
@@ -104,6 +112,7 @@
 				<select name="day" id="id_day" class="regi">
 					<!-- option要素がjavascriptのプログラムにより挿入される、id_day -->
 				</select>
+				<input class="buttoncolor" type="submit" name="SUBMIT" value="表示" onchange="test()">
 				<p class="box buttoncolor">
 					総消費カロリーは<input class="regi" name="calories" id="caloriesout"
 						type="text" value="${caloriesout.caloriesout}" readonly="readonly">です。
