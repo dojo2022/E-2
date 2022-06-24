@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class Meal implements Serializable{
 	private String userid; //userid
@@ -23,6 +24,14 @@ public class Meal implements Serializable{
 	}
 
 	public Meal(int int1) {
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
+
+	public Meal() {
+		// TODO 自動生成されたコンストラクター・スタブ
+	}
+
+	public Meal(String userid2, int foodnumber2, String daily2) {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
@@ -64,6 +73,11 @@ public class Meal implements Serializable{
 
 	public void setSatiety(int satiety) {
 		this.satiety = satiety;
+	}
+
+	public void setIndaily(Date date) {
+		// TODO 自動生成されたメソッド・スタブ
+
 	}
 
 }
