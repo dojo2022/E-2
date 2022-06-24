@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
-import model.Loginday;
 import model.Loginpass;
 import model.Loginuser;
 import model.Result;
@@ -53,16 +52,12 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("userid", new Loginuser(userid));
 				session.setAttribute("password", new Loginpass(password));
-<<<<<<< HEAD
+
 				//初回ログインか判定
-				if (uDao.)
-=======
-				session.setAttribute("password", new Loginday(lastlogin));
-				// メニューサーブレットにリダイレクトする
-				response.sendRedirect("/healthcare/MypageServlet");
->>>>>>> 639d6889c5400cb25ec0a8b31afdcc15742f667f
+				//if (uDao.)
+
 				//初回の場合
-				response.sendRedirect("/healthcare/WrecordServlet");
+				//response.sendRedirect("/healthcare/WrecordServlet");
 				// 2回目以降、メニューサーブレットにリダイレクトする
 				response.sendRedirect("/healthcare/MypageServlet");
 

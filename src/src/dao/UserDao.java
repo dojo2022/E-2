@@ -192,7 +192,7 @@ public class UserDao {
 
 
 	//身長参照
-	public Userdata findheight() {
+	public Userdata findheight(Loginuser user) {
 
 
 		Connection conn = null;

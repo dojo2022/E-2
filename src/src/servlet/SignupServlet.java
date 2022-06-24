@@ -38,12 +38,11 @@ public class SignupServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
 
-		request.setCharacterEncoding("UTF - 8");
-=======
+
+
+
 		request.setCharacterEncoding("UTF-8");
->>>>>>> f45ddac65096127e155f228acd48c30810617c91
 		String userid = request.getParameter("ID");
         String password = request .getParameter ("PW");
 		String email = request.getParameter("EMAIL");
@@ -55,7 +54,7 @@ public class SignupServlet extends HttpServlet {
 		Date sqldate = Date.valueOf(indaily);
         double targetweight = Double.parseDouble(request.getParameter("TARGETWEIGHT"));
         int daily =Integer.parseInt(request.getParameter("DAILY"));
-        java.sql.Date lastlogin =  Date.valueOf (request.getParameter("LASTLOGIN"));
+        java.sql.Date lastlogin =  Date.valueOf ("0000-00-00");
         	double height  =Double.parseDouble(request.getParameter("HEIGHT"));
 
         UserDao uDao = new UserDao();
