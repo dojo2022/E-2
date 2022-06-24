@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.MealDao;
+import model.Loginuser;
 import model.Meal;
 import model.Result;
 import model.Userdata;
@@ -37,10 +38,13 @@ public class MealServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 
+
 		Userdata userid = (Userdata) session.getAttribute("userid");
 
 		Part part = request.getPart("IMAGE");// getPartで取得
 		String image = this.getFileName(part);
+
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
 
 		MealDao mDao = new MealDao();
 
