@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.WeightDao;
+import model.Loginuser;
 import model.Weight;
 
 /**
@@ -49,7 +50,7 @@ public class WrecordServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		String userid = new String();//IDを格納する
+	    //String userid = new String();//IDを格納する
 		int weight = 0; // 体重を格納する変数
 		Date indaily = new Date(); //日付けを格納する変数
 
@@ -59,7 +60,7 @@ public class WrecordServlet extends HttpServlet {
 		//呼び出す文を書く
 		Weight w = new Weight();
 		HttpSession session = request.getSession();
-		userid = (String) session.getAttribute("userid");
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		w.setUserid(userid);
 		w.setWeight(weight);
 		w.setIndaily((java.sql.Date) indaily);

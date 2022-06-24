@@ -356,7 +356,7 @@ public class UserDao {
 					"");
 
 			// SQL文を準備する
-			String sql = "SELECT * FROM userdate WHERE userid = ?";
+			String sql = "SELECT * FROM userdata WHERE userid = ?";
 
 			// プリペアードステートメントを生成（取得）する
 			PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -368,7 +368,7 @@ public class UserDao {
 			//0件のケースもある
 			if (rs.next()) {
 				//next()がtrue＝1件のデータが取れた
-				ret.setUserid(rs.getString("lastlogin"));
+				ret.setLastlogin(rs.getDate("lastlogin"));
 			} else {
 				//next()がfalse＝データが無い
 				ret = null;
