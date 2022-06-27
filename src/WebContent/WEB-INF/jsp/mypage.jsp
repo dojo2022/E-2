@@ -12,7 +12,7 @@
  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js" integrity="sha256-eA+ych7t31OjiXs3fYU0iWjn9HvXMiCLmunP2Gpghok=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@0.5.7/chartjs-plugin-annotation.min.js" integrity="sha256-Olnajf3o9kfkFGloISwP1TslJiWUDd7IYmfC+GdCKd4=" crossorigin="anonymous"></script>
 </head>
-<body onload="test1(<c:forEach var="find" items="${findlist}">
+<body onload="test1(${tagweight.targetweight},<c:forEach var="find" items="${findlist}">
 					list = ${find.weight},
 					</c:forEach>), test2(<c:forEach var="find" items="${findout}">
 					list = ${find.caloriesout},
@@ -56,7 +56,7 @@
 			<canvas id="canvas2"></canvas>
 		</div>
 		 <script>
-		 function test1(...list){
+		 function test1(tag,...list){
 		 var ctx = document.getElementById('canvas1').getContext('2d');
             var myChart = new Chart(ctx, {
                 // The type of chart we want to create
@@ -94,12 +94,12 @@
                 type: 'line',
                 mode: 'horizontal',
                 scaleID: 'y-axis-0',
-                value: 59,
+                value: tag,
                 borderColor: 'black',
                 borderWidth: 2,
                 label: {
                     backgroundColor: "red",
-                    content: "平均値",
+                    content: "目標体重",
                     enabled: true
                 },
             },
