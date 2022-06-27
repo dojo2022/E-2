@@ -9,8 +9,14 @@
 <link rel="stylesheet" type="text/css"
 	href="/healthcare/css/comstyle.css">
 <link rel="stylesheet" type="text/css" href="/healthcare/css/mypage.css">
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js" integrity="sha256-eA+ych7t31OjiXs3fYU0iWjn9HvXMiCLmunP2Gpghok=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@0.5.7/chartjs-plugin-annotation.min.js" integrity="sha256-Olnajf3o9kfkFGloISwP1TslJiWUDd7IYmfC+GdCKd4=" crossorigin="anonymous"></script>
 </head>
-<body onload="test()">
+<body onload="test1(${tagweight.targetweight},<c:forEach var="find" items="${findlist}">
+					list = ${find.weight},
+					</c:forEach>), test2(<c:forEach var="find" items="${findout}">
+					list = ${find.caloriesout},
+					</c:forEach>)">
 	<div class="wrapper">
 		<header>
 			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
@@ -43,13 +49,105 @@
 			<p class="c_title">消費カロリーの推移</p>
 		</div>
 		<div class="chart">
-		<div style="width: 500px;">
-			<canvas id="chart"></canvas>
+		<div style="width: 350px;">
+			<canvas id="canvas1"></canvas>
 		</div>
-		<div style="width: 500px;">
-			<canvas id="chart"></canvas>
+		<div style="width: 350px;">
+			<canvas id="canvas2"></canvas>
 		</div>
+		 <script>
+		 function test1(tag,...list){
+		 var ctx = document.getElementById('canvas1').getContext('2d');
+            var myChart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+                    labels: ['1', '2', '3', '4', '5', '6', '7','8', '9', '10', '11', '12', '13', '14','15',
+                    '16', '17', '18', '19', '20', '21','22', '23', '24', '25', '26', '27', '28', '29', '30' ,'31'],
+                    datasets: [{
+                        label: '1ヶ月の体重',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        fill: false,
+                        data: [...list]
+                    }]
+                },
+
+                // Configuration options go here
+                options: {
+                  scales: {
+            yAxes: [{
+                ticks: {
+                  suggestedMin: 40,
+           suggestedMax: 70,
+           stepSize: 10
+                }
+            }]
+        },
+        annotation: {
+        drawTime: 'afterDatasetsDraw',
+        annotations: [
+            {
+                id: 'hline',
+                type: 'line',
+                mode: 'horizontal',
+                scaleID: 'y-axis-0',
+                value: tag,
+                borderColor: 'black',
+                borderWidth: 2,
+                label: {
+                    backgroundColor: "red",
+                    content: "目標体重",
+                    enabled: true
+                },
+            },
+        ]
+    }
+    }
+            });
+		 }</script>
+            <script>
+            function test2(...list){
+            var ctx = document.getElementById('canvas2').getContext('2d');
+            var myChart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+                    labels: ['1', '2', '3', '4', '5', '6', '7','8', '9', '10', '11', '12', '13', '14','15',
+                    '16', '17', '18', '19', '20', '21','22', '23', '24', '25', '26', '27', '28', '29', '30' ,'31'],
+                    datasets: [{
+                        label: '1ヶ月の消費カロリー',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        fill: false,
+                        data: [...list]
+                    }]
+                },
+
+                // Configuration options go here
+                options: {
+                  scales: {
+            yAxes: [{
+                ticks: {
+                  suggestedMin:5000,
+           suggestedMax: 1000,
+           stepSize: 1000
+                }
+            }]
+        }
+    }
+            });
+            }</script>
 		</div>
+		<div>
+		<c:forEach var="find" items="${findList}">
+					<c:out value="${find.weight}"></c:out>
+					</c:forEach>
+					</div>
 		<footer class="footer">
 			<div class="footer_hone">
 				<img src="/healthcare/img/footer.png">

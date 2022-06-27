@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,10 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.SportDao;
 import dao.UserDao;
 import dao.WeightDao;
+import model.Caloriesout;
 import model.Loginuser;
 import model.Userdata;
+import model.Weight;
 
 /**
  * Servlet implementation class MypageServlet
@@ -42,6 +46,12 @@ public class MypageServlet extends HttpServlet {
 		Userdata daily = uDao.finddaily(userid);
 		request.setAttribute("daily", daily);
 
+		List<Weight> findlist = wDao.findAll(userid);
+		request.setAttribute("findlist", findlist);
+
+		SportDao sDao = new SportDao();
+		List<Caloriesout> findout = sDao.findAll(userid);
+		request.setAttribute("findout", findout);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
 	}
