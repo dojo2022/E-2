@@ -66,8 +66,7 @@ public class LoginServlet extends HttpServlet {
 					response.sendRedirect("/healthcare/MypageServlet");
 	            }else {
 	            	//初回の場合
-	            	
-	            	
+	        		uDao.updatelastday(userid);
 					response.sendRedirect("/healthcare/WrecordServlet");
 	            }
 			} else { // ログイン失敗

@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +10,7 @@ import java.sql.SQLException;
 import model.Loginpass;
 import model.Loginuser;
 import model.Userdata;
+import model.Userdatas;
 
 public class UserDao {
 	// ログインできるならtrueを返す
@@ -390,6 +392,64 @@ public class UserDao {
 		return ret;
 
 	}
+
+	//最終ログイン日数を更新
+	public boolean updatelastday(String userid) {
+		Connection conn = null;
+		boolean result = false;
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+				// SQL文を準備する
+				String sql = "update userdata set lastlogin = ? where userid = ?";
+				// プリペアードステートメントを生成（取得）する
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+				Userdatas users = new Userdatas();
+				Date todays = users.today();
+
+
+				if (todays != null && !todays.equals("")) {
+					pStmt.setDate(1, todays);
+				} else {
+					result = false;
+				}
+
+				if (userid != null && !userid.equals("") ) {
+					pStmt.setString(2, userid);
+				} else {
+					result = false;
+				}
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+				} catch (SQLException e) {
+					e.printStackTrace();
+					result = false;
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+					result = false;
+				} finally {
+					// データベースを切断
+					if (conn != null) {
+						try {
+							conn.close();
+						} catch (SQLException ex) {
+							ex.printStackTrace();
+							result = false;
+						}
+					}
+				}
+
+				// 結果を返す
+				return result;
+
+
+	    }
 
 }
 
