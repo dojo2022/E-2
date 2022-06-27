@@ -66,13 +66,8 @@ public class LoginServlet extends HttpServlet {
 					response.sendRedirect("/healthcare/MypageServlet");
 	            }else {
 	            	//初回の場合
-
 	        		uDao.updatelastday(userid);
 					response.sendRedirect("/healthcare/WrecordServlet");
-
-	            	response.sendRedirect("/healthcare/MypageServlet");
-					//response.sendRedirect("/healthcare/WrecordServlet");
-
 	            }
 			} else { // ログイン失敗
 				// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
