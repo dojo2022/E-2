@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.Caloriesout;
 import model.Loginuser;
@@ -325,6 +327,48 @@ public class SportDao {
 	return calorie;
 
 }
+//すべての消費カロリーを参照
+	public List<Caloriesout> findAll(Loginuser user) {
+		Connection conn = null;
+		List<Caloriesout>findlist = new ArrayList<Caloriesout>();
+
+		try {
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+			String sql = "select caloriesout from caloriesout where userid = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, user.getUserid());
+
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Caloriesout co = new Caloriesout(
+						rs.getInt("caloriesout"));
+				findlist.add(co);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			findlist = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			findlist = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					findlist = null;
+				}
+
+			}
+		}
+		return findlist;
+	}
 	}
 
 

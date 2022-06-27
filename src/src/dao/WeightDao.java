@@ -1,13 +1,17 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.Loginuser;
 import model.Userdata;
+import model.Userdatas;
 import model.Weight;
 
 public class WeightDao {
@@ -59,6 +63,8 @@ public class WeightDao {
 	public Weight findweight(Loginuser user) {
 		Connection conn = null;
 		Weight weight = null;
+		Userdatas users = new Userdatas();
+		Date todays = users.today();
 
 		try {
 			Class.forName("org.h2.Driver");
@@ -66,9 +72,18 @@ public class WeightDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
-			String sql = "select WEIGHT from WEIGHT where userid = ?";
+			String sql = "select WEIGHT from WEIGHT where userid = ? AND indaily = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, user.getUserid());
+			if (user.getUserid() != null && !user.getUserid().equals("")) {
+				pStmt.setString(1, user.getUserid());
+			} else {
+				weight = null;
+			}
+			if (todays != null && !todays.equals("")) {
+				pStmt.setDate(2, todays);
+			} else {
+				weight = null;
+			}
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
@@ -204,5 +219,47 @@ public class WeightDao {
 
 
     }
+
+	public List<Weight> findAll(Loginuser user) {
+		Connection conn = null;
+		List<Weight>findlist = new ArrayList<Weight>();
+
+		try {
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+			String sql = "select WEIGHT from WEIGHT where userid = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, user.getUserid());
+
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Weight wg = new Weight(
+						rs.getDouble("WEIGHT"));
+				findlist.add(wg);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			findlist = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			findlist = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					findlist = null;
+				}
+
+			}
+		}
+		return findlist;
+	}
 
 }
