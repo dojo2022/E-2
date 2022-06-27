@@ -15,4 +15,11 @@ public class Userdatas {
 		System.out.println(sqldate);
 		return sqldate;
 	}
+
+	public int calc(Userdata target) {
+		int	result = 0;
+		int a = target.getDaily();
+		result = a + 1;
+		return result;
+	}
 }

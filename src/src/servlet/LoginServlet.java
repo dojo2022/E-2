@@ -76,7 +76,7 @@ public class LoginServlet extends HttpServlet {
 	            }else {
 	            	//初回の場合
 
-
+	        		uDao.updatelastday(userid);
 					response.sendRedirect("/healthcare/WrecordServlet");
 	            }
 			} else { // ログイン失敗
@@ -88,7 +88,7 @@ public class LoginServlet extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 			} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Signup.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/signup.jsp");
 			dispatcher.forward(request, response);
 		}
 	}
