@@ -17,6 +17,11 @@ public class Userdata implements Serializable{
 	public Userdata() {
 	}
 
+	public Userdata(int daily) {
+		this.daily = daily;
+	}
+
+
 	public Userdata(String email) {
 		this.email = email;
 	}
