@@ -75,11 +75,11 @@ public class UserDao {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, user.getUserid());
 			ResultSet rs = pStmt.executeQuery();
-
 			while (rs.next()) {
 				Userdata day = new Userdata(
 						rs.getDouble("DAILY"));
 				daily = day;
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -117,7 +117,6 @@ public class UserDao {
 					+ "values (?, ?, ?, ? ,? ,?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//pStmt.setString(1, use.getUserid());
-			pStmt.executeQuery();
 
 			if (user.getUserid() != null && !user.getUserid().equals("")) {
 				pStmt.setString(1, user.getUserid());
@@ -153,7 +152,7 @@ public class UserDao {
 			} else {
 				result = false;
 			}
-			if (user.getDaily() != 0) {
+			if (user.getDaily() >= 0) {
 				pStmt.setInt(7, user.getDaily());
 			} else {
 				result = false;
@@ -168,7 +167,9 @@ public class UserDao {
 			} else {
 				result = false;
 			}
-
+			if(pStmt.executeUpdate() == 1) {
+				result = true;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			result = false;
@@ -263,6 +264,7 @@ public class UserDao {
 				Userdata em = new Userdata(
 						rs.getString("email"));
 				email = em;
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -279,7 +281,6 @@ public class UserDao {
 					e.printStackTrace();
 					email = null;
 				}
-
 			}
 		}
 		return email;
@@ -298,7 +299,6 @@ public class UserDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 			String sql = "update userdata set password=?, email=?, height=? where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-
 
 			if (user.getPassword() != null && !user.getPassword().equals("")) {
 				pStmt.setString(1, user.getPassword());

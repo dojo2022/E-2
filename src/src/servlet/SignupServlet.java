@@ -45,7 +45,7 @@ public class SignupServlet extends HttpServlet {
 		String userid = request.getParameter("ID");
         String password = request .getParameter ("PW");
 		String email = request.getParameter("EMAIL");
-        String gender =request. getParameter("GENDER") ;
+        String gender =request. getParameter("gender") ;
         String year = request.getParameter("year");
 		String month = request.getParameter("month");
 		String day = request.getParameter("day");
