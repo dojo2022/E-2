@@ -57,6 +57,7 @@ public class WrecordServlet extends HttpServlet {
 		// jspから送られてきた値を受け取る
 		weight = Integer.parseInt(request.getParameter("weight")); // 体重の受け取り
 
+
 		//呼び出す文を書く
 		Weight w = new Weight();
 		HttpSession session = request.getSession();
