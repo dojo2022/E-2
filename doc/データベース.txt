@@ -46,7 +46,7 @@ foodnumber int,
 indaily date,
 meal varchar,
 satiety int,
-PRYMARY KEY(userid, foodnumber, indaily)
+PRIMARY KEY(userid, foodnumber, indaily)
 )
 
 
@@ -62,7 +62,7 @@ PRIMARY KEY(userid, indaily)
 
 体重
 create table weight (
-userid varchar(20) NOT NULL,
-weight double(5) NOT NULL,
-indaily date NOT NULL
+userid varchar (20),
+weight double (5),
+indaily date
 )

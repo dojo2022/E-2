@@ -49,6 +49,7 @@ public class SportServlet extends HttpServlet {
 		request.setAttribute("caloriesout", caloriesout);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sports.jsp");
 		dispatcher.forward(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
