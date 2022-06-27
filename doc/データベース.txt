@@ -62,7 +62,7 @@ PRIMARY KEY(userid, indaily)
 
 体重
 create table weight (
-userid varchar(20) PRIMARY KEY,
-weight double(5) NOT NULL,
-indaily date NOT NULL
+userid varchar (20),
+weight double (5),
+indaily date
 )
