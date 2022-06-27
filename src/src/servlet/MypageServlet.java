@@ -52,6 +52,8 @@ public class MypageServlet extends HttpServlet {
 		SportDao sDao = new SportDao();
 		List<Caloriesout> findout = sDao.findAll(userid);
 		request.setAttribute("findout", findout);
+
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
 	}

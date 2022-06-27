@@ -165,7 +165,7 @@
 			<div class="footer_hone">
 				<img src="/healthcare/img/footer.png">
 			</div>
-			&copy;&copy;Copyright SeHealthCare. All rights reserved.
+			&copy;Copyright SeHealthCare. All rights reserved.
 		</footer>
 		<script src="/healthcare/js/common.js" type="text/javascript"></script>
 		<script src="/healthcare/js/mypage.js" type="text/javascript"></script>

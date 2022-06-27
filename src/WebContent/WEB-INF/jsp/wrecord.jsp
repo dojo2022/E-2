@@ -45,7 +45,7 @@
 		<div class="footer_hone">
 			<img src="/healthcare/img/footer.png">
 		</div>
-		&copy; &copy;Copyright SeHealthCare. All rights reserved.
+		&copy;Copyright SeHealthCare. All rights reserved.
 	</footer>
 </body>
 </html>
