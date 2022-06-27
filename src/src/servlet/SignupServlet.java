@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import model.Result;
@@ -53,19 +52,14 @@ public class SignupServlet extends HttpServlet {
 		String indaily = year + "-" + month + "-" + day;
 		Date sqldate = Date.valueOf(indaily);
         double targetweight = Double.parseDouble(request.getParameter("TARGETWEIGHT"));
-        int daily =Integer.parseInt(request.getParameter("DAILY"));
-        java.sql.Date lastlogin =  Date.valueOf ("0000-00-00");
-        	double height  =Double.parseDouble(request.getParameter("HEIGHT"));
+        int daily = 0;
+        java.sql.Date lastlogin =  Date.valueOf ("0000-01-01");
+        double height  =Double.parseDouble(request.getParameter("HEIGHT"));
 
         UserDao uDao = new UserDao();
 		if (uDao.userdata(new Userdata (userid, password ,email ,gender ,sqldate ,targetweight ,daily ,lastlogin ,height))){	// 新規登録画面成功
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/signup.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
     		dispatcher.forward(request, response);
-
-			// セッションスコープにIDを格納する
-			HttpSession session = request.getSession();
-			session.getAttribute("");
-						response.sendRedirect("/healthcare/LoginServlet");
 		}
 
 		else {					// 新規登録失敗
