@@ -60,23 +60,43 @@ public class SportServlet extends HttpServlet {
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
 		String day = request.getParameter("day");
-		int caloriesout = Integer.parseInt(request.getParameter("calories"));
+		//if文
+		int calories;
+		if(!request.getParameter("calories").equals("") && request.getParameter("calories") != null) {
+			calories = Integer.parseInt(request.getParameter("calories"));
+		}else {
+			 calories = 0;
+		}
 		String indaily = year + "-" + month + "-" + day;
 		Date sqldate = Date.valueOf(indaily);
+		System.out.println(sqldate);
 
 		SportDao sDao = new SportDao();
-		if (sDao.save(new Caloriesout(caloriesout, sqldate),userid)) { // 登録成功
+		if (request.getParameter("SUBMIT").equals("保存")) {
+			if (sDao.save(new Caloriesout(calories, sqldate), userid)) { // 登録成功
 
-			request.setAttribute("result",
-					new Result("登録成功", "運動計算へ戻る", "/healthcare/SportServlet"));
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sportscmp.jsp");
-			dispatcher.forward(request, response);
-		} else { // 登録失敗
-			request.setAttribute("result",
-					new Result("登録失敗！", "運動計算へ戻る", "/healthcare/SportServlet"));
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+				request.setAttribute("result",
+						new Result("登録成功", "運動計算へ戻る", "/healthcare/SportServlet"));
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sportscmp.jsp");
+				dispatcher.forward(request, response);
+			} else { // 登録失敗
+				request.setAttribute("result",
+						new Result("登録失敗！", "運動計算へ戻る", "/healthcare/SportServlet"));
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+				dispatcher.forward(request, response);
+			}
+		} else {//日にちに対応した総消費カロリーを表示する
+			Caloriesout caloriesout = sDao.findcalo(userid,sqldate);
+			request.setAttribute("caloriesout", caloriesout);
+			//体重呼び出し
+			WeightDao wDao = new WeightDao();
+			Weight weight = wDao.findweight(userid);
+			request.setAttribute("weight", weight);
+			request.setAttribute("year", year);
+			request.setAttribute("month", month);
+			request.setAttribute("day", day);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sports.jsp");
 			dispatcher.forward(request, response);
 		}
 	}
 }
-
