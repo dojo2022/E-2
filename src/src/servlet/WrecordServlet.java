@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -60,10 +61,14 @@ public class WrecordServlet extends HttpServlet {
 		//呼び出す文を書く
 		Weight w = new Weight();
 		HttpSession session = request.getSession();
-		Loginuser userid = (Loginuser) session.getAttribute("userid");
-		w.setUserid(userid);
+		Loginuser user = (Loginuser) session.getAttribute("userid");
+		w.setUserid(user.getUserid());
 		w.setWeight(weight);
-		w.setIndaily((java.sql.Date) indaily);
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String fd = sdf.format(indaily);
+		w.setIndaily(java.sql.Date.valueOf(fd));
+
 		WeightDao wDao = new WeightDao();
 		wDao.saveweight(w);
 
