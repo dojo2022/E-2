@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,19 +9,26 @@
 <link rel="stylesheet" type="text/css"
 	href="/healthcare/css/comstyle.css">
 <link rel="stylesheet" type="text/css" href="/healthcare/css/mypage.css">
- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js" integrity="sha256-eA+ych7t31OjiXs3fYU0iWjn9HvXMiCLmunP2Gpghok=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@0.5.7/chartjs-plugin-annotation.min.js" integrity="sha256-Olnajf3o9kfkFGloISwP1TslJiWUDd7IYmfC+GdCKd4=" crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"
+	integrity="sha256-eA+ych7t31OjiXs3fYU0iWjn9HvXMiCLmunP2Gpghok="
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@0.5.7/chartjs-plugin-annotation.min.js"
+	integrity="sha256-Olnajf3o9kfkFGloISwP1TslJiWUDd7IYmfC+GdCKd4="
+	crossorigin="anonymous"></script>
 </head>
-<body onload="test1(${tagweight.targetweight},<c:forEach var="find" items="${findlist}">
+<body
+	onload="test1(${tagweight.targetweight},<c:forEach var="find" items="${findlist}">
 					list = ${find.weight},
 					</c:forEach>), test2(<c:forEach var="find" items="${findout}">
 					list = ${find.caloriesout},
 					</c:forEach>)">
 	<div class="wrapper">
 		<header>
-			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
-				height="40">
-			<input class="btn buttoncolor" type="button" onclick="location.href='/healthcare/IdentityServlet'"value="登録内容変更">
+			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100" height="40">
+			<input class="btn buttoncolor" type="button"
+				onclick="location.href='/healthcare/IdentityServlet'" value="登録内容変更">
 		</header>
 		<nav>
 			<ul id="nav">
@@ -36,9 +43,15 @@
 
 		<h2 class="pagetitle">MYページ</h2>
 		<div class="heading">
-			<h3>目標体重<br><c:out value="${tagweight.targetweight}"/>kg</h3>
 			<h3>
-				あなたは<c:out value="${daily.daily }"/>日連続<br>&emsp;ログインです。
+				目標体重<br>
+				<c:out value="${tagweight.targetweight}" />
+				kg
+			</h3>
+			<h3>
+				あなたは
+				<c:out value="${daily.daily }" />
+				日連続<br>&emsp;ログインです。
 			</h3>
 		</div>
 		<div class="center">
@@ -49,13 +62,13 @@
 			<p class="c_title">消費カロリーの推移</p>
 		</div>
 		<div class="chart">
-		<div style="width: 350px;">
-			<canvas id="canvas1"></canvas>
-		</div>
-		<div style="width: 350px;">
-			<canvas id="canvas2"></canvas>
-		</div>
-		 <script>
+			<div style="width: 350px;">
+				<canvas id="canvas1"></canvas>
+			</div>
+			<div style="width: 350px;">
+				<canvas id="canvas2"></canvas>
+			</div>
+			<script>
 		 function test1(tag,...list){
 		 var ctx = document.getElementById('canvas1').getContext('2d');
             var myChart = new Chart(ctx, {
@@ -108,7 +121,7 @@
     }
             });
 		 }</script>
-            <script>
+			<script>
             function test2(...list){
             var ctx = document.getElementById('canvas2').getContext('2d');
             var myChart = new Chart(ctx, {
@@ -144,10 +157,10 @@
             }</script>
 		</div>
 		<div>
-		<c:forEach var="find" items="${findList}">
-					<c:out value="${find.weight}"></c:out>
-					</c:forEach>
-					</div>
+			<c:forEach var="find" items="${findList}">
+				<c:out value="${find.weight}"></c:out>
+			</c:forEach>
+		</div>
 		<footer class="footer">
 			<div class="footer_hone">
 				<img src="/healthcare/img/footer.png">
