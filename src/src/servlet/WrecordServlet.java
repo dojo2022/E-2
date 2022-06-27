@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.WeightDao;
+import model.Loginuser;
 import model.Weight;
 
 /**
@@ -49,20 +51,25 @@ public class WrecordServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		String userid = new String();//IDを格納する
+	    //String userid = new String();//IDを格納する
 		int weight = 0; // 体重を格納する変数
 		Date indaily = new Date(); //日付けを格納する変数
 
 		// jspから送られてきた値を受け取る
 		weight = Integer.parseInt(request.getParameter("weight")); // 体重の受け取り
 
+
 		//呼び出す文を書く
 		Weight w = new Weight();
 		HttpSession session = request.getSession();
-		userid = (String) session.getAttribute("userid");
-		w.setUserid(userid);
+		Loginuser user = (Loginuser) session.getAttribute("userid");
+		w.setUserid(user.getUserid());
 		w.setWeight(weight);
-		w.setIndaily((java.sql.Date) indaily);
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String fd = sdf.format(indaily);
+		w.setIndaily(java.sql.Date.valueOf(fd));
+
 		WeightDao wDao = new WeightDao();
 		wDao.saveweight(w);
 

@@ -27,6 +27,8 @@
 		</ul>
 	</nav>
 	<script src="/healthcare/js/common.js" type="text/javascript"></script>
+
+
 	</div>
 	<div class="meal">
 	<h2>食事記録</h2>
@@ -209,19 +211,16 @@
 			<td class="center"><input type="button" value="決定" onclick="clickBtn1()"></td>
 		</tr>
 		</table>
-		<div class="center">
-		<p id="result"></p>
-		<p id="comment"></p>
-		</div>
 			</form>
-		<form action="/healthcare/MealresultServlet" method="post" enctype="multipart/form-data">
+		<form action="/healthcare/MealServlet" method="post" enctype="multipart/form-data">
 		<table>
 		<tr>
-			<td><canvas id="preview" width="100" height="100" src="${'/Nyample/images/'+=image}"></canvas></td>
+			<td><canvas id="preview" style="max-width:200px;"></canvas></td>
+			<td class="center"><p id="result"></p><p id="comment"></p></td>
 		</tr>
 		<tr>
-			<td><input type="file" name="IMAGE" accept="image/png, image/jpeg"></td>
-			<td><input type="submit" value="保存" onchange="previewImage(this);"></td>
+			<td><input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"></td>
+			<td><input type="submit" value="保存"></td>
 		</tr>
 	</table>
 	</form>
@@ -244,15 +243,12 @@
 			<td class="center"><input type="button" value="決定" onclick="clickBtn2()"></td>
 		</tr>
 		</table>
-		<div class="center">
-		<p id="result2"></p>
-		<p id="comment2"></p>
-		</div>
 			</form>
 		<form action="/healthcare/MealresultServlet" method="post" enctype="multipart/form-data">
 		<table>
 		<tr>
 			<td><canvas id="preview" width="100" height="100"></canvas></td>
+			<td class="center"><p id="result2"></p><p id="comment2"></p></td>
 		</tr>
 		<tr>
 			<td><input type="file" name="IMAGE" accept="image/png, image/jpeg"></td>
@@ -279,15 +275,12 @@
 			<td class="center"><input type="button" value="決定" onclick="clickBtn3()"></td>
 		</tr>
 		</table>
-		<div class="center">
-		<p id="result3"></p>
-		<p id="comment3"></p>
-		</div>
 			</form>
 		<form action="/healthcare/MealresultServlet" method="post" enctype="multipart/form-data">
 		<table>
 		<tr>
 			<td><canvas id="preview" width="100" height="100"></canvas></td>
+			<td class="center"><p id="result3"></p><p id="comment3"></p></td>
 		</tr>
 		<tr>
 			<td><input type="file" name="IMAGE" accept="image/png, image/jpeg"></td>
@@ -314,18 +307,15 @@
 			<td class="center"><input type="button" value="決定" onclick="clickBtn4()"></td>
 		</tr>
 		</table>
-		<div class="center">
-		<p id="result4"></p>
-		<p id="comment4"></p>
-		</div>
 			</form>
 		<form action="/healthcare/MealresultServlet" method="post" enctype="multipart/form-data">
 		<table>
 		<tr>
 			<td><canvas id="preview" width="100" height="100"></canvas></td>
+			<td class="center"><p id="result4"></p><p id="comment4"></p></td>
 		</tr>
 		<tr>
-			<td><input type="file" name="IMAGE" accept="image/png, image/jpeg"></td>
+			<td><input type="file" name="IMAGE" accept="image/*"></td>
 			<td><input type="submit" value="保存" onchange="previewImage(this);"></td>
 		</tr>
 	</table>
@@ -350,17 +340,21 @@
 			var ctx = canvas.getContext('2d');
 			var image = new Image();
 			image.src = fileReader.result;
+			console.log(fileReader.result) // ← (確認用)
 
 			image.onload = (function () {
 				canvas.width = image.width;
 				canvas.height = image.height;
 				ctx.drawImage(image, 0, 0);
 			}
-		}
+		);
+
 		// 画像読み込み
 		fileReader.readAsDataURL(obj.files[0]);
-	}
+		}
+	)}
 	</script>
+
 	<script>
   //満腹度
   let arr = ["しっかり食べましょう","もう少し食べてエネルギーつけましょう","もう少し食べましょう","ちょうどよい量です","少し食べすぎです","食べすぎです。もう少し抑えましょう"];
@@ -424,6 +418,6 @@
 	    document.getElementById("result4").textContent = "あなたはその間食を"+ str +"食べました。";
 	    document.getElementById("comment4").textContent = rul;
 	  }
-  </script>
+ 	</script>
 </body>
 </html>

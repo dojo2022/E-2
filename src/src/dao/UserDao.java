@@ -342,6 +342,54 @@ public class UserDao {
 		// 結果を返す
 		return result;
 	}
+	//最終ログイン日数を取得
+	public Userdata findlastday(String use) {
+		Connection conn = null;
+		//今回は1件だけを返すメソッドなのでArrayListではない
+		Userdata ret = new Userdata();
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa",
+					"");
+
+			// SQL文を準備する
+			String sql = "SELECT * FROM userdata WHERE userid = ?";
+
+			// プリペアードステートメントを生成（取得）する
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, use);
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			//0件のケースもある
+			if (rs.next()) {
+				//next()がtrue＝1件のデータが取れた
+				ret.setLastlogin(rs.getDate("lastlogin"));
+			} else {
+				//next()がfalse＝データが無い
+				ret = null;
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			ret = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					ret = null;
+				}
+			}
+		}
+		return ret;
+
+	}
 
 }
+

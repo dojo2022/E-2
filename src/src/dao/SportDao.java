@@ -1,13 +1,17 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.Caloriesout;
 import model.Loginuser;
+import model.Userdatas;
 
 public class SportDao {
 	//ユーザーのIDを参照
@@ -60,25 +64,22 @@ public class SportDao {
 	}
 
 	//時間を参照
-	public Caloriesout selectByindaily(String user) {
+	public Caloriesout selectByindaily(String user ,Date time) {
 		Connection conn = null;
 		//今回は1件だけを返すメソッドなのでArrayListではない
 		Caloriesout ret = new Caloriesout();
 		try {
 			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
-
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa",
 					"");
-
 			// SQL文を準備する
-			String sql = "SELECT * FROM caloriesout WHERE userid = ?";
-
+			String sql = "SELECT * FROM caloriesout WHERE userid = ? AND indaily = ?";
 			// プリペアードステートメントを生成（取得）する
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, user);
-
+			pStmt.setDate(2, time);
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
@@ -122,7 +123,7 @@ public class SportDao {
 					"");
 
 			Caloriesout target = this.selectById(user.getUserid());
-			Caloriesout time = this.selectByindaily(user.getUserid());
+			Caloriesout time = this.selectByindaily(user.getUserid(), item.getIndaily());
 			if (target == null) {
 				//idでデータが取れない＝新規作成
 				// INSERT用SQL文を準備する
@@ -140,7 +141,7 @@ public class SportDao {
 				} else {
 					result = false;
 				}
-				if (item.getCaloriesout() > 0) {
+				if (item.getCaloriesout() >-1) {
 					pStmt.setInt(3, item.getCaloriesout());
 				} else {
 					result = false;
@@ -158,7 +159,7 @@ public class SportDao {
 
 					//パラメータ（データの値）を設定する
 					//更新する値(SET caloriesout = ?)
-					if (item.getCaloriesout() > 0) {
+					if (item.getCaloriesout() > -1) {
 						pStmt.setInt(1, item.getCaloriesout());
 					} else {
 						result = false;
@@ -170,7 +171,7 @@ public class SportDao {
 						result = false;
 					}
 					if (item.getIndaily() != null && !item.getIndaily().equals("")) {
-						pStmt.setDate(3,item.getIndaily());
+						pStmt.setDate(3, item.getIndaily());
 					} else {
 						result = false;
 					}
@@ -194,7 +195,7 @@ public class SportDao {
 					} else {
 						result = false;
 					}
-					if (item.getCaloriesout() > 0) {
+					if (item.getCaloriesout() > -1) {
 						pStmt.setInt(3, item.getCaloriesout());
 					} else {
 						result = false;
@@ -223,7 +224,7 @@ public class SportDao {
 		return result;
 
 	}
-
+//今日の消費カロリーを表示
 	public Caloriesout findcalo(Loginuser user) {
 		Connection conn = null;
 		Caloriesout calorie = null;
@@ -233,22 +234,28 @@ public class SportDao {
 
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+			Userdatas users = new Userdatas();
+			Date todays = users.today();
 
-			String sql = "select caloriesout from caloriesout where userid = ?";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
-			if (user.getUserid() != null && !user.getUserid().equals("")) {
-				pStmt.setString(1, user.getUserid());
-			} else {
-				calorie = null;
-			}
-			ResultSet rs = pStmt.executeQuery();
+				String sql = "select caloriesout from caloriesout where userid = ? AND indaily = ?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+				if (user.getUserid() != null && !user.getUserid().equals("")) {
+					pStmt.setString(1, user.getUserid());
+				} else {
+					calorie = null;
+				}
+				if (todays != null && !todays.equals("")) {
+					pStmt.setDate(2, todays);
+				} else {
+					calorie = null;
+				}
+				ResultSet rs = pStmt.executeQuery();
 
-			while (rs.next()) {
-				Caloriesout tag = new Caloriesout(
-						rs.getInt("caloriesout"));
-				calorie = tag;
-			}
-
+				while (rs.next()) {
+					Caloriesout tag = new Caloriesout(
+							rs.getInt("caloriesout"));
+					calorie = tag;
+				}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			calorie = null;
@@ -270,5 +277,98 @@ public class SportDao {
 		return calorie;
 
 	}
+	//日にちに対応した消費カロリーを表示
+	public Caloriesout findcalo(Loginuser user, Date date) {
+		Connection conn = null;
+		Caloriesout calorie = null;
+
+		try {
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+			String sql = "select caloriesout from caloriesout where userid = ? AND indaily = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			if (user.getUserid() != null && !user.getUserid().equals("")) {
+				pStmt.setString(1, user.getUserid());
+			} else {
+				calorie = null;
+			}
+			if (date != null && !date.equals("")) {
+				pStmt.setDate(2, date);
+			} else {
+				calorie = null;
+			}
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Caloriesout tag = new Caloriesout(
+						rs.getInt("caloriesout"));
+				calorie = tag;
+			}
+	} catch (SQLException e) {
+		e.printStackTrace();
+		calorie = null;
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		calorie = null;
+	} finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				calorie = null;
+			}
+		}
+	}
+
+	return calorie;
 
 }
+//すべての消費カロリーを参照
+	public List<Caloriesout> findAll(Loginuser user) {
+		Connection conn = null;
+		List<Caloriesout>findlist = new ArrayList<Caloriesout>();
+
+		try {
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
+
+			String sql = "select caloriesout from caloriesout where userid = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, user.getUserid());
+
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Caloriesout co = new Caloriesout(
+						rs.getInt("caloriesout"));
+				findlist.add(co);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			findlist = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			findlist = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					findlist = null;
+				}
+
+			}
+		}
+		return findlist;
+	}
+	}
+
+

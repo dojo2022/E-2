@@ -11,12 +11,12 @@ import java.util.List;
 import model.Meal;
 
 public class MealDao {
-	/*
+
 	//ユーザーのIDを参照
-		public Caloriesout selectById(String userid) {
+		public Meal selectById(String userid) {
 			Connection conn = null;
 			//今回は1件だけを返すメソッドなのでArrayListではない
-			Caloriesout ret = new Caloriesout();
+			Meal ret = new Meal();
 			try {
 				// JDBCドライバを読み込む
 				Class.forName("org.h2.Driver");
@@ -60,13 +60,12 @@ public class MealDao {
 			return ret;
 
 		}
-		*/
-	/*
+
 	//時間を参照
-		public Caloriesout selectByindaily(String user) {
+		public Meal selectByindaily(String user) {
 			Connection conn = null;
 			//今回は1件だけを返すメソッドなのでArrayListではない
-			Caloriesout ret = new Caloriesout();
+			Meal ret = new Meal();
 			try {
 				// JDBCドライバを読み込む
 				Class.forName("org.h2.Driver");
@@ -110,7 +109,6 @@ public class MealDao {
 			return ret;
 
 		}
-		*/
 
 	//食事記録の登録
 	public boolean meal(Meal card) {
@@ -241,7 +239,7 @@ public class MealDao {
 		return cardList;
 	}
 
-	//画像参照
+	//画像を取り出す
 	public Meal imgfind() {
 		Connection conn = null;
 		Meal meal = null;
@@ -283,7 +281,7 @@ public class MealDao {
 		return meal;
 	}
 
-	//満足度参照
+	//満足度を取り出す
 		public Meal satifind() {
 			Connection conn = null;
 			Meal satiety = null;

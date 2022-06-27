@@ -38,9 +38,6 @@ public class SignupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-
-
-
 		request.setCharacterEncoding("UTF-8");
 		String userid = request.getParameter("ID");
         String password = request .getParameter ("PW");

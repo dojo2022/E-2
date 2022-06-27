@@ -16,6 +16,7 @@ import model.Loginpass;
 import model.Loginuser;
 import model.Result;
 import model.Userdata;
+import model.Userdatas;
 
 /**
  * Servlet implementation class LoginServlet
@@ -43,9 +44,12 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String userid = request.getParameter("ID");
 		String password = request.getParameter("PW");
-		Date lastlogin = null;
+		Userdata user = null;
+
+
 		// ログイン処理を行う
 		UserDao uDao = new UserDao();
+		//WeightDao wDao = new WeightDao();
 		if (request.getParameter("submit").equals("login")) {
 			if (uDao.LoginOK(new Userdata(userid, password))) {
 				// ログイン成功
@@ -61,6 +65,20 @@ public class LoginServlet extends HttpServlet {
 				// 2回目以降、メニューサーブレットにリダイレクトする
 				response.sendRedirect("/healthcare/MypageServlet");
 
+				user = uDao.findlastday(userid);
+				Userdatas users = new Userdatas();
+				Date todays = users.today();
+				//初回ログインか判定
+				if (user.getLastlogin().equals (todays)) {
+					//session.setAttribute("password", new Loginday(lastlogin));
+					// 2回目以降、メニューサーブレットにリダイレクトする
+					response.sendRedirect("/healthcare/MypageServlet");
+	            }else {
+	            	//初回の場合
+
+
+					response.sendRedirect("/healthcare/WrecordServlet");
+	            }
 			} else { // ログイン失敗
 				// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
 				request.setAttribute("result",
@@ -69,7 +87,7 @@ public class LoginServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 				dispatcher.forward(request, response);
 			}
-		} else {
+			} else {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Signup.jsp");
 			dispatcher.forward(request, response);
 		}
