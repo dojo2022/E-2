@@ -20,7 +20,7 @@ import model.Result;
  *
  * Servlet implementation class MealServlet
  */
-@MultipartConfig(location = "C:\\pleiades\\workspace\\healthcare\\WebContent\\mealimg")
+@MultipartConfig(location = "C:\\dojo6\\src\\WebContent\\mealimg")
 @WebServlet("/MealServlet")
 public class MealServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -87,19 +87,53 @@ public class MealServlet extends HttpServlet {
         //場所はクラス名↑の上に指定してある
 		part.write(image);
 
+		int foodnumber = 0;
+
+		String userid = request.getParameter("ID");
+		String mealnumber = request.getParameter("fnumber");
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
 		String day = request.getParameter("day");
-		String userid = request.getParameter("ID");
-		int foodnumber = Integer.parseInt(request.getParameter("fnumber"));
-		String daily = year + "-" + month + "-" + day;
-		Date sqldate = Date.valueOf("daily");
+		//if文
+		int mealday;
+		 if(!request.getParameter("mealday").equals("") && request.getParameter("mealday") != null) {
+			 mealday = Integer.parseInt(request.getParameter("mealday"));
+		}else {
+			mealday = 0;
+				}
+		 String daily = year + "-" + month + "-" + day;
+		Date sqldate = Date.valueOf(daily);
+		System.out.println(sqldate);
 		String meal = request.getParameter("me");
 		int satiety = Integer.parseInt(request.getParameter("sati"));
 
+		switch(foodnumber) {
+		case 1:
+			foodnumber = Integer.parseInt(mealnumber);
+			foodnumber = 1;
+		break;
+		case 2:
+			foodnumber = Integer.parseInt(mealnumber);
+			foodnumber = 2;
+		break;
+		case 3:
+			foodnumber = Integer.parseInt(mealnumber);
+			foodnumber = 3;
+		break;
+		case 4:
+			foodnumber = Integer.parseInt(mealnumber);
+			foodnumber = 4;
+		break;
+		default:
+			foodnumber = Integer.parseInt(mealnumber);
+			foodnumber = 0;
+		break;
+		}
+
+
 		//食事記録の登録
-		MealDao bDao = new MealDao();
-		if (bDao.meal(new Meal(userid, foodnumber, daily, meal, satiety))) {	// 登録成功
+		MealDao fDao = new MealDao();
+		if (fDao.meal(new Meal(userid, foodnumber, daily, meal, satiety))) {	// 登録成功
 			request.setAttribute("result",
 			new Result("登録成功!", "食事記録へ戻る", "/healthcare/MealresulttServlet"));
 		}

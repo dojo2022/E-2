@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UserDao;
 import dao.WeightDao;
 import model.Loginuser;
 import model.Weight;
@@ -37,9 +38,17 @@ public class WrecordServlet extends HttpServlet {
 	//jspからjspから値を受け取って、結果を返却する
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		if (session.getAttribute("userid") == null) {
+			response.sendRedirect("/healthcare/LoginServlet");
+			return;
+		}
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
+		UserDao uDao = new UserDao();
+		if(uDao.uplogin(userid)) {
 
-		//わからんから置ておく。↓初期値
-		// TODO Auto-generated method stub
+		}
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/wrecord.jsp");//この中のloginをファイル名に変えてください
 		dispatcher.forward(request, response);
 	}
@@ -51,13 +60,12 @@ public class WrecordServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-	    //String userid = new String();//IDを格納する
+		//String userid = new String();//IDを格納する
 		int weight = 0; // 体重を格納する変数
 		Date indaily = new Date(); //日付けを格納する変数
 
 		// jspから送られてきた値を受け取る
 		weight = Integer.parseInt(request.getParameter("weight")); // 体重の受け取り
-
 
 		//呼び出す文を書く
 		Weight w = new Weight();
@@ -73,12 +81,11 @@ public class WrecordServlet extends HttpServlet {
 		WeightDao wDao = new WeightDao();
 		wDao.saveweight(w);
 
-
 		// 次の画面(jsp)に値を渡す
-		request.setAttribute("weight", weight);
+		//request.setAttribute("weight", weight);
 
 		// 次の画面に遷移
-		request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp").forward(request, response);
+		response.sendRedirect("/healthcare/MypageServlet");
 	}
 
 }

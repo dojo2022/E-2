@@ -171,7 +171,7 @@ public class WeightDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 			// SQL文を準備する
-			String sql = "insert into weight(userid, weight, indaily)" +" values(?, ?, ?)";
+			String sql = "insert into weight(userid, weight, indaily) values(?, ?, ?)";
 			// プリペアードステートメントを生成（取得）する
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -186,7 +186,7 @@ public class WeightDao {
 			} else {
 				result = false;
 			}
-			if (w.getIndaily() != null && w.getIndaily() .equals("")) {
+			if (w.getIndaily() != null && !w.getIndaily() .equals("")) {
 				pStmt.setDate(3,w.getIndaily());
 			} else {
 				result = false;
