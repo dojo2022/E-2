@@ -75,10 +75,10 @@ public class WrecordServlet extends HttpServlet {
 
 
 		// 次の画面(jsp)に値を渡す
-		request.setAttribute("weight", weight);
+		//request.setAttribute("weight", weight);
 
 		// 次の画面に遷移
-		request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp").forward(request, response);
+		response.sendRedirect("/healthcare/MypageServlet");
 	}
 
 }
