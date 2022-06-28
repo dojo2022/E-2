@@ -10,10 +10,10 @@ function sportcalc() {
 	} else {
 		errorMessageObj.textContent = null;
 		mets = Number(mets);
-		weight = Number(time); // 入力された文字列を数値に変換する
-		height = Number(weight);
+		time = Number(time); // 入力された文字列を数値に変換する
+		weight = Number(weight);
 		total = Number(total);
-		let kcal = mets * weight * (time * 1.05); // 運動強度を計算
+		let kcal = mets * weight * (time / 60) * 1.05; // 運動強度を計算
 		console.log(kcal);
 		kcal = parseInt(kcal, 10);
 		document.form.mets.value = mets;
