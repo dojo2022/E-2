@@ -10,6 +10,8 @@
 	href="/healthcare/css/comstyle.css">
 </head>
 <body>
+<script defer src="/healthcare/js/signup.js" type="text/javascript"></script>
+
 	<div class="wrapper">
 		<header>
 			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
@@ -17,32 +19,35 @@
 		</header>
 		<h2 class="pagetitle">新規登録</h2>
 
-		<form class="center" method="POST" action="/healthcare/SignupServlet">
+		<form id ="form" class="center" method="POST" action="/healthcare/SignupServlet">
 			<table id="regichan">
 				<tr>
 					<td class= "label req">ID</td>
-					<td><input class="regi" type="text" name="ID" placeholder="5文字以上20文字以内で入力してください"></td>
+					<td><input class="regi" type="text" id = "id" name="ID" placeholder="5文字以上20文字以内で入力してください"></td>
 				</tr>
 				<tr>
 					<td class= "label req">password</td>
-					<td><input class="regi" type="password" name="PW" placeholder="8文字以上20文字以内で入力してください"></td>
+					<td><input class="regi" type="password" id = "pw1" name="PW" placeholder="8文字以上20文字以内で入力してください"></td>
 				</tr>
 				<tr>
 					<td class= "label req">確認用password</td>
-					<td><input class="regi" type="password" name="PW"></td>
+					<td><input class="regi" type="password" id = "pw2" name="PW"></td>
 				</tr>
 				<tr>
 					<td class= "label req">メールアドレス</td>
-					<td><input class="regi" type="text" name="EMAIL"></td>
+					<td><input class="regi" type="text" id = "mail" name="EMAIL"></td>
 				</tr>
 				<tr>
 					<td class= "label req">性別</td>
-					<td><input type="radio" name="gender" value="男性">男性
-							 <input type="radio" name="gender" value="女性">女性</td>
+
+					<td><input type="radio" name="gender" id = "gender" value="male">男性
+<input type="radio" name="gender" value="female">女性</td>
+
+
 				</tr>
 				<tr>
 					<td class= "label req">生年月日</td>
-					<td><select class="regi" name="year">
+					<td><select class="regi" id = "year" name="year">
 			<option value="1922">1922年</option>
 			<option value="1923">1923年</option>
 			<option value="1924">1924年</option>
@@ -144,6 +149,22 @@
 			<option value="2020">2020年</option>
 			<option value="2021">2021年</option>
 			<option value="2022">2022年</option>
+
+		</select> <select class="regi" id = "month" name="month">
+			<option value="jan">1月</option>
+			<option value="feb">2月</option>
+			<option value="mar">3月</option>
+			<option value="apr">4月</option>
+			<option value="may">5月</option>
+			<option value="jun">6月</option>
+			<option value="jul">7月</option>
+			<option value="aug">8月</option>
+			<option value="sep">9月</option>
+			<option value="oct">10月</option>
+			<option value="nov">11月</option>
+			<option value="dec">12月</option>
+		</select> <select class="regi" id = "day" name="day">
+
 		</select> <select class="regi" name="month">
 			<option value="01">1月</option>
 			<option value="02">2月</option>
@@ -193,7 +214,7 @@
 				</tr>
 				<tr>
 					<td class= "label req">身長</td>
-					<td><input class="regi" type="text" name="HEIGHT"></td>
+					<td><input class="regi" type="text" id = "height" name="HEIGHT"></td>
 				</tr>
 				<tr>
 					<td class= "label">目標体重</td>
@@ -203,6 +224,7 @@
 			<div class="btn">
 			<input class="buttoncolor" type="submit" name="SUBMIT" value="登録">
 			</div>
+			<span id="error_message" style="color: red"></span><br>
 		</form>
 		<div class="loginbc">
 			<p><a href="/healthcare/LoginServlet">ログイン画面に戻る</a></p>
