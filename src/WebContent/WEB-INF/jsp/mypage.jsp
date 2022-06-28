@@ -9,6 +9,8 @@
 <link rel="stylesheet" type="text/css"
 	href="/healthcare/css/comstyle.css">
 <link rel="stylesheet" type="text/css" href="/healthcare/css/mypage.css">
+<link rel="icon" href="/healthcare/img/favicon.ico" id="favicon">
+<link rel="/healthcare/img/apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
 <script
 	src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"
 	integrity="sha256-eA+ych7t31OjiXs3fYU0iWjn9HvXMiCLmunP2Gpghok="
