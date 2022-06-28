@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>BMI計算</title>
+<title>SeHealthCare</title>
 <link rel="stylesheet" type="text/css" href="/healthcare/css/bmi.css">
 <link rel="stylesheet" type="text/css"
 	href="/healthcare/css/comstyle.css">
