@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.MealDao;
@@ -33,18 +34,30 @@ public class MealServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 
+		HttpSession session = request.getSession();
+
+
 		/*// 結果ページにフォワードする
 		if (session.getAttribute("userid") == null) {
 		response.sendRedirect("/healthcare/LoginServlet");
 		return;
 		}
 
+<<<<<<< HEAD
+
+		Part part = request.getPart("IMAGE");// getPartで取得
+		String image = this.getFileName(part);
+
+
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
+=======
 		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		*/
 
 		//画像と満腹度の呼び出し
 		//Part part = request.getPart("IMAGE");// getPartで取得
 		//String img = this.getFileName(part);
+
 
 		MealDao mDao = new MealDao();
 

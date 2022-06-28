@@ -125,7 +125,7 @@ public class WeightDao {
 			String sql = "update userdata set targetweight = ? where userid = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			if (user.getTargetweight() > 50.0 && user.getTargetweight() < 300.0) {
+			if (user.getTargetweight() > 0.0 && user.getTargetweight() < 300.0) {
 				pStmt.setDouble(1, user.getTargetweight());
 			} else {
 				result = false;

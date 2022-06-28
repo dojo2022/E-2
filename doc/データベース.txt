@@ -46,7 +46,7 @@ foodnumber int,
 indaily date,
 meal varchar,
 satiety int,
-PRIMARY KEY(userid, foodnumber, indaily)
+PRYMARY KEY(userid, foodnumber, indaily)
 )
 
 

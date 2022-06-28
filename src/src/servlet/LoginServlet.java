@@ -56,6 +56,7 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("userid", new Loginuser(userid));
 				session.setAttribute("password", new Loginpass(password));
+
 				user = uDao.findlastday(userid);
 				Userdatas users = new Userdatas();
 				Date todays = users.today();
@@ -66,6 +67,7 @@ public class LoginServlet extends HttpServlet {
 					response.sendRedirect("/healthcare/MypageServlet");
 	            }else {
 	            	//初回の場合
+
 	        		uDao.updatelastday(userid);
 					response.sendRedirect("/healthcare/WrecordServlet");
 	            }

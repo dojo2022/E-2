@@ -39,8 +39,11 @@
 				</tr>
 				<tr>
 					<td class= "label req">性別</td>
+
 					<td><input type="radio" name="gender" id = "gender" value="male">男性
 <input type="radio" name="gender" value="female">女性</td>
+
+
 				</tr>
 				<tr>
 					<td class= "label req">生年月日</td>
@@ -146,6 +149,7 @@
 			<option value="2020">2020年</option>
 			<option value="2021">2021年</option>
 			<option value="2022">2022年</option>
+
 		</select> <select class="regi" id = "month" name="month">
 			<option value="jan">1月</option>
 			<option value="feb">2月</option>
@@ -160,6 +164,21 @@
 			<option value="nov">11月</option>
 			<option value="dec">12月</option>
 		</select> <select class="regi" id = "day" name="day">
+
+		</select> <select class="regi" name="month">
+			<option value="01">1月</option>
+			<option value="02">2月</option>
+			<option value="03">3月</option>
+			<option value="04">4月</option>
+			<option value="05">5月</option>
+			<option value="06">6月</option>
+			<option value="07">7月</option>
+			<option value="08">8月</option>
+			<option value="09">9月</option>
+			<option value="10">10月</option>
+			<option value="11">11月</option>
+			<option value="12">12月</option>
+		</select> <select class="regi" name="day">
 			<option value="1">1日</option>
 			<option value="2">2日</option>
 			<option value="3">3日</option>

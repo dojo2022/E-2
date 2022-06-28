@@ -16,7 +16,7 @@ public class ContactDao {
 			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/src/data/healthcare", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa", "");
 
 			// SQL文を準備する
 			String sql = "insert into contact (userid, email, contact) values (?, ?, ?)";
