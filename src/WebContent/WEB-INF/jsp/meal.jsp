@@ -186,7 +186,7 @@
 		<div class="footer_hone">
 			<img src="img/footer.png" alt="">
 		</div>
-		&copy;&copy;Copyright SeHealthCare.All rights reserved.
+		&copy;Copyright SeHealthCare.All rights reserved.
 	</footer>
 	</div>
 	<script>

@@ -37,7 +37,7 @@
 				</tr>
 				<tr>
 					<td>メールアドレス</td>
-					<td><input class="regi" type="text" id="email" name="EMAIL"></td>
+					<td><input class="regi" type="text" id="email"value="${email.email}" name="EMAIL"></td>
 				</tr>
 			</table>
 			<table class="moji">
