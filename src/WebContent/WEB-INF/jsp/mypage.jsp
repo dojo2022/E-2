@@ -49,9 +49,9 @@
 				kg
 			</h3>
 			<h3>
-				あなたは
+				あなたは累計
 				<c:out value="${daily.daily }" />
-				日連続<br>&emsp;ログインです。
+				日<br>&emsp;ログインです。
 			</h3>
 		</div>
 		<div class="center">
@@ -146,9 +146,9 @@
                   scales: {
             yAxes: [{
                 ticks: {
-                  suggestedMin:5000,
-           suggestedMax: 1000,
-           stepSize: 1000
+                  suggestedMin:50,
+           suggestedMax: 500,
+           stepSize: 100
                 }
             }]
         }
