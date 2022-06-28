@@ -57,8 +57,6 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("userid", new Loginuser(userid));
 				session.setAttribute("password", new Loginpass(password));
 
-
-
 				user = uDao.findlastday(userid);
 				Userdatas users = new Userdatas();
 				Date todays = users.today();
