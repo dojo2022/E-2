@@ -62,7 +62,14 @@ PRIMARY KEY(userid, indaily)
 
 体重
 create table weight (
+<<<<<<< HEAD
 userid varchar (20),
 weight double (5),
 indaily date
 )
+=======
+userid varchar(20) NOT NULL,
+weight double(5) NOT NULL,
+indaily date NOT NULL
+)
+>>>>>>> 11d569484e1737043a8a25dd38144b72ca61ae69

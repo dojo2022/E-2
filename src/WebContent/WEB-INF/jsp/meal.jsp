@@ -34,7 +34,6 @@
 	<div class="meal">
 	<h2>食事記録</h2>
 	</div>
-<div class="center">
 	<c:choose>
 	<c:when test="${empty day}">
 	<body onload="today()">
@@ -43,8 +42,18 @@
 	<body onload="day(${year},${month},${day})">
 	</c:otherwise>
 	</c:choose>
-</div>
+	<div class="center">
+	<select name="year" id="id_year" class="regi">
+					<!-- option要素がjavascriptのプログラムにより挿入される、id_year -->
+				</select>
+				<select name="month" id="id_month" class="regi">
+					<!-- option要素がjavascriptのプログラムにより挿入される、id_month -->
+				</select>
+				<select name="day" id="id_day" class="regi">
+					<!-- option要素がjavascriptのプログラムにより挿入される、id_day -->
+				</select>
 		<a href="/healthcare/MealServlet"><input type="submit" value="決定"></a>
+</div>
 	<script src="/healthcare/js/meal.js" type="text/javascript"></script>
 	<div class="center">
 	<p>あなたの一日の食事を記録してください。</p>
@@ -71,7 +80,7 @@
 			<td class="center"><h3>約100%</h3></td>
 			<td class="center"><input type="radio" name="color1" value="120%"></td>
 			<td class="center"><h3>約120%以上</h3></td>
-			<td class="center"><input type="button" value="決定" onclick="clickBtn1()"></td>
+			<td class="center"><button type="submit" name="satiety" value=1  onclick="clickBtn1()">決定</button></td>
 		</tr>
 		</table>
 			</form>
