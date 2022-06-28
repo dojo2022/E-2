@@ -69,23 +69,23 @@ public class MealServlet extends HttpServlet {
 
 		request.setAttribute("meal", satiety);
 
-
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/meal.jsp");//この中のmealをファイル名に変えてください
 		dispatcher.forward(request, response);
 	}
-/*
-	private String getFileName(Part part) {
-        String name = null;
-        for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
-            if (dispotion.trim().startsWith("filename")) {
-                name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
-                name = name.substring(name.lastIndexOf("\\") + 1);
-                break;
-            }
-        }
-		return name;
-	}
-	*/
+
+	/*
+		private String getFileName(Part part) {
+	    String name = null;
+	    for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
+	        if (dispotion.trim().startsWith("filename")) {
+	            name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
+	            name = name.substring(name.lastIndexOf("\\") + 1);
+	            break;
+	        }
+	    }
+			return name;
+		}
+		*/
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -97,11 +97,11 @@ public class MealServlet extends HttpServlet {
 		String image = this.getFileName(part);
 		request.setAttribute("image", image);
 		// サーバの指定のファイルパスへファイルを保存
-        //場所はクラス名↑の上に指定してある
+		//場所はクラス名↑の上に指定してある
 		part.write(image);
 
 		int foodnumber = 0;
-
+		//int mealday;
 		String userid = request.getParameter("ID");
 		String mealnumber = request.getParameter("fnumber");
 		String year = request.getParameter("year");
@@ -109,50 +109,48 @@ public class MealServlet extends HttpServlet {
 		String day = request.getParameter("day");
 		//if文
 		int mealday;
-		 if(!request.getParameter("mealday").equals("") && request.getParameter("mealday") != null) {
-			 mealday = Integer.parseInt(request.getParameter("mealday"));
-		}else {
+		if (!request.getParameter("mealday").equals("") && request.getParameter("mealday") != null) {
+			mealday = Integer.parseInt(request.getParameter("mealday"));
+		} else {
 			mealday = 0;
-				}
-		 String daily = year + "-" + month + "-" + day;
+		}
+		String daily = year + "-" + month + "-" + day;
 		Date sqldate = Date.valueOf(daily);
 		System.out.println(sqldate);
 		String meal = request.getParameter("me");
 		int satiety = Integer.parseInt(request.getParameter("sati"));
 
-		switch(foodnumber) {
+		switch (foodnumber) {
 		case 1:
 			foodnumber = Integer.parseInt(mealnumber);
 			foodnumber = 1;
-		break;
+			break;
 		case 2:
 			foodnumber = Integer.parseInt(mealnumber);
 			foodnumber = 2;
-		break;
+			break;
 		case 3:
 			foodnumber = Integer.parseInt(mealnumber);
 			foodnumber = 3;
-		break;
+			break;
 		case 4:
 			foodnumber = Integer.parseInt(mealnumber);
 			foodnumber = 4;
-		break;
+			break;
 		default:
 			foodnumber = Integer.parseInt(mealnumber);
 			foodnumber = 0;
-		break;
+			break;
 		}
-
 
 		//食事記録の登録
 		MealDao fDao = new MealDao();
-		if (fDao.meal(new Meal(userid, foodnumber, daily, meal, satiety))) {	// 登録成功
+		if (fDao.meal(new Meal(userid, foodnumber, daily, meal, satiety))) { // 登録成功
 			request.setAttribute("result",
-			new Result("登録成功!", "食事記録へ戻る", "/healthcare/MealresulttServlet"));
-		}
-		else {												// 登録失敗
+					new Result("登録成功!", "食事記録へ戻る", "/healthcare/MealresulttServlet"));
+		} else { // 登録失敗
 			request.setAttribute("result",
-			new Result("登録失敗！", "食事記録へ戻る", "/healthcare/MealServlet"));
+					new Result("登録失敗！", "食事記録へ戻る", "/healthcare/MealServlet"));
 		}
 
 		//過去データの検索
@@ -169,15 +167,16 @@ public class MealServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 	}
+
 	private String getFileName(Part part) {
-		 String name = null;
-		  for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
-	            if (dispotion.trim().startsWith("filename")) {
-	                name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
-	                name = name.substring(name.lastIndexOf("\\") + 1);
-	                break;
-	            }
-	        }		// TODO 自動生成されたメソッド・スタブ
-			return name;
-		}
+		String name = null;
+		for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
+			if (dispotion.trim().startsWith("filename")) {
+				name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
+				name = name.substring(name.lastIndexOf("\\") + 1);
+				break;
+			}
+		} // TODO 自動生成されたメソッド・スタブ
+		return name;
+	}
 }

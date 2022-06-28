@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>healthcare</title>
+<title>SeHealthCare</title>
 <link rel="stylesheet" type="text/css"
 	href="/healthcare/css/comstyle.css">
 <link rel="stylesheet" type="text/css"
@@ -37,7 +37,7 @@
 				</tr>
 				<tr>
 					<td>メールアドレス</td>
-					<td><input class="regi" type="text" id="email" name="EMAIL"></td>
+					<td><input class="regi" type="text" id="email"value="${email.email}" name="EMAIL"></td>
 				</tr>
 			</table>
 			<table class="moji">
