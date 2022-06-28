@@ -33,7 +33,7 @@
 			<table class="center">
 				<tr>
 					<td>ID</td>
-					<td><input class="regi" type="text" name="ID" readonly></td>
+					<td><input class="regi" type="text" name="ID"value="${userid.userid }" readonly></td>
 				</tr>
 				<tr>
 					<td>メールアドレス</td>

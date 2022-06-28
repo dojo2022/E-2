@@ -41,7 +41,7 @@
 			</p>
 		</form>
 
-		<form id="form" method="POST" action="/healthcare/SignupServlet"
+		<form id="form" method="GET" action="/healthcare/SignupServlet"
 			style="text-align: center">
 			<p>
 				<input class="buttoncolor" type="submit" name="submit" value="新規登録">
