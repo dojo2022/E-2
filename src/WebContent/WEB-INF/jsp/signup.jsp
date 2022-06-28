@@ -10,6 +10,7 @@
 	href="/healthcare/css/comstyle.css">
 </head>
 <body>
+<script defer src="/healthcare/js/common.js" type="text/javascript"></script>
 	<div class="wrapper">
 		<header>
 			<img src="/healthcare/img/ハートのヘッダー.jpeg" width="100"
@@ -25,7 +26,7 @@
 				</tr>
 				<tr>
 					<td class= "label req">password</td>
-					<td><input class="regi" type="password" name="PW" placeholder="8文字以上20文字以内で入力してください"></td>
+					<td><input class="regi" type="password"  name="PW" placeholder="8文字以上20文字以内で入力してください"></td>
 				</tr>
 				<tr>
 					<td class= "label req">確認用password</td>
