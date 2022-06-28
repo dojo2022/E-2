@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SeHealthCare</title>
 <link rel="stylesheet" type="text/css" href="/healthcare/css/meal.css">
 <link rel="stylesheet" type="text/css"
 	href="/healthcare/css/comstyle.css">

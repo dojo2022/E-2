@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>healthcare</title>
+<title>SeHealthCare</title>
 <link rel="stylesheet" type="text/css"
 	href="/healthcare/css/comstyle.css">
 	<link rel="stylesheet" type="text/css" href="/healthcare/css/wrecord.css">

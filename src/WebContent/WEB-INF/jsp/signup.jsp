@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>新規登録</title>
+<title>SeHealthCare</title>
 <link rel="stylesheet" type="text/css" href="/healthcare/css/signup.css">
 <link rel="stylesheet" type="text/css"
 	href="/healthcare/css/comstyle.css">
 </head>
 <body>
 
-
+<script defer src="/healthcare/js/signup.js" type="text/javascript"></script>
 
 	<div class="wrapper">
 		<header>
