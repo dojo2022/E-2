@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>SeHealthCare</title>
 <link rel="stylesheet" type="text/css" href="/healthcare/css/meal.css">
 <link rel="stylesheet" type="text/css"
 	href="/healthcare/css/comstyle.css">
@@ -34,7 +34,6 @@
 	<div class="meal">
 	<h2>食事記録</h2>
 	</div>
-<div class="center">
 	<c:choose>
 	<c:when test="${empty day}">
 	<body onload="today()">
@@ -43,8 +42,18 @@
 	<body onload="day(${year},${month},${day})">
 	</c:otherwise>
 	</c:choose>
-</div>
+	<div class="center">
+	<select name="year" id="id_year" class="regi">
+					<!-- option要素がjavascriptのプログラムにより挿入される、id_year -->
+				</select>
+				<select name="month" id="id_month" class="regi">
+					<!-- option要素がjavascriptのプログラムにより挿入される、id_month -->
+				</select>
+				<select name="day" id="id_day" class="regi">
+					<!-- option要素がjavascriptのプログラムにより挿入される、id_day -->
+				</select>
 		<a href="/healthcare/MealServlet"><input type="submit" value="決定"></a>
+</div>
 	<script src="/healthcare/js/meal.js" type="text/javascript"></script>
 	<div class="center">
 	<p>あなたの一日の食事を記録してください。</p>
@@ -55,27 +64,24 @@
 	<p>100% ：少し食べすぎ。</p>
 	<p>120%以上：食べすぎた。</p>
 	</div>
-	<form name="form1">
+	<form method="post" enctype="multipart/form-data" action="/healthcare/MealServlet" name="form1">
 	<table>
 		<tr>
 			<td class="center"><h3>朝食</h3></td>
-			<td class="center"><input type="radio" name="color1" value="0%"></td>
+			<td class="center"><input type="radio" name="color1" value="0%" onchange="clickBtn1()"></td>
 			<td class="center"><h3>0%</h3></td>
-			<td class="center"><input type="radio" name="color1" value="25%"></td>
+			<td class="center"><input type="radio" name="color1" value="25%" onchange="clickBtn1()"></td>
 			<td class="center"><h3>約25%</h3></td>
-			<td class="center"><input type="radio" name="color1" value="50%"></td>
+			<td class="center"><input type="radio" name="color1" value="50%" onchange="clickBtn1()"></td>
 			<td class="center"><h3>約50%</h3></td>
-			<td class="center"><input type="radio" name="color1" value="75%"></td>
+			<td class="center"><input type="radio" name="color1" value="75%" onchange="clickBtn1()"></td>
 			<td class="center"><h3>約75%</h3></td>
-			<td class="center"><input type="radio" name="color1" value="100%"></td>
+			<td class="center"><input type="radio" name="color1" value="100%" onchange="clickBtn1()"></td>
 			<td class="center"><h3>約100%</h3></td>
-			<td class="center"><input type="radio" name="color1" value="120%"></td>
+			<td class="center"><input type="radio" name="color1" value="120%" onchange="clickBtn1()"></td>
 			<td class="center"><h3>約120%以上</h3></td>
-			<td class="center"><input type="button" value="決定" onclick="clickBtn1()"></td>
 		</tr>
 		</table>
-			</form>
-		<form method="post" enctype="multipart/form-data" action="/healthcare/MealServlet">
 		<table>
 		<tr>
 			<td><canvas id="preview1" style="width: 500px; height: 300px;"></canvas></td>
@@ -87,27 +93,24 @@
 		</tr>
 	</table>
 	</form>
-	<form name="form2">
+	<form method="post" enctype="multipart/form-data" action="/healthcare/MealServlet" name="form2">
 	<table>
 		<tr>
 			<td class="center"><h3>昼食</h3></td>
-			<td class="center"><input type="radio" name="color2" value="0%"></td>
+			<td class="center"><input type="radio" name="color2" value="0%" onchange="clickBtn2()"></td>
 			<td class="center"><h3>0%</h3></td>
-			<td class="center"><input type="radio" name="color2" value="25%"></td>
+			<td class="center"><input type="radio" name="color2" value="25%" onchange="clickBtn2()"></td>
 			<td class="center"><h3>約25%</h3></td>
-			<td class="center"><input type="radio" name="color2" value="50%"></td>
+			<td class="center"><input type="radio" name="color2" value="50%" onchange="clickBtn2()"></td>
 			<td class="center"><h3>約50%</h3></td>
-			<td class="center"><input type="radio" name="color2" value="75%"></td>
+			<td class="center"><input type="radio" name="color2" value="75%" onchange="clickBtn2()"></td>
 			<td class="center"><h3>約75%</h3></td>
-			<td class="center"><input type="radio" name="color2" value="100%"></td>
+			<td class="center"><input type="radio" name="color2" value="100%" onchange="clickBtn2()"></td>
 			<td class="center"><h3>約100%</h3></td>
-			<td class="center"><input type="radio" name="color2" value="120%"></td>
+			<td class="center"><input type="radio" name="color2" value="120%" onchange="clickBtn2()"></td>
 			<td class="center"><h3>約120%以上</h3></td>
-			<td class="center"><input type="button" value="決定" onclick="clickBtn2()"></td>
 		</tr>
 		</table>
-			</form>
-		<form action="/healthcare/MealresultServlet" method="post" enctype="multipart/form-data">
 		<table>
 		<tr>
 			<td><canvas id="preview2" style="width: 500px; height: 300px;"></canvas></td>
@@ -119,23 +122,22 @@
 		</tr>
 	</table>
 	</form>
-	<form name="form3">
+	<form method="post" enctype="multipart/form-data" action="/healthcare/MealServlet" name="form3">
 	<table>
 		<tr>
 			<td class="center"><h3>夕食</h3></td>
-			<td class="center"><input type="radio" name="color3" value="0%"></td>
+			<td class="center"><input type="radio" name="color3" value="0%" onchange="clickBtn3()"></td>
 			<td class="center"><h3>0%</h3></td>
-			<td class="center"><input type="radio" name="color3" value="25%"></td>
+			<td class="center"><input type="radio" name="color3" value="25%" onchange="clickBtn3()"></td>
 			<td class="center"><h3>約25%</h3></td>
-			<td class="center"><input type="radio" name="color3" value="50%"></td>
+			<td class="center"><input type="radio" name="color3" value="50%" onchange="clickBtn3()"></td>
 			<td class="center"><h3>約50%</h3></td>
-			<td class="center"><input type="radio" name="color3" value="75%"></td>
+			<td class="center"><input type="radio" name="color3" value="75%" onchange="clickBtn3()"></td>
 			<td class="center"><h3>約75%</h3></td>
-			<td class="center"><input type="radio" name="color3" value="100%"></td>
+			<td class="center"><input type="radio" name="color3" value="100%" onchange="clickBtn3()"></td>
 			<td class="center"><h3>約100%</h3></td>
-			<td class="center"><input type="radio" name="color3" value="120%"></td>
+			<td class="center"><input type="radio" name="color3" value="120%" onchange="clickBtn3()"></td>
 			<td class="center"><h3>約120%以上</h3></td>
-			<td class="center"><input type="button" value="決定" onclick="clickBtn3()"></td>
 		</tr>
 		</table>
 			</form>
@@ -151,27 +153,24 @@
 		</tr>
 	</table>
 	</form>
-	<form name="form4">
+	<form method="post" enctype="multipart/form-data" action="/healthcare/MealServlet" name="form4">
 	<table>
 		<tr>
 			<td class="center"><h3>間食</h3></td>
-			<td class="center"><input type="radio" name="color4" value="0%"></td>
+			<td class="center"><input type="radio" name="color4" value="0%" onchange="clickBtn4()"></td>
 			<td class="center"><h3>0%</h3></td>
-			<td class="center"><input type="radio" name="color4" value="25%"></td>
+			<td class="center"><input type="radio" name="color4" value="25%" onchange="clickBtn4()"></td>
 			<td class="center"><h3>約25%</h3></td>
-			<td class="center"><input type="radio" name="color4" value="50%"></td>
+			<td class="center"><input type="radio" name="color4" value="50%" onchange="clickBtn4()"></td>
 			<td class="center"><h3>約50%</h3></td>
-			<td class="center"><input type="radio" name="color4" value="75%"></td>
+			<td class="center"><input type="radio" name="color4" value="75%" onchange="clickBtn4()"></td>
 			<td class="center"><h3>約75%</h3></td>
-			<td class="center"><input type="radio" name="color4" value="100%"></td>
+			<td class="center"><input type="radio" name="color4" value="100%" onchange="clickBtn4()"></td>
 			<td class="center"><h3>約100%</h3></td>
-			<td class="center"><input type="radio" name="color4" value="120%"></td>
+			<td class="center"><input type="radio" name="color4" value="120%" onchange="clickBtn4()"></td>
 			<td class="center"><h3>約120%以上</h3></td>
-			<td class="center"><input type="button" value="決定" onclick="clickBtn4()"></td>
 		</tr>
 		</table>
-			</form>
-		<form action="/healthcare/MealresultServlet" method="post" enctype="multipart/form-data">
 		<table>
 		<tr>
 			<td><canvas id="preview4" style="width: 500px; height: 300px;"></canvas></td>
@@ -187,7 +186,7 @@
 		<div class="footer_hone">
 			<img src="img/footer.png" alt="">
 		</div>
-		&copy;&copy;Copyright SeHealthCare.All rights reserved.
+		&copy;Copyright SeHealthCare.All rights reserved.
 	</footer>
 	</div>
 	<script>

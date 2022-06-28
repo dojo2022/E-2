@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Aveweight;
 import model.Loginpass;
 import model.Loginuser;
 import model.Userdata;
@@ -149,10 +150,15 @@ public class UserDao {
 				result = false;
 			}
 
-			if (user.getTargetweight() != 0) {
+			if (user.getTargetweight() > 0) {
 				pStmt.setDouble(6, user.getTargetweight());
 			} else {
-				result = false;
+				Date birth = user.getBirth();
+				Userdatas users = new Userdatas();
+				int ages = users.age(birth);
+				WeightDao wDao = new WeightDao();
+				Aveweight ave = wDao.selectave(ages,user.getGender());
+				pStmt.setDouble(6, ave.getAveweight());
 			}
 			if (user.getDaily() >= 0) {
 				pStmt.setInt(7, user.getDaily());
@@ -397,6 +403,7 @@ public class UserDao {
 	public boolean updatelastday(String userid) {
 		Connection conn = null;
 		boolean result = false;
+
 
 			try {
 				// JDBCドライバを読み込む

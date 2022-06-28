@@ -48,7 +48,12 @@ public class SignupServlet extends HttpServlet {
 		String day = request.getParameter("day");
 		String indaily = year + "-" + month + "-" + day;
 		Date sqldate = Date.valueOf(indaily);
-        double targetweight = Double.parseDouble(request.getParameter("TARGETWEIGHT"));
+		double targetweight;
+		if(!request.getParameter("TARGETWEIGHT").equals("") && request.getParameter("TARGETWEIGHT") != null) {
+			targetweight = Integer.parseInt(request.getParameter("TARGETWEIGHT"));
+		}else {
+			targetweight = 0;
+		}
         int daily = 0;
         java.sql.Date lastlogin =  Date.valueOf ("0000-01-01");
         double height  =Double.parseDouble(request.getParameter("HEIGHT"));

@@ -3,6 +3,7 @@ let formObj = document.getElementById('form');
   let errorMessageObj = document.getElementById('error_message');
 
   formObj.onsubmit = function(event) {
+
     if (formObj.id.value === ""
 		|| formObj.pw1.value === ""
 		|| formObj.pw2.value === ""

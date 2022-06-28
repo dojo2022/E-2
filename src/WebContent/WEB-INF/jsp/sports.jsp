@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>運動計算</title>
+<title>SeHealthCare</title>
 <link rel="stylesheet" type="text/css"
 	href="/healthcare/css/comstyle.css">
 <link rel="stylesheet" type="text/css" href="/healthcare/css/sports.css">
@@ -61,7 +61,7 @@
 					<option value="2.2">子供と遊ぶ(座位、軽度)</option>
 					<option value="2.3">ガーデニング、動物の世話、ピアノの演奏</option>
 					<option value="2.5">植物の水やり、子供の世話、仕立て作業</option>
-					<option value="2.8">子供・動物とアゾ部(立位、軽度)</option>
+					<option value="2.8">子供・動物と遊ぶ(立位、軽度)</option>
 					<option value="3.3">普通歩行、ペットの散歩、台所の手伝い</option>
 					<option value="3.5">フロア掃き、フロア掃き、体の動きを伴うスポーツ観戦</option>
 					<option value="4.5">階段を降りる、軽い荷物運び、子供と遊ぶ(歩く/走る)</option>

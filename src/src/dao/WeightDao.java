@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Aveweight;
 import model.Loginuser;
 import model.Userdata;
 import model.Userdatas;
@@ -260,6 +261,54 @@ public class WeightDao {
 			}
 		}
 		return findlist;
+	}
+
+	public Aveweight selectave(int ages, String gender) {
+		Connection conn = null;
+		//今回は1件だけを返すメソッドなのでArrayListではない
+		Aveweight ret = new Aveweight();
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/healthcare", "sa",
+					"");
+
+			// SQL文を準備する
+			String sql = "SELECT * FROM AVEWEIGHT  WHERE age = ? AND Gender = ?";
+
+			// プリペアードステートメントを生成（取得）する
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setInt(1, ages);
+			pStmt.setString(2, gender);
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			//0件のケースもある
+			if (rs.next()) {
+				//next()がtrue＝1件のデータが取れた
+				ret.setAveweight(Double.parseDouble(rs.getString("AVEWEIGHT")));
+			} else {
+				//next()がfalse＝データが無い
+				ret = null;
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			ret = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					ret = null;
+				}
+			}
+		}
+		return ret;
 	}
 
 }
