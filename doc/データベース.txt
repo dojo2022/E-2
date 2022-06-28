@@ -31,14 +31,6 @@ PRIMARY KEY(userid, number)
 )
 
 
-スポーツ
-create table sports (
-number int auto_increment PRIMARY KEY,
-sports varchar(40) NOT NULL,
-mets double NOT NULL
-)
-
-
 食事記録
 create table meal (
 userid varchar (20),
