@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ContactDao;
+import dao.UserDao;
 import model.Contact;
+import model.Loginuser;
 import model.Result;
+import model.Userdata;
 
 /**
  * Servlet implementation class ContactServlet
@@ -32,6 +35,10 @@ public class ContactServlet extends HttpServlet {
 			response.sendRedirect("/healthcare/LoginServlet");
 			return;
 		}
+		Loginuser userid = (Loginuser) session.getAttribute("userid");
+		UserDao uDao = new UserDao();
+		Userdata email = uDao.findemail(userid);
+		request.setAttribute("email", email);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/contact.jsp");
 		dispatcher.forward(request, response);
