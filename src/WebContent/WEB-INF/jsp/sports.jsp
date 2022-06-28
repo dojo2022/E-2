@@ -9,6 +9,8 @@
 <link rel="stylesheet" type="text/css"
 	href="/healthcare/css/comstyle.css">
 <link rel="stylesheet" type="text/css" href="/healthcare/css/sports.css">
+<link rel="icon" href="/healthcare/img/favicon.ico" id="favicon">
+<link rel="/healthcare/img/apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
 </head>
 <c:choose>
 	<c:when test="${empty day}">
