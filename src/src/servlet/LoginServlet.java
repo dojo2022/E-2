@@ -57,14 +57,6 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("userid", new Loginuser(userid));
 				session.setAttribute("password", new Loginpass(password));
 
-				//初回ログインか判定
-				//if (uDao.)
-
-				//初回の場合
-				//response.sendRedirect("/healthcare/WrecordServlet");
-				// 2回目以降、メニューサーブレットにリダイレクトする
-				response.sendRedirect("/healthcare/MypageServlet");
-
 				user = uDao.findlastday(userid);
 				Userdatas users = new Userdatas();
 				Date todays = users.today();
