@@ -64,7 +64,7 @@ public class SportDao {
 	}
 
 	//時間を参照
-	public Caloriesout selectByindaily(String user ,Date time) {
+	public Caloriesout selectByindaily(String user, Date time) {
 		Connection conn = null;
 		//今回は1件だけを返すメソッドなのでArrayListではない
 		Caloriesout ret = new Caloriesout();
@@ -141,7 +141,7 @@ public class SportDao {
 				} else {
 					result = false;
 				}
-				if (item.getCaloriesout() >-1) {
+				if (item.getCaloriesout() > -1) {
 					pStmt.setInt(3, item.getCaloriesout());
 				} else {
 					result = false;
@@ -224,7 +224,8 @@ public class SportDao {
 		return result;
 
 	}
-//今日の消費カロリーを表示
+
+	//今日の消費カロリーを表示
 	public Caloriesout findcalo(Loginuser user) {
 		Connection conn = null;
 		Caloriesout calorie = null;
@@ -237,25 +238,25 @@ public class SportDao {
 			Userdatas users = new Userdatas();
 			Date todays = users.today();
 
-				String sql = "select caloriesout from caloriesout where userid = ? AND indaily = ?";
-				PreparedStatement pStmt = conn.prepareStatement(sql);
-				if (user.getUserid() != null && !user.getUserid().equals("")) {
-					pStmt.setString(1, user.getUserid());
-				} else {
-					calorie = null;
-				}
-				if (todays != null && !todays.equals("")) {
-					pStmt.setDate(2, todays);
-				} else {
-					calorie = null;
-				}
-				ResultSet rs = pStmt.executeQuery();
+			String sql = "select caloriesout from caloriesout where userid = ? AND indaily = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			if (user.getUserid() != null && !user.getUserid().equals("")) {
+				pStmt.setString(1, user.getUserid());
+			} else {
+				calorie = null;
+			}
+			if (todays != null && !todays.equals("")) {
+				pStmt.setDate(2, todays);
+			} else {
+				calorie = null;
+			}
+			ResultSet rs = pStmt.executeQuery();
 
-				while (rs.next()) {
-					Caloriesout tag = new Caloriesout(
-							rs.getInt("caloriesout"));
-					calorie = tag;
-				}
+			while (rs.next()) {
+				Caloriesout tag = new Caloriesout(
+						rs.getInt("caloriesout"));
+				calorie = tag;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			calorie = null;
@@ -277,6 +278,7 @@ public class SportDao {
 		return calorie;
 
 	}
+
 	//日にちに対応した消費カロリーを表示
 	public Caloriesout findcalo(Loginuser user, Date date) {
 		Connection conn = null;
@@ -306,31 +308,32 @@ public class SportDao {
 						rs.getInt("caloriesout"));
 				calorie = tag;
 			}
-	} catch (SQLException e) {
-		e.printStackTrace();
-		calorie = null;
-	} catch (ClassNotFoundException e) {
-		e.printStackTrace();
-		calorie = null;
-	} finally {
-		// データベースを切断
-		if (conn != null) {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				calorie = null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			calorie = null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			calorie = null;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					calorie = null;
+				}
 			}
 		}
+
+		return calorie;
+
 	}
 
-	return calorie;
-
-}
-//すべての消費カロリーを参照
+	//すべての消費カロリーを参照
 	public List<Caloriesout> findAll(Loginuser user) {
 		Connection conn = null;
-		List<Caloriesout>findlist = new ArrayList<Caloriesout>();
+		List<Caloriesout> findlist = new ArrayList<Caloriesout>();
 
 		try {
 			Class.forName("org.h2.Driver");
@@ -369,6 +372,4 @@ public class SportDao {
 		}
 		return findlist;
 	}
-	}
-
-
+}
