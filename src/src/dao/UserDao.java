@@ -457,7 +457,7 @@ public class UserDao {
 
 
 	    }
-
+//ログイン日数更新
 	public boolean uplogin(Loginuser user) {
 		Connection conn = null;
 		boolean result = false;

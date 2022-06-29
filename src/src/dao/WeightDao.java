@@ -163,8 +163,8 @@ public class WeightDao {
 	//体重記録の追加
 
 	public boolean saveweight(Weight w) {
-	Connection conn = null;
-	boolean result = false;
+		Connection conn = null;
+		boolean result = false;
 
 		try {
 			// JDBCドライバを読み込む
@@ -176,19 +176,18 @@ public class WeightDao {
 			// プリペアードステートメントを生成（取得）する
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-
 			if (w.getUserid() != null && !w.getUserid().equals("")) {
 				pStmt.setString(1, w.getUserid());
 			} else {
 				pStmt.setString(1, w.getUserid());
 			}
-			if (w.getWeight() >0  ) {
+			if (w.getWeight() > 0) {
 				pStmt.setDouble(2, w.getWeight());
 			} else {
 				result = false;
 			}
-			if (w.getIndaily() != null && !w.getIndaily() .equals("")) {
-				pStmt.setDate(3,w.getIndaily());
+			if (w.getIndaily() != null && !w.getIndaily().equals("")) {
+				pStmt.setDate(3, w.getIndaily());
 			} else {
 				result = false;
 			}
@@ -197,33 +196,32 @@ public class WeightDao {
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
 			}
-			} catch (SQLException e) {
-				e.printStackTrace();
-				result = false;
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-				result = false;
-			} finally {
-				// データベースを切断
-				if (conn != null) {
-					try {
-						conn.close();
-					} catch (SQLException ex) {
-						ex.printStackTrace();
-						result = false;
-					}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			result = false;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			result = false;
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+					result = false;
 				}
 			}
+		}
 
-			// 結果を返す
-			return result;
+		// 結果を返す
+		return result;
 
-
-    }
+	}
 
 	public List<Weight> findAll(Loginuser user) {
 		Connection conn = null;
-		List<Weight>findlist = new ArrayList<Weight>();
+		List<Weight> findlist = new ArrayList<Weight>();
 
 		try {
 			Class.forName("org.h2.Driver");
