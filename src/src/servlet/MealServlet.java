@@ -43,14 +43,12 @@ public class MealServlet extends HttpServlet {
 		return;
 		}
 
-<<<<<<< HEAD
 
 		Part part = request.getPart("IMAGE");// getPartで取得
 		String image = this.getFileName(part);
 
 
 		Loginuser userid = (Loginuser) session.getAttribute("userid");
-=======
 		Loginuser userid = (Loginuser) session.getAttribute("userid");
 		*/
 
@@ -92,6 +90,7 @@ public class MealServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
 
 		Part part = request.getPart("IMAGE"); // getPartで取得
 		String image = this.getFileName(part);
@@ -100,9 +99,9 @@ public class MealServlet extends HttpServlet {
 		//場所はクラス名↑の上に指定してある
 		part.write(image);
 
+		String userid = (String) session.getAttribute("userid");
 		int foodnumber = 0;
 		//int mealday;
-		String userid = request.getParameter("ID");
 		String mealnumber = request.getParameter("fnumber");
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");

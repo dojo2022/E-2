@@ -1,0 +1,5 @@
+h2コンソール
+ドライバクラス:org.h2.Driver
+JDBC URL: jdbc:h2:file:C:/pleiades/workspace/data/healthcare
+ユーザ名: sa
+パスワード:※何も書かなくていいです

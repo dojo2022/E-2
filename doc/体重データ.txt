@@ -24,4 +24,5 @@ insert into weight (userid, weight, indaily) VALUES ('abcde', 71.9, '2022-06-24'
 insert into weight (userid, weight, indaily) VALUES ('abcde', 71.7, '2022-06-25');
 insert into weight (userid, weight, indaily) VALUES ('abcde', 71.7, '2022-06-26');
 insert into weight (userid, weight, indaily) VALUES ('abcde', 71.2, '2022-06-27');
-insert into weight (userid, weight, indaily) VALUES ('abcde', 68.0, '2022-06-29');
+insert into weight (userid, weight, indaily) VALUES ('abcde', 71.0, '2022-06-28');
+insert into weight (userid, weight, indaily) VALUES ('abcde', 70.0, '2022-06-29');
