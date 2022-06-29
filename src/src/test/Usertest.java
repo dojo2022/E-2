@@ -16,6 +16,9 @@ public class Usertest {
 			System.out.println("Logintest:テスト失敗");
 		}
 		//ログイン日数テスト
-		Userdata test1 = uDao.finddaily(Loginuser("aaa"));
+		Userdata test1 = uDao.finddaily(Loginuser("aaa"));{
 	}
+
 }
+}
+
